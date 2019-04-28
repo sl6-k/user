@@ -1,0 +1,196 @@
+.homeHeader {
+  position: relative;
+}
+
+.homeHeader .headerBg image {
+  width: 100%;
+  /* height: 150px; */
+  display: block;
+}
+
+.homeHeader .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.homeHeader .headerTitle {
+  padding: 0 16px;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+
+.homeHeader .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.homeHeader .content .localtion {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.homeHeader .content .photo {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 20px;
+  background: #fff;
+}
+
+.homeHeader .content .photo image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.homeHeader .content .userName .name {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.homeHeader .content .userName .name .img {
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.homeHeader .content .userName .name .img image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.homeHeader .content .userName .tell {
+  color: #faaf3b;
+  font-size: 12px;
+}
+
+.homeHeader .content .userName .tell text {
+  color: #faaf3b;
+  font-size: 12px;
+  background: #fff;
+  line-height: 20px;
+  padding: 0 10px;
+  border-radius: 9px;
+}
+
+.orderBox {
+  background: #fff;
+  padding: 0 16px;
+}
+
+.orderBox .titleBox {
+  padding: 14px 0;
+  font-weight: 600;
+  color: #333;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderBox .titleBox .localtion {
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 12px;
+}
+
+.orderBox .orderStart {
+  padding: 10px 0;
+  position: relative;
+}
+.orderList{
+  position: relative;
+}
+.orderBox .orderStart .orderList .startIcon {
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.orderBox .orderStart .orderList .startIcon image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.orderBox .orderStart .orderList .text {
+  color: #888;
+  margin-top: 8px;
+}
+
+.settingBox {
+  margin-top: 15px;
+}
+
+button {
+  position: relative;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0px;
+  padding-right: 0px;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  color: #faaf3b;
+  font-size: 12px;
+  background: #fff;
+  line-height: 20px;
+  border-radius: 9px;
+  width: 70%;
+}
+
+.button-hover {
+  background: #fff;
+  color: #faaf3b;
+}
+
+.noReadCount {
+  width: 17px;
+  height: 17px;
+  bottom: 55px;
+  left: 30px;
+  line-height: 13rpx;
+  background-color: white;
+  border: 1px solid #f05a24;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+}
+.cornerNum{
+  width: 15px;
+  height: 15px;
+  top: -5px;
+  left: 27px;
+  font-size: 12px;
+  color: #f05a24;
+  text-align: center;
+  line-height: 17px;
+  border: 1px solid #f05a24;
+  border-radius: 50%;
+  position: absolute;
+}

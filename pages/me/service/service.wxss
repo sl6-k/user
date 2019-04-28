@@ -1,0 +1,100 @@
+.service {
+  padding: 16px;
+}
+
+.service .tellBox, .service .wxBox {
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.service .tellBox .iconBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service .tellBox .iconBox .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+}
+
+.service .tellBox .tell {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.service .tellBox .tell text:last-child {
+  color: #faaf3b;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.service .tellBox .time {
+  font-size: 14px;
+  color: #888;
+}
+
+.service .wxBox .iconBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service .wxBox .iconBox .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+}
+
+.service .wxBox  .textList {
+  text-align: left;
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.service .wxBox  .textList .color {
+  color: #faaf3b;
+}
+
+.service .btnBoxs {
+  padding-top: 15px;
+  width: 100%;
+}
+
+.service .btnBoxs .btn {
+  border-radius: 15px;
+  height: 26px;
+  width: 120px;
+  text-align: center;
+  line-height: 24px;
+  border: 1px solid #faaf3b;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+button:after {
+  border: none;
+}
+
+.service .btnBoxs .btn.copy {
+  background: #faaf3b;
+  color: #fff;
+}
+
+.service .btnBoxs .btn.open {
+  background: #fff;
+  color: #faaf3b;
+}

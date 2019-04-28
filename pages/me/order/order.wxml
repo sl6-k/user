@@ -1,0 +1,376 @@
+<view class='container'>
+  <!-- <navigation title="我的订单" back="true"></navigation> -->
+  <view class='tabTitleBox'>
+    <view class='tabList {{current==0?"active":""}}' data-current='0' bindtap='tabClick'>
+      <text>全部</text>
+    </view>
+    <view class='tabList {{current==1?"active":""}}' data-current='1' bindtap='tabClick'>
+      <text>待付款</text>
+    </view>
+    <view class='tabList {{current==2?"active":""}}' data-current='2' bindtap='tabClick'>
+      <text>待收货</text>
+    </view>
+    <view class='tabList {{current==3?"active":""}}' data-current='3' bindtap='tabClick'>
+      <text>待安装</text>
+    </view>
+    <view class='tabList {{current==4?"active":""}}' data-current='4' bindtap='tabClick'>
+      <text>待评价</text>
+    </view>
+  </view>
+  <swiper style='height:{{swiperHeight}}px;' bindchange="swiperAnmate" circular="{{false}}" class='swiper' current="{{current}}" duration="{{duration}}">
+    <!-- 全部 -->
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <scroll-view scroll-y="true" class='container' bindscrolltolower="NextPage">
+        <view class='orderContainer'>
+          <view class='orderList' wx:if="{{MemberOrderAll!=null}}" wx:for="{{MemberOrderAll}}" wx:key>
+            <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+              <!-- 文字状态 -->
+              <view class='start'>
+                <text>{{item.OrderStateName}}</text>
+              </view>
+              <view class='centents'>
+                <!-- 轮胎图片 -->
+                <view class='photo'>
+                  <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='widthFix'></image>
+                </view>
+                <view class=' assesic'>
+                  <!-- 中 -->
+                  <view class='center'>
+                    <view>
+                      <text>{{item.OrderItemList[0].GoodsName}}</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==false}}">
+                      <text>到店安装</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==true}}">
+                      <text>无需安装</text>
+                    </view>
+                    <!-- 共几件商品 -->
+                    <view class='shoping'>
+                      <text>共{{item.GoodsCount}}件商品，合计￥{{item.RealAmount}}</text>
+                    </view>
+                  </view>
+                </view>
+
+              </view>
+
+            </view>
+            <view class='button'>
+              <view class='btn grensn' wx:if="{{item.OrderState==1}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderPay'>
+                <text>立即支付</text>
+              </view>
+              <view class='btn grensn' wx:if="{{item.OrderState==3}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='getLogisticsInfo'>
+                <text>查看物流</text>
+              </view>
+              <view class='btn grensn' wx:if="{{item.OrderState==3&&item.IsInstall!=true}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='ConfirmReceipt'>
+                <text>确认收货</text>
+              </view>
+              <view class='btn grensn' wx:if="{{item.OrderState==4}}">
+                <text>去安装</text>
+              </view>
+              <view class='btn grensn' wx:if="{{item.OrderState>=5&&item.ReturnState==0}}" data-memberorderid="{{item.MemberOrderID}}" bindtap="MemberOrderReturn">
+                <text>退货</text>
+              </view>
+              <view class='btn grensn' wx:if="{{item.OrderState==5&&item.ReturnState==0}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='toEvaluate'>
+                <text>去评价</text>
+              </view>
+              <view class='btn grensn' wx:if="{{item.OrderState>0&&item.OrderState<=2}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderCancel'>
+                <text>取消订单</text>
+              </view>
+            </view>
+          </view>
+
+          <view class='none' wx:if="{{PageTotal==0}}">
+            <view class='icon'>
+              <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+            </view>
+            <view>
+              <text>~~暂无数据~~</text>
+            </view>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+            <text>~~没有更多了~~</text>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+            <text>加载更多  >></text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 待付款 -->
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <scroll-view scroll-y="true" class='container' bindscrolltolower="NextPage">
+        <view class='orderContainer'>
+          <view class='orderList' wx:if="{{MemberOrder1!=null}}" wx:for="{{MemberOrder1}}" wx:key>
+            <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+              <!-- 文字状态 -->
+              <view class='start'>
+                <text>{{item.OrderStateName}}</text>
+              </view>
+              <view class='centents'>
+                <!-- 轮胎图片 -->
+                <view class='photo'>
+                  <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='widthFix'></image>
+                </view>
+                <view class=' assesic'>
+                  <!-- 中 -->
+                  <view class='center'>
+                    <view>
+                      <text>{{item.OrderItemList[0].GoodsName}}</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==false}}">
+                      <text>到店安装</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==true}}">
+                      <text>无需安装</text>
+                    </view>
+                    <!-- 共几件商品 -->
+                    <view class='shoping'>
+                      <text>共{{item.GoodsCount}}件商品，合计￥{{item.RealAmount}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='button'>
+
+              <view class='btn grensn' bindtap='MemberOrderPay' data-memberorderid="{{item.MemberOrderID}}">
+                <text>立即支付</text>
+              </view>
+              <view class='btn grensn' data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderCancel'>
+                <text>取消订单</text>
+              </view>
+            </view>
+          </view>
+
+          <view class='none' wx:if="{{PageTotal==0}}">
+            <view class='icon'>
+              <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+            </view>
+            <view>
+              <text>~~暂无数据~~</text>
+            </view>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+            <text>~~没有更多了~~</text>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+            <text>加载更多  >></text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 待收货 -->
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <scroll-view scroll-y="true" class='container' bindscrolltolower="NextPage">
+        <view class='orderContainer'>
+          <view class='orderList' wx:if="{{MemberOrder2!=null}}" wx:for="{{MemberOrder2}}" wx:key>
+            <!-- 文字状态 -->
+            <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+
+              <view class='start'>
+                <text>{{item.OrderStateName}}</text>
+              </view>
+              <view class='centents'>
+                <!-- 轮胎图片 -->
+                <view class='photo'>
+                  <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='scaleFill'></image>
+                </view>
+                <view class=' assesic'>
+                  <!-- 中 -->
+                  <view class='center'>
+                    <view>
+                      <text>{{item.OrderItemList[0].GoodsName}}</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==false}}">
+                      <text>到店安装</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==true}}">
+                      <text>无需安装</text>
+                    </view>
+                    <!-- 共几件商品 -->
+                    <view class='shoping'>
+                      <text>共{{item.GoodsCount}}件商品，合计￥{{item.RealAmount}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='button'>
+              <view class='btn grensn' data-memberorderid="{{item.MemberOrderID}}" bindtap='getLogisticsInfo'>
+                <text>查看物流</text>
+              </view>
+              <view class='btn yellow' wx:if="{{item.IsInstall!=true}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='ConfirmReceipt'>
+                <text>确认收货</text>
+              </view>
+            </view>
+          </view>
+          <view class='none' wx:if="{{PageTotal==0}}">
+            <view class='icon'>
+              <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+            </view>
+            <view>
+              <text>~~暂无数据~~</text>
+            </view>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+            <text>~~没有更多了~~</text>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+            <text>加载更多  >></text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 待安装 -->
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <scroll-view scroll-y="true" class='container' bindscrolltolower="NextPage">
+        <view class='orderContainer'>
+          <view class='orderList' wx:if="{{MemberOrder3!=null}}" wx:for="{{MemberOrder3}}" wx:key>
+            <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+              <!-- 文字状态 -->
+              <view class='start'>
+                <text>{{item.OrderStateName}}</text>
+              </view>
+              <view class='centents'>
+                <!-- 轮胎图片 -->
+                <view class='photo'>
+                  <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='scaleFill'></image>
+                </view>
+                <view class=' assesic'>
+                  <!-- 中 -->
+                  <view class='center'>
+                    <view>
+                      <text>{{item.OrderItemList[0].GoodsName}}</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==false}}">
+                      <text>到店安装</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==true}}">
+                      <text>无需安装</text>
+                    </view>
+                    <!-- 共几件商品 -->
+                    <view class='shoping'>
+                      <text>共{{item.GoodsCount}}件商品，合计￥{{item.RealAmount}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class='button'>
+              </view>
+            </view>
+          </view>
+          <view class='none' wx:if="{{PageTotal==0}}">
+            <view class='icon'>
+              <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+            </view>
+            <view>
+              <text>~~暂无数据~~</text>
+            </view>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+            <text>~~没有更多了~~</text>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+            <text>加载更多  >></text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 待评价 -->
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <scroll-view scroll-y="true" class='container' bindscrolltolower="NextPage">
+        <view class='orderContainer'>
+          <view class='orderList' wx:if="{{MemberOrder4!=null}}" wx:for="{{MemberOrder4}}" wx:key>
+            <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+              <!-- 文字状态 -->
+              <view class='start'>
+                <text>{{item.OrderStateName}}</text>
+              </view>
+              <view class='centents'>
+                <!-- 轮胎图片 -->
+                <view class='photo'>
+                  <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='scaleFill'></image>
+                </view>
+                <view class='assesic'>
+                  <!-- 中 -->
+                  <view class='center'>
+                    <view>
+                      <text>{{item.OrderItemList[0].GoodsName}}</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==false}}">
+                      <text>到店安装</text>
+                    </view>
+                    <view class='tag' wx:if="{{item.IsInstall==true}}">
+                      <text>无需安装</text>
+                    </view>
+                    <!-- 共几件商品 -->
+                    <view class='shoping'>
+                      <text>共{{item.GoodsCount}}件商品，合计￥{{item.RealAmount}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='button'>
+              <view class='btn grensn' wx:if="{{item.ReturnState==0}}">
+                <text data-memberorderid='{{item.MemberOrderID}}' bindtap='MemberOrderReturn'>申请售后</text>
+              </view>
+              <view class='btn grensn'>
+                <text data-memberorderid='{{item.MemberOrderID}}' bindtap='toEvaluate'>立即评价</text>
+              </view>
+            </view>
+          </view>
+          <view class='none' wx:if="{{PageTotal==0}}">
+            <view class='icon'>
+              <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+            </view>
+            <view>
+              <text>~~暂无数据~~</text>
+            </view>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+            <text>~~没有更多了~~</text>
+          </view>
+          <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+            <text>加载更多 >></text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+
+  <!-- 物流信息弹出层 -->
+  <block wx:if="{{viewLogistics}}">
+    <view class='layerBox'>
+      <view class='content'>
+        <view class='padded-15 box'>
+          <view class='content-auto'>
+            <view class='padded-15'>
+              <text>物流名称：</text>
+              <text>{{MemberOrderInfo.Distribution}}</text>
+            </view>
+            <view class='padded-15'>
+              <text>物流单号：</text>
+              <text>{{MemberOrderInfo.LogisticsNumber}}</text>
+            </view>
+          </view>
+
+          <view class='submit-btn margin-t-15'>
+            <view class='padded-15' bindtap='closeViewLogistics'>
+              <text class='confirm'>确定</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 底部 -->
+  <view class='footer flexCenter'>
+    <!-- 提交订单 -->
+    <view class='btn' bindtap='bindToHome'>
+      <image src='/image/icon/back-home.png' mode='widthFix'></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,79 @@
+<!--pages/me/integralList/integralList.wxml-->
+<view class='container'>
+  <!-- 用户 -->
+  <view class='top'>
+    <view class='localtion' bindtap='openUserInfo'>
+      <view class='photo'>
+        <image style='width:60px;height:60px;border-radius:50%;' src='{{userInfo.PictureUrl!=""&&userInfo.PictureUrl!=undefined?pic+userInfo.PictureUrl:"https://image.fitfix.shop/shop/icon/photo.png"}}' mode='scaleFill'></image>
+        <text class='changeRule' bindtap='changeRule'>积分兑换说明>></text>
+      </view>
+    </view>
+    <view class='integral'>
+      <text>我的积分：</text>
+      <text>{{integrals.Integral}}</text>
+    </view>
+    <view class='about'>
+      <view>
+        <text>会员：</text>
+        <text>{{UserName}}</text>
+      </view>
+      <view bindtap='forRrecord'>
+        <text>兑换记录>></text>
+      </view>
+    </view>
+  </view>
+  <!--积分商品  -->
+  <view class='orderContainer'>
+    <view class='orderList' wx:for="{{integralList}}" wx:key>
+      <view data-orderid="{{item.OrderID}}">
+        <view class='centents'>
+          <!-- 采购图片 -->
+          <view class='photo'>
+            <image class='images' wx:if='{{item.GiftImage!="" && item.GiftImage!=undefined}}' src='{{pic+item.GiftImage}}' mode='scaleFill'></image>
+          </view>
+          <view class=' assesic'>
+            <!-- 中 -->
+            <view class='center'>
+              <view style='height:20px;font-size:14px;'>
+                <text  class='viewstyle'>商品名称：{{item.GiftName }}</text>
+              </view>
+              <view style='height:30px;font-size:12px;'>
+                <text class='textstyle' >{{item.GiftContent }}</text>
+              </view>
+              <view class='shoping'>
+                <text>价值{{item.ValuePrice}}元，所需积分:{{item.Integral}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='button'>
+        <view class='btn grensn' bindtap='MemberOrderPay' data-orderid="{{item.GiftID}}">
+          <text>立即兑换</text>
+        </view>
+      </view>
+    </view>
+    <view class='none' wx:if="{{PageTotal==0}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+      <text>~~没有更多了~~</text>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+      <text>下拉加载更多  >></text>
+    </view>
+  </view>
+  <modal hidden="{{hidden}}" title="积分兑换说明" confirm-text="好的，我知道了" bindconfirm="confirm" no-cancel="false">
+    <view class='rules'>①消费1元=1积分</view>
+    <view class='rules'>②积分兑换商品后，3个工作日内发货</view>
+    <view class='rules'>③消费所得积分不会清零，根据您的消费金额进行累计</view>
+    <view class='rules'>④当您需要兑换的商品暂无库存时，请耐心等待商城补货</view>
+    <view class='rules'>⑤兑换成功后请在我的订单内查看物流详情</view>
+  </modal>
+</view>

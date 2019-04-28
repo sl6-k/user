@@ -1,0 +1,31 @@
+/* pages/me/user/addressEdit/addressEdit.wxss */
+.font-color {
+  color: #808080;
+  font-size: 14px;
+}
+
+.font-color-select {
+  color: #000;
+  font-size: 14px;
+}
+
+.picker{
+  text-align: right;
+}
+/* 不显示箭头 */
+
+.weui_cell_ft{
+  content: " ";
+  display: inline-block;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: rgb(209, 205, 205);
+  border-style: solid;
+  position: relative;
+  top: -2px;
+  top: -1px;
+  margin-left: 0.3em;
+}

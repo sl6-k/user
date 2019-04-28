@@ -1,0 +1,108 @@
+.logoBox,.logoBox image{
+	width: 100%;
+}
+.content{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 28%;
+}
+.content .formBox{
+	width: 84%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	border-radius: 30px;
+	background: #fff;
+	padding: 20px 30px;
+}
+.content  .formBox .hi{
+   width: 90px;
+}
+.content  .formBox .hi image{
+	width: 100%;
+}
+.content  .formBox .welcome{
+	color: #f7931e;
+	font-size: 18px;
+	padding-right: 20px;
+		margin-top: 10px;
+}
+.content  .formBox .welcome navigator{
+	font-size: 16px;
+}
+.content  .formBox .inputBox{
+	padding-top:20px;
+}
+.groupInput {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 4px 5px;
+	margin-bottom: 10px;
+}
+
+.groupInput .inpuIcon {
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+	
+}
+
+.groupInput .inpuIcon image {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.groupInput .input {
+    height: 30px;
+    line-height: 30px;
+    flex: 1;
+    margin-left: 14px;
+}
+.submitBox{
+	padding: 10px;
+}
+.submitBox button{
+	border-radius: 20px;
+	background: #f7931e;
+	color: #fff;
+}
+.submitBox button::after{
+  border: none;
+}
+.retsetPass{
+	text-align: center;
+	line-height: 26px;
+	font-size: 14px;
+	color: #b3b3b3;
+	margin-bottom: 10px;
+}
+.wxLogin{
+	padding-top:20px;
+}
+.wxLogin .loginTitle{
+	border-top: 1px solid  #e5e5e5;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.wxLogin .loginTitle .loginText{
+	height: 20px;
+	line-height: 20px;
+	
+	margin-top: -10px;
+}
+.wxLogin .loginTitle .loginText text{
+	padding: 0 20px;
+	font-size: 16px;
+	color: #b3b3b3;
+	background: #fff;
+}
+.wxLogin .wxBtn{
+	width: 40px;
+	height: 40px;
+	margin: 0px auto;
+}
+.wxLogin .wxBtn image{
+	width: 100%;
+	height: 100%;
+}

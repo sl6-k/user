@@ -1,0 +1,111 @@
+<!--退货详情-->
+<view class='container'>
+  <view>
+    <!-- 头部退款提示 -->
+    <view class='padded-15 container-hd flex-1'>
+      <view style='display: flex;align-items: center'>
+        <image src='https://image.fitfix.shop/shop/icon/hold.png' mode='widthFix' style='width:50px;'></image>
+      </view>
+      <view class='padded-15' wx:if="{{MemberOrderInfo.ReturnState==1}}">
+        <view class='font-size-16 margin-b-5'>退款成功</view>
+        <view>{{MemberOrderInfo.ReturnData}}</view>
+      </view>
+    </view>
+
+    <view class="weui_cells" style='margin-top:0;'>
+      <a class="weui_cell">
+        <view class="weui_cell_bd weui_cell_primary">
+          <p>退款总金额</p>
+        </view>
+        <view class="weui_cell_ft" style='color:#ffb12a;'>
+          ￥{{MemberOrderInfo.RealAmount}}
+        </view>
+      </a>
+    </view>
+
+    <!-- 商品信息 -->
+    <view>
+      <view class='weui_cells padded-15'>
+        <view>商品信息</view>
+      </view>
+      <view class='weui_cells padded-15 flex-1' style='margin-top:0;' wx:for="{{MemberOrderInfo.OrderItemList}}" wx:key>
+        <view style='width:100px;' class='padded-15'>
+          <image src='{{item.GoodsImage}}' mode='widthFix' style='width:100%;height:100%;'></image>
+        </view>
+        <view class='padding-t-5;padding-b-5;' style='width:100%;'>
+          <view class='margin-b-5 font-size-16 ellipsis-2' style='color:#393a3e;'>{{item.GoodsName}}</view>
+          <view class='margin-b-5 ellipsis-1' style='width:200px;color:#787878;'>{{item.GoodsSpec}}</view>
+          <view class='flex' style='color:#7f7f7f;'>
+            <view>{{item.GoodsPrice}}</view>
+            <view>×{{item.GoodsNumber}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui_cells">
+      <a class="weui_cell">
+        <view class="weui_cell_bd weui_cell_primary">
+          <p>申请原因</p>
+        </view>
+        <view class="weui_cell_ft">
+          {{MemberOrderInfo.ReturnReason}}
+        </view>
+      </a>
+      <a class="weui_cell">
+        <view class="weui_cell_bd weui_cell_primary">
+          <p>退款方式</p>
+        </view>
+        <view class="weui_cell_ft">
+          线下退款
+        </view>
+      </a>
+      <a class="weui_cell">
+        <view class="weui_cell_bd weui_cell_primary">
+          <p>退货方式</p>
+        </view>
+        <view class="weui_cell_ft">
+          快递至卖家
+        </view>
+      </a>
+    </view>
+
+    <!-- 退货地址 -->
+    <view class='weui_cells padded-15' style="margin-top:0;">
+      <view class='flex-1 margin-b-5'>
+        <view style='color:#878787;'>寄件地址：</view>
+        <view class='ellipsis-1'>{{add}}</view>
+      </view>
+    </view>
+
+    <!-- 退款说明 -->
+    <view class='weui_cells padded-15' style='color:#878787;'>
+      <view class='flex-1 margin-b-5'>
+        <view>退款原因：</view>
+        <view>{{MemberOrderInfo.ReturnReason}}</view>
+      </view>
+      <view class='flex-1 margin-b-5'>
+        <view>退款金额：</view>
+        <view>￥{{MemberOrderInfo.RealAmount}}</view>
+      </view>
+      <view class='flex-1 margin-b-5'>
+        <view>申请时间：</view>
+        <view>{{MemberOrderInfo.ReturnData}}</view>
+      </view>
+    </view>
+
+    <!-- 联系客服 -->
+    <view class='weui_cells'>
+      <view class='customerService'>
+        <view class='service' bindtap='bindService'>
+          <image src='https://image.fitfix.shop/shop/icon/kefu.png' mode='widthFix' class='margin-r-5' style='width:15px;'></image>
+          在线客服
+        </view>
+        <view class='makePhone' bindtap='bindMakePhone'>
+          <image src='https://image.fitfix.shop/shop/icon/tel.png' mode='widthFix' class='margin-r-5' style='width:15px;'></image>
+          电话咨询
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

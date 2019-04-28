@@ -1,0 +1,51 @@
+<view class='container'>
+  <!-- <navigation title="我的车型库" back="true" border="true"></navigation> -->
+  <view class='modelBox'>
+    <radio-group class="radio-group" bindchange="checkboxChange" wx:if="{{brandList.DATA!=''}}">
+      <block wx:for="{{brandList.DATA}}" wx:key>
+        <view class='modelList'>
+          <view class='flexCenter cartBox'>
+            <view class='cartImg'>
+              <image class='images' src='{{item.Logo}}' mode='widthFix'></image>
+            </view>
+            <view class='cartText'>
+              <view class='name'>
+                <text>{{item.brand}}</text>
+              </view>
+              <view class='text'>
+                <text>{{item.brandType}}-{{item.ProductionYear}}-{{item.Displacement}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='flexCenter selectBox'>
+            <label class="radio flexCenter" data-id="{{item.ID}}" bindtap='setDefaultType'>
+              <radio value="1" color='#faaf3b' checked='{{item.IsDefault}}' />
+              <text>设为默认车型</text>
+            </label>
+            <view class='deleBtn' data-id="{{item.ID}}" bindtap='bindDeleteType'>
+              <text>删除</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </radio-group>
+    <view class='loadingMsg' wx:if="{{brandList.DATA.length>0}}">
+      <text>~~没有更多了~~</text>
+    </view>
+    <!-- <view class='loadingMsg'>
+      <text>下拉加载更多  >></text>
+    </view> -->
+    <view class='none' wx:if="{{brandList.DATA==''}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+    <navigator url='../selectCart/selectCart' hover-class='none' class='footer'>
+      <text>+新增车型</text>
+    </navigator>
+  </view>
+
+</view>

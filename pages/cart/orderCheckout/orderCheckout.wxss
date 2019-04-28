@@ -1,0 +1,29 @@
+/* pages/cart/orderCheckout/orderCheckout.wxss */
+
+.container {
+  border-top: 1px solid #eee;
+}
+
+.bg {
+  background: #fff;
+}
+
+.container .container-hd {
+  
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.flex-1 {
+  display: flex;
+  flex: 1;
+}
+
+
+.order{
+  width:50%;border:1px solid #777777;text-align:center;
+}

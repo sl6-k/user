@@ -1,0 +1,45 @@
+<view class='container'>
+  <!-- 下单成功 -->
+  <view class='container-hd padded-15 bg flex'>
+    <view class='flex-1' style='padding-top:30px;padding-bottom:30px;width:50%;'>
+      <image src='https://image.fitfix.shop/shop/icon/success.png' mode='widthFix' class='margin-r-10' style='width:15%;'></image>
+      <view style="font-size:18px;color:#4da711;">下单成功</view>
+    </view>
+    <view style='width:50%;text-align:right;'>
+      <image src='https://image.fitfix.shop/shop/icon/ol.png' mode='widthFix' style='width:50%;'></image>
+    </view>
+  </view>
+
+  <!-- 联系人信息 -->
+  <view class='bg margin-t-15 padded-15'>
+    <view class='flex-1 margin-b-15' wx:if="MemberOrderInfo!=null">
+      <view style='display:flex;flex-wrap:nowrap;width:30%;'>
+        <image src='https://image.fitfix.shop/shop/icon/user2.png' mode='widthFix' class='margin-r-10' style='width:20px;'></image>
+        <view>{{MemberOrderInfo.Consignee}}</view>
+      </view>
+      <view class='flex-1' style='width:70%;'>
+        <image src='https://image.fitfix.shop/shop/icon/iconTell.png' mode='widthFix' class='margin-r-10' style='width:20px;'></image>
+        <view>{{MemberOrderInfo.ConsigneePhone}}</view>
+      </view>
+    </view>
+    <view class='flex-1 margin-t-15' style='width:100%;'>
+      <image src='https://image.fitfix.shop/shop/icon/iconLocal.png' mode='widthFix' class='margin-r-10' style='width:20px;'></image>
+      <view>{{MemberOrderInfo.StoreName}}</view>
+    </view>
+
+    <!-- 描述信息 -->
+    <view class='margin-t-15'>
+      <view>
+        <text></text>
+      </view>
+      <view class='flex' style='color:#777777;'>
+        <view class='order margin-r-5 padding-t-10 padding-b-10' bindtap='GetMemberOrderDetails'>
+          <text>查看订单</text>
+        </view>
+        <view class='order margin-l-5 padding-t-10 padding-b-10' bindtap='ReturnIndex'>
+          <text>回到首页</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

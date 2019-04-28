@@ -1,0 +1,119 @@
+{
+  "pages": [
+    "pages/home/index/index",
+    "pages/shop/pay/pay",
+    "pages/me/index/index",
+    "pages/me/workerEvaluation/workerEvaluation",
+    "pages/classify/index/index",
+    "pages/login/register/register",
+    "pages/login/userAgree/userAgree",
+    "pages/me/service/service",
+    "pages/me/returnGoods/returnGoodsList/returnGoodsList",
+    "pages/me/returnGoods/returnGoodsDetail/returnGoodsDetail",
+    "pages/cart/cartCashier/cartCashier",
+    "pages/me/retund/retund",
+    "pages/home/goods/goods",
+    "pages/cart/orderDetail/orderDetail",
+    "pages/me/order/order",
+    "pages/home/evaluate/evaluate",
+    "pages/shop/evaluate/evaluate",
+    "pages/login/login/login",
+    "pages/cart/orderCheckout/orderCheckout",
+    "pages/home/productList/productList",
+    "pages/home/selectCart/selectCart",
+    "pages/me/user/basics/basics",
+    "pages/me/discount/discount",
+    "pages/me/user/addressList/addressList",
+    "pages/shop/index/index",
+    "pages/home/model/model",
+    "pages/home/motorcycleType/motorcycleType",
+    "pages/me/user/addressEdit/addressEdit",
+    "pages/home/switchcity/switchcity",
+    "pages/home/brandStory/brandStory",
+    "pages/home/selectBrand/selectBrand",
+    "pages/me/user/password/password",
+    "pages/login/ResetPass/ResetPass",
+    "pages/me/refund/refund",
+    "pages/me/afterSale/afterSale",
+    "pages/cart/index/index",
+    "pages/cart/submitOrder/submitOrder",
+    "pages/cart/selectAddress/selectAddress",
+    "pages/cart/selectStore/selectStore",
+    "pages/cart/SelectCoupon/SelectCoupon",
+    "pages/me/user/index/index",
+    "pages/me/user/tell/tell",
+    "pages/home/specification/specification",
+    "pages/me/about/about",
+    "pages/shop/shopDetails/shopDetails",
+    "pages/me/evaluate/evaluate",
+    "pages/home/brand/brand01/brand01",
+    "pages/home/brand/brand02/brand02",
+    "pages/home/brand/brand03/brand03",
+    "pages/me/integralList/integralList",
+    "pages/me/integralSettlement/integralSettlement",
+    "pages/cart/addressEditFrist/addressEditFrist",
+    "pages/me/forRecord/forRecord"
+  ],
+  "navigateToMiniProgramAppIdList": [
+    "wxb16e70ee139561f1",
+    "wxce5bc16545128121",
+    "wxccbf5f0d98de9697",
+    "wxb1a138c89c8fbbc2"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#faaf3b",
+    "list": [
+      {
+        "iconPath": "image/icon/home.png",
+        "selectedIconPath": "image/icon/homeHover.png",
+        "pagePath": "pages/home/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "image/icon/classify.png",
+        "selectedIconPath": "image/icon/classifyHover.png",
+        "pagePath": "pages/classify/index/index",
+        "text": "分类"
+      },
+      {
+        "color": "#666",
+        "selectedColor": "#faaf3b",
+        "iconPath": "image/icon/mendian.png",
+        "selectedIconPath": "image/icon/mendianHover.png",
+        "pagePath": "pages/shop/index/index",
+        "text": "门店"
+      },
+      {
+        "color": "#666",
+        "selectedColor": "#faaf3b",
+        "iconPath": "image/icon/gouwu.png",
+        "selectedIconPath": "image/icon/gouwuHover.png",
+        "pagePath": "pages/cart/index/index",
+        "text": "购物车"
+      },
+      {
+        "color": "#666",
+        "selectedColor": "#faaf3b",
+        "iconPath": "image/icon/me.png",
+        "selectedIconPath": "image/icon/meHover.png",
+        "pagePath": "pages/me/index/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "sitemapLocation": "sitemap.json"
+}

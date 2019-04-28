@@ -1,0 +1,10 @@
+<!--pages/home/brand/brand03/brand03.wxml-->
+<!-- 核心科技 -->
+<view class='page'>
+    <image class='bgimg' src='https://image.fitfix.shop/shop/bjwg.png' ></image>
+    
+      <image class='imge01'src='https://image.fitfix.shop/shop/hxjs.png'></image>
+   
+   
+
+</view>

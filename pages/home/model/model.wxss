@@ -1,0 +1,65 @@
+
+.modelBox{
+	padding-bottom: 40px;
+}.modelBox .modelList{
+	background: #fff;
+	margin-bottom: 15px;
+}
+.modelList .cartBox{
+	padding: 10px 16px;
+	border-bottom: 1px solid #eee;
+}
+.modelList .cartBox .cartImg{
+	width: 30px;
+	height: 30px;
+	margin-right: 12px;
+}
+.modelList .cartBox  .cartText{
+	flex: 1;
+	font-size: 16px;
+	
+}
+.modelList .cartBox  .cartText .text{
+	margin-top: 5px;
+	font-size: 13px;
+	color: #555;
+}
+.modelList  .selectBox{
+	padding: 8px 16px;
+}
+
+.modelList  .selectBox radio {
+  transform:scale(0.6);
+}
+.modelList  .selectBox .radio{
+	font-size: 13px;
+	color: #000;
+}
+.modelList  .selectBox .deleBtn{
+	width: 48px;
+	height: 24px;
+	line-height: 24px;
+	background: #faaf3b;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 13px;
+	text-align: center;
+}
+.footer{
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #faaf3b;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	font-size: 15px;
+}
+.loadingMsg {
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+    padding: 20px 0;
+}

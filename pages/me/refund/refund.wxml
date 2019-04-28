@@ -1,0 +1,162 @@
+<view class='container'>
+    <!-- <navigation title="申请退款" back="{{true}}" border="true"></navigation> -->
+    <view class='content'>
+        <view class='shopBox'>
+            <view class='orderList'>
+                <view class='centents'>
+                    <!-- 轮胎图片 -->
+                    <view class='photo'>
+                        <image class='images' src='/image/shop.jpg' mode='widthFix'></image>
+                    </view>
+                    <view class=' assesic'>
+                        <!-- 中 -->
+                        <view class='center'>
+                            <view>
+                                <text>飞雳士轮胎12r5645a/a号轮胎</text>
+                            </view>
+                            <view class='tag'>
+                                <text>飞雳士无忧购</text>
+                            </view>
+                        </view>
+                        <!-- 右 -->
+                        <view class='right'>
+                            <view>
+                                <text>￥409.00</text>
+                            </view>
+                            <view class='number'>
+                                <text>x2</text>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+            <view class='orderList'>
+                <view class='centents'>
+                    <!-- 轮胎图片 -->
+                    <view class='photo'>
+                        <image class='images' src='/image/shop.jpg' mode='widthFix'></image>
+                    </view>
+                    <view class=' assesic'>
+                        <!-- 中 -->
+                        <view class='center'>
+                            <view>
+                                <text>飞雳士轮胎12r5645a/a号轮胎</text>
+                            </view>
+                            <view class='tag'>
+                                <text>飞雳士无忧购</text>
+                            </view>
+                        </view>
+                        <!-- 右 -->
+                        <view class='right'>
+                            <view>
+                                <text>￥409.00</text>
+                            </view>
+                            <view class='number'>
+                                <text>x2</text>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+            <view class='orderList'>
+                <view class='centents'>
+                    <!-- 轮胎图片 -->
+                    <view class='photo'>
+                        <image class='images' src='/image/shop.jpg' mode='widthFix'></image>
+                    </view>
+                    <view class=' assesic'>
+                        <!-- 中 -->
+                        <view class='center'>
+                            <view>
+                                <text>飞雳士轮胎12r5645a/a号轮胎</text>
+                            </view>
+                            <view class='tag'>
+                                <text>飞雳士无忧购</text>
+                            </view>
+                        </view>
+                        <!-- 右 -->
+                        <view class='right'>
+                            <view>
+                                <text>￥409.00</text>
+                            </view>
+                            <view class='number'>
+                                <text>x2</text>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+            <view class='shoping'>
+                <text>共3件商品，合计￥409.00</text>
+            </view>
+        </view>
+        <!-- 退款 条件填写 -->
+        <view class='refundBox'>
+            <view class='whyBox'>
+                <view class='select flexCenter'>
+                    <view>
+                        <text>退款原因</text>
+                    </view>
+                    <view class='flexCenter iconBox'>
+                        <view>
+                            <text>请选择</text>
+                        </view>
+                        <view class='img'>
+                            <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+                        </view>
+                    </view>
+                </view>
+
+                <view class='whyMsg'>
+                    <text>退款原因：</text>
+                    <text>￥148.30</text>
+                </view>
+                <view class='monyMsg'>
+                    <text>最多￥143.30，含发货邮费￥10.00</text>
+                </view>
+
+                <view class='flexCenter whyInput'>
+                    <view>
+                        <text>退款说明：</text>
+                    </view>
+                    <input type='text' placeholder='选填' />
+                </view>
+            </view>
+            <view class='uploadBox'>
+                <view class='title'>
+                    <text>上传凭证</text>
+                </view>
+                <view class='flexBox'>
+                    <view class='flexList'>
+                        <view class='lastBox'>
+                            <view class='position'>
+                                <view class='icon'>
+                                    <image class='images' src='https://image.fitfix.shop/shop/icon/photoIcon.png' mode='widthFix'></image>
+                                </view>
+                                <view>
+                                    <text>上传凭证</text>
+                                </view>
+                                <view>
+                                    <text>(最多6张)</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='flexList'>
+						<view class='relative'><image class='images' src='/image/shop.jpg' ></image></view>
+					</view>
+                </view>
+            </view>
+        </view>
+        <!-- 底部提交 -->
+        <view class='footer'>
+            <text>提交</text>
+        </view>
+    </view>
+</view>

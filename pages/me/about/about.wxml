@@ -1,0 +1,11 @@
+<view class='container'>
+	<view class='content'>
+		<view class='box' >
+			<view>
+				<image class='images' src='https://image.fitfix.shop/shop/banner/gsgk.png' mode='widthFix'></image>
+			</view>
+			<view class='text'><text>飞雳士是一家致力于安全轮胎技术研发、生产、销售为一体的综合性高新技术企业。为了适应全球轮胎产业变革，提升企业综合竞争优势，振兴民族工业，公司依托于瑞典、美国等国际知名科学家团队，经过近八年的自主研发、反复测试和技术升级，终于铸就了耐刺扎、防漏气、免补胎、自修复、节能环保的高性能安全轮胎。</text></view>
+			<view class='border'></view>
+		</view>
+	</view>
+</view>

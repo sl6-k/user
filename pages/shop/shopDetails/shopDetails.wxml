@@ -1,0 +1,136 @@
+<view class='container'>
+  <!-- <navigation title="门店详情" back="{{true}}"></navigation> -->
+  <view class='detailsBox'>
+    <swiper indicator-dots="true" autoplay="true" circular="true" class='swiper' indicator-active-color="#fff">
+      <swiper-item wx:for="{{storeDetail.StoresBanner}}" wx:key>
+        <image src="{{item=='' ?'https://image.fitfix.shop/shop/icon/store-default.png':imgUrl+item}}" mode='scaleToFill' class='swiperImg'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class='detailsBox'>
+    <!-- 标题和评价 -->
+    <view class='detailsTitle'>
+      <view style='display:flex;flex-wrap:nowrap;justify-content:space-between;'>
+        <view class='title'>
+          <text>{{storeDetail.StoreName}}</text>
+        </view>
+        <view class='time'>
+          <text>{{storeDetail.BusinessHours}}</text>
+        </view>
+      </view>
+      <view class='phone' data-phone="{{storeDetail.LinkPhone}}" bindtap='bindMakePhone'>
+        <view class='image'>
+          <image src='/image/icon/tell.png' mode='widthFix'></image>
+        </view>
+        <text>{{storeDetail.LinkPhone}}</text>
+      </view>
+      <view class='number'>
+        <view class='numberBg'>
+          <view class='ovflow' style='width:calc({{storeDetail.Commont}}*20%);'>
+            <image src='https://image.fitfix.shop/shop/icon/start-hover.png' mode='widthFix'></image>
+          </view>
+        </view>
+        <view class='share'>
+          <view>{{storeDetail.Commont}}分</view>
+        </view>
+      </view>
+    </view>
+    <!-- 地址 -->
+    <view class='detailsLocaltion'>
+      <view class='localtion'>
+        <text>{{storeDetail.StoreCoordinates}}</text>
+      </view>
+      <view class='km' bindtap='bindOpenMap'>
+        <view>
+          <image mode='widthFix' src='https://image.fitfix.shop/shop/icon/local.png'></image>
+        </view>
+        <text>{{storeDetail.distance?storeDetail.distance:0}}km</text>
+      </view>
+    </view>
+  </view>
+  <!-- 买单 -->
+  <view class='payBill'>
+    <view>
+      <text>买单</text>
+    </view>
+    <input type='text' placeholder='到店服务后可买单支付' disabled='true'></input>
+    <view class='btn' data-storeid="{{storeDetail.StoreID}}" bindtap='bindCheckFun'>
+      <text>付款</text>
+    </view>
+  </view>
+  <!-- 购物流程 -->
+  <view class='flowing'>
+    <view class='title'>
+      <text>购物流程</text>
+    </view>
+    <view class='flowingImg'>
+      <image src='https://image.fitfix.shop/shop/icon/liu.png' mode='widthFix'></image>
+    </view>
+  </view>
+  <!-- 评价 -->
+  <view class='evaluateBox' wx:if="{{storesCommentList.data!=null && storesCommentList.data.length>0}}">
+    <view class='title'>
+      <text>全部评价 （{{storesCommentList.total}}）</text>
+    </view>
+    <!--评价列表 -->
+    <view class='evaluateListBox'>
+      <view class='evaluateList' wx:for="{{storesCommentList.data}}" wx:key>
+        <view class='photo'>
+          <image src="{{item.UserPic==undefined?'https://image.fitfix.shop/shop/icon/photo.png':imgUrl+item.UserPic}}" mode='aspectFill'></image>
+        </view>
+        <view class='evaluateCentent'>
+          <!-- 购买人  评价日期 -->
+          <view class='titleTime flexCenter'>
+            <view class='titles'>
+              <text>{{item.TrueName}}</text>
+              <!-- <text>大众 迈腾</text> -->
+            </view>
+            <view class='time'>
+              <text>{{item.Createdate}}</text>
+            </view>
+          </view>
+          <!-- 评分 -->
+          <view class='share'>
+            <view class='numberBg'>
+              <view class='ovflow' style='width:calc({{item.StarLevel}}*20%);'>
+                <image src='https://image.fitfix.shop/shop/icon/start-hover.png' mode='widthFix'></image>
+              </view>
+            </view>
+          </view>
+          <!-- 评论内容 -->
+          <view class='textCentent'>
+            <text>{{item.CommentConent}}</text>
+          </view>
+          <!-- 点名   购买日期 -->
+          <view class='shopNameTime flexCenter'>
+            <text class='ellipsis-1 margin-r-5'>{{item.StoreName}}</text>
+            <text class='ellipsis-1 margin-l-5' wx:if="{{item.PayDate!=''}}">购买日期：{{item.PayDate}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='loadingMsg' wx:if="{{storesCommentList==null}}">
+        <text>~~暂无数据~~</text>
+      </view>
+      <!-- 查看跟多 -->
+      <view class='localtion' data-id="{{storeDetail.StoreID}}" bindtap='bindOpenMore' wx:if="{{storesCommentList.total>PageSize}}">查看全部评价</view>
+    </view>
+  </view>
+  <!-- 商品详情 -->
+  <view class='characterBox'>
+    <view class='title'>
+      <text>门店详情</text>
+    </view>
+    <view class='content'>
+      {{storeDetail.Introduction}}
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class='footer flexCenter' wx:if="{{isHome}}">
+    <!-- 提交订单 -->
+    <view class='btn' bindtap='bindToHome'>
+      <image src='/image/icon/back-home.png' mode='widthFix'></image>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,27 @@
+<!--pages/cart/cartCashier/cartCashier.wxml-->
+<view class='container'>
+  <view class='cashier'>
+    <view class='cashier-hd'>
+      <view class='total'>应付总额</view>
+      <view class='amount'>￥{{RealAmount}}</view>
+    </view>
+    <view class='cashier-bg'>
+      <image mode="widthFix" src='https://image.fitfix.shop/shop/icon/cashier-bg.png' style='width:100%;'></image>
+    </view>
+  </view>
+
+  <view class='cashier-method'>
+    <view style='padding: 5px 15px;'>请选择付款方式</view>
+    <view style='background:#fff;'>
+      <view class='padded-15' style='display:flex;flex:1;align-items:Center;'>
+        <image src='https://image.fitfix.shop/shop/icon/wx.png' mode='widthFix' style='width:30px;'></image>
+        <view class='margin-l-15'>微信支付</view>
+        <image class='radio-img' mode='widthFix' src='../../../image/icon/radio.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='submitCashier' bindtap='bindConfirmPayment'>
+    <button class='button'>确认支付</button>
+  </view>
+</view>

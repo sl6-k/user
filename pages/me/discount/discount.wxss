@@ -1,0 +1,258 @@
+.container {
+  overflow: hidden;
+}
+
+.tabTitleBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 50px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 6;
+}
+
+.tabTitleBox .tabList {
+  color: #333;
+  font-size: 15px;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.tabTitleBox .tabList.active {
+  color: #faaf3b;
+  border-color: #faaf3b;
+}
+
+.container .swiper {
+  margin-top: 50px;
+}
+
+.scrollBox {
+  padding: 0 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.scrollBox .discountList {
+  overflow: hidden;
+  margin-bottom: 15x;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.scrollBox .discountList .background {
+  width: 110px;
+  height: 120px;
+  position: relative;
+}
+
+.scrollBox .discountList .background>.images {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.scrollBox .discountList .background .box {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+}
+
+.scrollBox .discountList .background .name {
+  margin-top: 14px;
+}
+
+.scrollBox .discountList .background .name .icon {
+  width: 70px;
+  position: relative;
+}
+
+.scrollBox .discountList .background .name .icon image {
+  display: block;
+  width: 100%;
+}
+
+.scrollBox .discountList .background .price {
+  font-size: 14px;
+  margin-top: 10px;
+  /* margin-bottom: 6px; */
+}
+
+.scrollBox .discountList .background .price text:last-child {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.scrollBox .discountList .background .name .icon .text.active {
+  color: #555;
+}
+
+.discountList .discountCentent .disNameBox .title.active {
+  color: #555;
+}
+
+.scrollBox .discountList .background .name .icon .text {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #faaf3b;
+  font-size: 12px;
+}
+
+.scrollBox .discountList .discountCentent {
+  position: relative;
+  background: #fff;
+  flex: 1;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scrollBox .discountList .discountCentent .disNameBox {
+  padding: 10px 6px;
+  overflow: hidden;
+}
+
+.discountList .discountCentent .disNameBox .title {
+  font-size: 16px;
+  color: #faaf3b;
+  margin-bottom: 4px;
+}
+
+.discountList .discountCentent .disNameBox .time {
+  font-size: 10px;
+  color: #999;
+}
+
+.discountList .discountCentent .disNameBox .time .iconBox {
+  display: flex;
+  align-items: center;
+}
+
+.discountList .discountCentent .disNameBox .time .icon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #999;
+  margin-right: 8px;
+}
+
+.discountList .discountCentent .disNameBox .time .btn {
+  height: 26px;
+  line-height: 26px;
+  padding: 0 12px;
+  border-radius: 13px;
+  color: #fff;
+  font-size: 14px;
+  background: #faaf3b;
+}
+
+.discountList .discountCentent .msg {
+  font-size: 12px;
+  color: #999;
+  padding: 10px 6px;
+  word-break: break-all;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  border-top: 1px #eee dashed;
+}
+
+.discountList .discountCentent .msg .icon {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #999;
+  margin-right: 8px;
+}
+
+.discountList .discountCentent .msg .text {
+  flex: 1;
+}
+
+.scrollBox .discountList .discountCentent .start {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  width: 60px;
+}
+
+.scrollBox .discountList  .discountText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.scrollBox .discountList .discountNumber {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.scrollBox .discountList .discountNumber .disIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.scrollBox .discountList .discountNumber .money text:first-child {
+  font-weight: 600;
+  color: #444;
+  margin-right: 8px;
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.scrollBox .discountList .discountNumber .money.style text:first-child {
+  color: #faaf3b;
+}
+
+.scrollBox .discountList .discountNumber .money.style text:last-child {
+  color: #faaf3b;
+}
+
+.scrollBox .discountList .discountNumber {
+  font-size: 16px;
+  color: #888;
+}
+
+.scrollBox .discountList .discountText .localtion {
+  position: relative;
+  z-index: 3;
+  color: #faaf3b;
+  font-size: 13px;
+  border: 1px solid #faaf3b;
+  line-height: 20px;
+  padding: 0 14px;
+  border-radius: 13px;
+}
+
+.scrollBox .discountList  .discountText .time {
+  text-align: right;
+  color: #ccc;
+  font-size: 12px;
+  padding-top: 6px;
+  border-top: 1px dashed #eee;
+}
+
+.loadingMsg {
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  padding: 20px 0;
+}

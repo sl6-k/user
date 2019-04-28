@@ -1,0 +1,58 @@
+<view class="container">
+  <!-- 商品评分 -->
+  <view class='goodsScore-wrap'>
+    <view class='goods-img-wrap'>
+      <image src='{{MemberOrderInfo.OrderItemList[0].GoodsImage}}'></image>
+    </view>
+    <view class='goods-text'>
+      <view>商品评分</view>
+      <!-- 评分星星 -->
+      <view class='score'>
+        <block wx:for='{{evaluateALL}}' wx:key>
+          <image data-index='{{item}}' bindtap='showEvaluate' src='{{ item<=evaluateColor?urlImgBright:urlImg}}'></image>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='evaluate'>
+    <textarea bindinput='getSubmit' placeholder='为这件商品留下你的评价吧'></textarea>
+  </view>
+  <view class='img-wrapper'>
+    <image class='upload-img' wx:for='{{images}}' wx:key src='{{imgURL+item}}'></image>
+    <view class='img-wrap' bindtap='uploadpic'>
+      <view class='img'>
+        <image src='../../../image/icon/upload.png'></image>
+        <view class='img-desc'>照片/视频</view>
+      </view>
+    </view>
+  </view>
+  <view class='anonymous'>
+    <label class="radio" catchtap="changeAnonymous">
+      <radio checked="{{isCheck}}" value="1" />匿名
+    </label>
+    <text>你的评价能帮助其他小伙伴哦</text>
+  </view>
+  <view class='padded-15'>
+    <view style='display:flex;flex:1;items-align:center;'>
+      <image src='https://image.fitfix.shop/shop/icon/men.png' style='width:40rpx;height:40rpx;'></image>
+      <view class='img-desc margin-l-5'>店铺评分</view>
+    </view>
+    <view>
+      <view class='score'>
+        <view class='margin-r-15'>门店评分</view>
+        <block wx:for='{{evaluateALL}}' wx:key>
+          <image data-index='{{item}}' bindtap='storeEvaluate' src='{{ item<=storeColor?urlImgBright:urlImg}}'></image>
+        </block>
+      </view>
+      <view class='score'>
+        <view class='margin-r-15'>物流服务</view>
+        <block wx:for='{{evaluateALL}}' wx:key>
+          <image data-index='{{item}}' bindtap='logisticsEvaluate' src='{{ item<=logisticsColor?urlImgBright:urlImg}}'></image>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='submit'>
+    <button bindtap='submitEvaluate' bindinput='getSubmit'>提交评价</button>
+  </view>
+</view>

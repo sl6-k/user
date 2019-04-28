@@ -1,0 +1,321 @@
+.swiper {
+  height: 60vw;
+}
+
+.swiper .swiperImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.detailsBox {
+  background: #fff;
+}
+
+.detailsBox .detailsTitle {
+  border-bottom: 1px solid #eee;
+  padding: 10px 16px;
+}
+
+.detailsBox .detailsTitle .title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+/* 门店详情开始 */
+
+.characterBox {
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.characterBox .title {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+.characterBox  .content {
+  padding: 10px 15px;
+}
+
+.characterBox  .content image {
+  width: 100%;
+}
+
+/* 门店详情结束 */
+
+.detailsBox .detailsTitle .time {
+  font-size: 12px;
+  color: #faaf3b;
+  padding: 5px;
+}
+
+.detailsBox .detailsTitle .time text {
+  border-radius: 9px;
+  line-height: 14px;
+  padding: 0 9px;
+  border: 1px solid #faaf3b;
+}
+
+.detailsBox .detailsTitle .number {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.numberBg {
+  width: 120px;
+  height: 16px;
+  margin-right: 12px;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPkAAAAhCAYAAAAbIg3SAAAACXBIWXMAAAsSAAALEgHS3X78AAAD6klEQVR42u2c33GbQBDGPzN5/qxUIFyBlQqMK7BcgaUKIlcQpYLIFcTuQO5A7kDuQO7Adw2QBy0ZQiSE4IADdmd4sMXA7f72dvf+cBdxHKOKWGuXAHYkn9ETsdaOAGxITtAjUVbDZBU4aM8CwBL9khmAa2vtrGd6KasBsqrUycWwlwDG1tpFzwwMAEvJFH3IDMpqoKyqZvJ0pOmFkcXAY/lznHKirouyGiiroIKBo5SBIZGnD0bOln2LrncIZTVsVlUy+aEX/7DWhh028ATATebflwBWPSlpldUAWQUlDRwCuCtQavTBwADw0NUOoayUVdlMnvfCB4myXTTwQ84tXc0QymrgrIISBh4BmJ64rYtGnp34/U7GS13qDMpKWZXK5AsZ++TJTZeMLAYuMrnRtfJWWSkrXJyz400MvMW/s3/HxKQiz04ukNx46DgLAL8K3v4qNgCARJcdyZ2HnUFZKavjnVzGPRO5IgBhwUYUlY+kgQJgS3LdgEGjlF4h/p+hrSpvGQArkp8NjFGVlbI6yOoijuNkOSJ7XTYYzD4ATFwaWKJjYsjESa4bDtKPJFeOnURZKauzWH2x1q4AfG+xWjEApo6dJpTy57JFvV5qcBplpazOZhWQXAB4bLEhEcmty4fKmGsC4L1Fp5m5fqiyUlZlWP0dk8s+4N9dd5oDZeCm4dKvFqfJ6KWslFVhVv9MvMlEx7qh0ulbnU6TcZ4V8jdPuJJXktMmSCorZVWUVZApMTYy+WFqbsi8CacRnT4lWr/U/Kp3nN6k4VIvZaWsCrEKDjRoW/MYad7GySTiPI81Ok1U9/KLslJWZVjlrZPXMUaat330UA1jpFacRlkpq6KsgrzSSUoMV6XTkw9ni0kbbh2WTq06jbJSVqdYBQXHSC7Em6+dZIy06pNeykpZlerkjuUG/ZSohzopqx6xOtnJXX6h5Nm3y6708kYnZaWs2s7kXhlZdVJWQ9GrSCd3WeL4VC65KknHHh03pKyUlWZy1UtZaSYvF3F+Aphj/2lbnlz7cGRuwfHQO4B7FFvq8CXrKStl5TyTvwK4Irkk+UwyxH5d863DkdRgv7lgQnItSx1fxeCmw9lBWQ2UVZFOfmg89AHgluQ0e5QOyQ3JKKdRPkTSY214AhBmNxfIuuYS+8MMDjmQL0tOykpZVc7kBvsTNMJT53+lGnWVKaN8KZfS8iaRc5G3IypxIJKjbBnl4WGIykpZne7kGWO8SOQ8a/cRyZ2UUUmjfCiXolTkvCcZnXu4X6qMShyoVb2UlbI6enMcx0cvY0xkjNkYYyZ5951zGWNGrp5VoQ1rY8zS8TNHLeukrJTVwd/+AJPGjcMXAO8PAAAAAElFTkSuQmCC') no-repeat;
+  background-size: 100% 100%;
+}
+
+.numberBg image {
+  width: 120px;
+  height: 16px;
+  display: block;
+}
+
+.numberBg .ovflow {
+  width: 0;
+  overflow: hidden;
+}
+
+.detailsBox .detailsTitle .number .share {
+  color: #666;
+  width: 50%;
+  font-size: 14px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.detailsBox .detailsTitle .phone {
+  color: #666;
+  font-size: 14px;
+  display: flex;
+  flex: 1;
+  padding-bottom: 5px;
+}
+
+.detailsBox .detailsTitle .phone .image {
+  display: flex;
+  align-items: center;
+}
+
+.detailsBox .detailsTitle .phone .image image {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.detailsBox .detailsTitle .number .share .image {
+  width: 20px;
+  height: 20px;
+}
+
+.detailsBox .detailsTitle .number .share .image image {
+  width: 100%;
+  height: 100%;
+}
+
+.detailsBox .detailsLocaltion {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detailsBox .detailsLocaltion .km {
+  width: 30%;
+  text-align: center;
+  border-left: 1px solid #eee;
+  font-size: 14px;
+  color: #888;
+}
+
+.detailsBox .detailsLocaltion .localtion {
+  padding: 0 16px;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.detailsBox .detailsLocaltion .km view {
+  width: 26px;
+  height: 26px;
+  margin: 6px auto;
+}
+
+.detailsBox .detailsLocaltion .km view image {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+.payBill {
+  margin: 15px 0;
+  background: #fff;
+  display: flex;
+  height:70px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 16px;
+  font-size: 16px;
+}
+
+.payBill input {
+  flex: 1;
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.payBill  .btn {
+  background: #f15a24;
+  color: #fff;
+  height: 30px;
+  line-height:30px;
+  padding: 0 20px;
+  border-radius: 14px;
+  font-size: 16px;
+}
+
+.flowing {
+  background: #fff;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.flowing .title {
+  padding: 0 16px;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.flowing .flowingImg {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.flowing .flowingImg image {
+  width: 100%;
+}
+
+.evaluateBox {
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.evaluateBox .title {
+  padding: 0 16px;
+  line-height: 40px;
+  font-size: 16px;
+}
+
+.evaluateBox .evaluateList {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-top: 1px solid #eee;
+}
+
+.evaluateList .photo {
+  width: 30px;
+  height: 30px;
+  margin-right: 14px;
+}
+
+.evaluateList .photo image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.evaluateList .evaluateCentent {
+  flex: 1;
+}
+
+.evaluateList .evaluateCentent .titleTime .titles {
+  font-size: 15px;
+  color: #888;
+}
+
+.evaluateList .evaluateCentent .titleTime .time {
+  font-size: 15px;
+  color: #888;
+}
+
+.evaluateList .evaluateCentent .titleTime  .titles text:first-child {
+  font-size: 16px;
+  color: #333;
+}
+
+.evaluateList .evaluateCentent .titleTime .titles text:last-child {
+  font-size: 12px;
+  /* margin-left: 10px; */
+}
+
+.evaluateList .evaluateCentent .share {
+  margin-top: 6px;
+}
+
+.evaluateList .evaluateCentent .textCentent {
+  word-break: break-all;
+  padding: 14px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.evaluateList .evaluateCentent  .shopNameTime {
+  color: #888;
+  font-size: 12px;
+}
+
+.evaluateBox .localtion {
+  border-top: 1px solid #eee;
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+  padding: 10px;
+}
+
+.loadingMsg {
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  padding: 20px 0;
+}
+
+/* 底部 */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0 16px;
+  height: 150px;
+  box-sizing: border-box;
+}
+
+.footer .btn {
+  width: 35px;
+  height: 35px;
+  line-height: 36px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer .btn image {
+  width: 100%;
+  height: 100%;
+}

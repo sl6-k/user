@@ -1,0 +1,36 @@
+<!--pages/home/budgetList/budgetList.wxml-->
+<view class='container'>
+  <!-- 记录 -->
+  <view class='budget'>
+    <block wx:for="{{forRecordList}}" wx:key>
+      <view class='padded-15 budgetInfo'>
+        <view class='padding-b-5' style='width:95%;'>
+          <text>礼品：{{item.GiftName}}</text>
+          <text wx:if='{{item.State==1}}' style='float:right;color: rgb(250, 165, 7);'>已兑换</text>
+        </view>
+          <view class='padding-b-5'>
+          使用积分：{{item.Integral}}
+        </view>
+        <view class='padding-b-5'>
+          兑换时间：{{item.CreateDate}}       
+      </view>
+    </view>
+    </block>
+
+    <view class='none' wx:if="{{PageTotal==0}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+      <text>~~没有更多了~~</text>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+      <text>下拉加载更多  >></text>
+    </view>
+  </view>
+
+</view>

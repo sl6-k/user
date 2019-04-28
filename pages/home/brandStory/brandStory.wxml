@@ -1,0 +1,15 @@
+<!--pages/home/brandStory/Brand story.wxml-->
+<view class='container'>
+  <scroll-view id="1" class="order-scroll" scroll-y="true">
+    <view style='height:{{boxHeight}}px;'>
+      <image class='img' src='https://image.fitfix.shop/shop/flsxcp.png' mode="widthFix"></image>
+      <view style='top:100px;;width:84%;position:absolute;left:8%;right:0;bottom:0;border-radius:15px;'>
+        <video id="myVideo" loop="true" style='height:12rem;border-radius:15px;' controls poster="https://fitfix.oss-cn-beijing.aliyuncs.com/shop/brand-bd-bg.png" src="https://image.fitfix.shop/shop/Video/%E9%A3%9E%E9%9B%B3%E5%A3%AB%E5%A4%AE%E8%A7%86%E9%87%87%E8%AE%BF%E7%BA%AA%E5%BD%95%E7%89%87%E5%AE%8C%E6%95%B4%E7%89%88.mp4"
+          objectFit="fill"></video>
+      </view>
+      <image class='img' src='https://fitfix.oss-cn-beijing.aliyuncs.com/shop/story-01.png' mode='widthFix'></image>
+      <image class='img' src='https://fitfix.oss-cn-beijing.aliyuncs.com/shop/story-02.png' mode='widthFix'></image>
+      <image class='img' src='https://fitfix.oss-cn-beijing.aliyuncs.com/shop/story-03.png' mode='widthFix'></image>
+    </view>
+  </scroll-view>
+</view>

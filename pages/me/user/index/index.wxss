@@ -1,0 +1,4 @@
+/* pages/me/user/index/index.wxss */
+.container{
+  border-top:1px solid #eee;
+}

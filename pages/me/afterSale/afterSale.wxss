@@ -1,0 +1,73 @@
+.shopBox {
+	background: #fff;
+	padding: 16px;
+	margin-bottom: 15px;
+}
+.shopBox .orderList {
+    background: #fff;
+	margin-bottom: 15px;
+}
+
+.shopBox .orderList .start {
+    text-align: right;
+    line-height: 40px;
+    font-size: 14px;
+    color: #faaf3b;
+}
+
+.shopBox .orderList .photo {
+    width: 90px;
+    margin-right: 12px;
+}
+
+.shopBox .orderList .centents {
+    display: flex;
+    justify-content: space-between;
+	margin-bottom: 15px;
+}
+.shopBox .orderList .centents:last-child{
+	margin-bottom: 0;
+}
+.shopBox .orderList .assesic {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shopBox .orderList .assesic .center {
+    color: #444;
+    font-size: 14px;
+    word-break: break-all;
+    flex: 1;
+}
+
+.shopBox .orderList .assesic .center .tag {
+    margin-top: 12px;
+}
+
+.shopBox .orderList .assesic .center .tag text {
+    font-size: 10px;
+    color: #faaf3b;
+    background: rgb(255, 242, 226);
+    border-radius: 2px;
+    padding: 0 4px;
+    line-height: 12px;
+}
+
+.shopBox .orderList .assesic .right {
+    margin-left: 20px;
+    font-size: 14px;
+    color: #444;
+    text-align: right;
+}
+
+.shopBox .orderList .assesic .right .number {
+    font-size: 13px;
+    color: #999;
+}
+
+.shopBox  .shoping {
+    text-align: right;
+    font-size: 16px;
+    color: #000;
+}

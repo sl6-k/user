@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "enablePullDownRefresh": false,
+  "disableScroll": false,
+  "navigationBarTitleText": "飞雳士商城",
+  "navigationBarBackgroundColor": "#f7931e",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#f7931e"
+}

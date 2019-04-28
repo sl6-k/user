@@ -1,0 +1,24 @@
+<!--分类-->
+<view class="classify">
+
+  <!--商品分类导航栏-->
+  <scroll-view class='left-navbar' scroll-y="true">
+    <view wx:for="{{screenArray}}" class="{{ currentTab == index ? 'active' : '' }}" wx:key="unique" bindtap="{{ currentTab != index ? 'navbarTap':'' }}" data-id="b{{index}}" data-index="{{index}}" data-children="{{item}}" data-screenId="{{item.TypeID}}">{{item.TypeName}}
+    </view>
+  </scroll-view>
+
+  <scroll-view id="right" style='height:{{s_height}}px;' scroll-y="true" scroll-top="{{scrollTop}}" scroll-into-view="{{isView}}" bindscroll="scroll" scroll-with-animation="true">
+    <!--商品展示-->
+    <view class='goods-exhibition'>
+      <view class="goods-list" wx:for="{{screenArray}}" wx:key="unique">
+        <block>
+          <view class="goods-title" id='s{{item.TypeID}}'>{{item.TypeName}}</view>
+          <view wx:for="{{item.children}}" class="goods" data-typeID="{{item.TypeID}}" wx:key="unique" bindtap="toSearchResult" id="{{item.TypeName}}">
+            <image class="img" src="{{item.TypeImg}}" wx:if="{{item.TypeImg}}"></image>
+            <text>{{item.TypeName}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+</view>

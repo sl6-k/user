@@ -1,0 +1,40 @@
+<!--工人评价-->
+<view class='container'>
+  <!-- <view class='flex-1 bg padded-15' style=''>
+    <view class=''>
+      <image src='/image/icon/back-home.png' style='width:150rpx;height:150rpx;' mode='scaleFill'></image>
+    </view>
+    <view class='margin-l-15 worker'>
+      <view class='text'>
+        <text>高梦恩</text>
+        <text class='padding-l-15'>187****0467</text>
+      </view>
+      <view class='text'>丈八一号店</view>
+      <view class='text'>丈八一路6号求是大厦</view>
+    </view>
+  </view> -->
+  <view class='bg padded-15 evaluation'>
+    <view>
+      <view>给工人评分</view>
+      <view class='margin-l-15 margin-t-15 score'>
+        <view class='item'>
+          <radio-group class="item-right radio-group" bindchange="changeSex">
+            <block wx:for="{{satisfaction}}" wx:key>
+              <label class="radio">
+                <radio value="{{item.id}}" checked="{{item.checked}}" />{{item.name}}
+              </label>
+            </block>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+
+    <view class='margin-t-15 padded-15' style='border:1rpx solid #eee;'>
+      <textarea placeholder='评价工人' maxlength="-1" bindinput='getEvaluateContent'></textarea>
+    </view>
+  </view>
+
+  <view class='footer' bindtap="bindSubmitEvaluation">
+    <text>提交评价</text>
+  </view>
+</view>

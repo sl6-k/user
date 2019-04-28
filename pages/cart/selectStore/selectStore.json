@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nyz_area_picker": "../../component/nyz_area_picker_city/nyz_area_picker"
+  },
+  "navigationBarTitleText": "请选择门店"
+}

@@ -1,0 +1,60 @@
+<view class='container'>
+  <!-- <navigation title="收货地址管理" back="true" border="true"></navigation> -->
+  <block wx:if="{{addressList!=''}}" wx:for="{{addressList}}" wx:key>
+    <view class='addressList margin-b-15'>
+      <view class='contacts'>
+        <view class='contactsUser'>{{item.Linkmain}}</view>
+        <text class='contactsPhone'>{{item.Linkphone}}</text>
+      </view>
+      <view class='contactAddress'>
+        <text>{{item.AreaAddress}}{{item.AddressDetail}}</text>
+      </view>
+      <view class='editAddress'>
+        <!-- <view class='select'>
+          <view class="default {{item.IsDefault?'active':''}}" data-id="{{item.ID}}" data-index="{{index}}" bindtap='bindSetDefault'></view>
+          <view>设为默认</view>
+        </view> -->
+        <label class="radio select" data-id="{{item.ID}}" data-index="{{index}}" bindtap='bindSetDefault'>
+          <radio value="1" color='#faaf3b' checked='{{item.IsDefault}}' />
+          <text>设为默认</text>
+        </label>
+        <view class='flex edit'>
+          <view class="flex" data-id="{{item.ID}}" bindtap='bindEditAddress'>
+            <view class='padding-t-10 padding-b-10'>
+              <image src='https://image.fitfix.shop/shop/icon/edit.png' style='width:40rpx;height:40rpx;'></image>
+            </view>
+            <view class="editAdd">
+              <text>编辑</text>
+            </view>
+          </view>
+          <view class="flex" data-id="{{item.ID}}" bindtap='bindDeleteAdress'>
+            <view class='padding-t-10 padding-b-10'>
+              <image src='https://image.fitfix.shop/shop/icon/delete.png' style='width:40rpx;height:40rpx;'></image>
+            </view>
+            <view class="editAdd">
+              <text>删除</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class='loadingMsg' wx:if="{{addressList.length>0}}">
+    <text>~~没有更多了~~</text>
+  </view>
+  <!-- <view class='loadingMsg' wx:if="{{totalCount>pageNumber}}">
+    <text>加载更多</text>
+  </view> -->
+  <navigator url='../addressEdit/addressEdit' hover-class='none' class='footer'>
+    <text>新增收货地址</text>
+  </navigator>
+  <view class='none' wx:if="{{addressList==''}}">
+    <view class='icon'>
+      <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+    </view>
+    <view>
+      <text>~~暂无数据~~</text>
+    </view>
+  </view>
+</view>

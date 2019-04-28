@@ -1,0 +1,76 @@
+<!-- 注册 -->
+<view class='container '>
+  <view class='fixed' wx:if="{{deleBack}}">
+    <view style='height:{{statusBarHeight}}px'></view>
+    <view style="height:{{titleBarHeight}}px;" class='flexCenter'>
+      <navigator class='back' open-type="navigateBack" delta="1" hover-class="none">
+        <image class='images' src='https://image.fitfix.shop/shop/icon/deleIcon2.png'></image>
+      </navigator>
+      <text></text>
+    </view>
+  </view>
+  <!-- logo -->
+  <view class='logoBox'>
+    <image src='https://image.fitfix.shop/shop/banner/logo.png' mode='widthFix'></image>
+  </view>
+  <!-- 内容 -->
+  <view class='content'>
+    <!-- form -->
+    <view class="formBox">
+      <!-- welocome -->
+      <view class='hi'>
+        <image src='https://image.fitfix.shop/shop/icon/hi.png' mode='widthFix'></image>
+      </view>
+      <!-- btn > 注册 -->
+      <view class='welcome flexCenter'>
+        <text>欢迎注册</text>
+        <navigator url='../login/login?deleBack={{deleBack}}' hover-class='none'>登录></navigator>
+      </view>
+      <!-- input -->
+      <view class='inputBox'>
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='../../../image/icon/name.png'></image>
+          </view>
+          <input type='text' placeholder="请输入姓名" value="{{register.name}}" class='input' bindinput='name' />
+        </view>
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/user.png'></image>
+          </view>
+          <input type='number' value="{{register.phoneNum}}" bindinput='bindGetPhoneNum' placeholder="请输入手机号码" class='input' />
+        </view>
+
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/code1.png'></image>
+          </view>
+          <input type='number' value="{{register.verifyCode}}" bindinput='bindGetVerifyCode' placeholder="请输入验证码" class='input' />
+          <!-- disabled -->
+          <view class="getCodeStyle {{disabled?'disabled':''}}">
+            <text bindtap="{{disabled?'':'getVerificationCode'}}">{{time}}</text>
+          </view>
+        </view>
+
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/pass.png'></image>
+          </view>
+          <input type='password' value="{{register.password}}" bindinput='bindGetPassword' placeholder="请输入密码" class='input' />
+        </view>
+
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/code2.png'></image>
+          </view>
+          <input type='number' value="{{register.inviteCode}}" bindinput='bindGetInviteCode' placeholder="请输入邀请码" class='input' />
+        </view>
+        <checkbox bindtap='updateBol'></checkbox><view style='display:inline;font-size:25rpx;line-height:25rpx;color: #ccc;'>　我已阅读并同意《<text bindtap='openUserAgree' style='text-decoration:underline;color:rgba(0,0,255,0.5)'>飞雳士商城用户协议</text>》</view>
+        <view class='submitBox' bindtap='register'>
+          <button>注册</button>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

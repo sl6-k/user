@@ -1,0 +1,13 @@
+<!--pages/home/brand/brand01/brand01.wxml-->
+<!-- 品牌故事 -->
+<view class='page'>
+    <image class='bgimg' src='https://image.fitfix.shop/shop/bjwg.png' ></image>
+    
+      <image class='imge01'src='https://image.fitfix.shop/shop/spbj.png'></image>
+   
+     <view style='top:280rpx;width:90%;position:absolute;left:4.5%;right:0;bottom:0;border-radius:15px;'>
+        <video id="myVideo" loop="true" style='height:400rpx;border-radius:15px;' controls poster="https://fitfix.oss-cn-beijing.aliyuncs.com/shop/brand-bd-bg.png" src="https://image.fitfix.shop/shop/Video/%E9%A3%9E%E9%9B%B3%E5%A3%AB%E5%A4%AE%E8%A7%86%E9%87%87%E8%AE%BF%E7%BA%AA%E5%BD%95%E7%89%87%E5%AE%8C%E6%95%B4%E7%89%88.mp4"
+          objectFit="fill"></video>
+      </view>
+
+</view>

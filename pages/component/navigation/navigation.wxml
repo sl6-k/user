@@ -1,0 +1,15 @@
+<!-- 占位标签 -->
+<view class="navigateContent" style="padding-top:{{statusBarHeight+titleBarHeight}}px"></view>
+<!-- navigation -->
+<view class="navigation">
+    <!-- 状态栏 -->
+    <view class="status" style="height:{{statusBarHeight}}px"></view>
+	<!-- 标题 -->
+    <view class="titleBar {{border?'borderBottom':''}}" style="height:{{titleBarHeight}}px;">
+        <view class="leftIcon" wx:if="{{back}}">
+            <navigator class='navigator' open-type="navigateBack" delta="1" hover-class="none" />
+        </view>
+        <view class="title" style='line-height:{{titleBarHeight}}px'>{{title}}</view>
+    </view>
+</view>
+<slot></slot>

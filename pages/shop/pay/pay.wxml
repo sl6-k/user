@@ -1,0 +1,88 @@
+<view class='container bg'>
+  <!-- <navigation title="买单" back="{{true}}" border="true"></navigation> -->
+  <view class='box' wx:if="{{isPay}}">
+    <view class='shopName'>
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/men.png' mode='widthFix' class='images'></image>
+      </view>
+      <text>{{store.StoreName}}</text>
+    </view>
+    <view class='inputGroup'>
+      <input type='digit' placeholder='请输入消费金额' value='{{checkInfo.amount}}' bindinput='bindGetAmount'></input>
+    </view>
+
+    <view class='blockBox'>
+      <block wx:for="{{labels}}" wx:key>
+        <view class="list {{item.isCheck?'active':''}}" data-index="{{index}}" bindtap='selectLabel'>
+          <text>{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+    <view class='msg'>
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/tan.png' mode='widthFix' class='images'></image>
+      </view>
+      <view>
+        <text>{{store.StoreName}}</text>
+      </view>
+    </view>
+
+    <view class="weui_cells weui_cells_access">
+      <a class="weui_cell font-size-14" style="padding-left:0;">
+        <view class="weui_cell_bd weui_cell_primary">
+          <p>轮胎型号</p>
+        </view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value='{{multiIndex}}' range="{{multiArray}}" wx:if="{{label=='换胎'||label==''}}">
+          <view class="{{storeInfo.orderData==null?'font-color':''}}">
+            <text>{{typeString == null?'选择轮胎型号': size+typeString}}</text>
+          </view>
+        </picker>
+        <view wx:if="{{label!='换胎'&&label!=''}}">{{labelText}}</view>
+        <view class="weui_cell_ft"></view>
+      </a>
+    </view>
+
+    <view class="weui_cells weui_cells_access" wx:if="{{label=='换胎'||label==''}}">
+      <a class="weui_cell font-size-14" style="padding-left:0;">
+        <view class="weui_cell_bd weui_cell_primary">
+          <p>轮胎数量</p>
+        </view>
+        <!-- <view class="{{storeInfo.orderData==null?'font-color':''}}">
+          <text>{{GoodsCount}}</text>
+        </view> -->
+        <view class="stepper">
+          <!-- 减号 -->
+          <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+          <!-- 数值 -->
+          <input type="number" bindchange="bindManual" value="{{GoodsCount}}" />
+          <!-- 加号 -->
+          <text class="normal" bindtap="bindPlus">+</text>
+        </view>
+      </a>
+    </view>
+
+    <view>
+      <view style='display:flex;align-items:center;font-weight:bold;'>备注</view>
+      <view class="conts margin-t-5">
+        <view style='width:100%;'>
+          <textarea wx:if="{{isShowText}}" focus="{{onFacus}}" class="areas" placeholder="{{remarks==''?'在此填写备注':remarks}}" minlength="{{min}}" maxlength="{{max}}" bindblur="bindIntroduceStoreInfo" bindconfirm='onShowTextare'>
+          </textarea>
+          <view wx:else class='areas-text' bindtap='onShowText'>{{remarks==''?"在此填写备注":remarks}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='btnBox' data-id="{{store.StoreID}}" bindtap='submitCheck'>
+      <button type='warn'>确认</button>
+    </view>
+  </view>
+
+  <!-- 支付结果 -->
+  <!-- <view class='paymentimg' wx:if="{{isOrder}}">
+    <view style='text-align:center;'>共支付
+      <text class='moneyNum'>￥{{moneyNum}}元</text>
+    </view>
+    <view>获取支付结果中，请稍等{{loading}}</view>
+    <view wx:if='{{endDisplay}}' class='overtime'>支付超时，请稍后重试。。。</view>
+  </view> -->
+</view>

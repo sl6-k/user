@@ -1,0 +1,98 @@
+<view class='container'>
+  <view class='shopCentent'>
+    <view class='selectBox'>
+      <!-- 选择市 -->
+      <view class='selectList' bindtap="bindCityChange">
+        <!-- <picker mode="selector" bindchange="bindCityChange" value="{{index}}" range="{{city}}"> -->
+        <view class="picker">
+          {{cityName==''?'选择市':cityName}}
+        </view>
+        <!-- </picker> -->
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view>
+
+      <!-- 引用模块 -->
+      <nyz_area_picker show="{{show}}" bind:sureSelectArea="sureSelectAreaListener">
+      </nyz_area_picker>
+      <!-- 引用模块结束 -->
+
+      <!-- 选择区 -->
+      <view class='selectList'>
+        <picker mode="selector" value="{{index}}" range="{{site}}" bindchange="bindRegionChange">
+          <view class="picker">
+            {{site[index]==undefined?'选择区':site[index]}}
+          </view>
+        </picker>
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view>
+      <!-- 全部门店 -->
+      <view class='selectList' bindtap='getShop'>
+        <text>{{queryCriteria.StoreClassification==null?'全部门店':queryCriteria.StoreClassification}}</text>
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view>
+      <!-- 距离最近 -->
+      <view class='selectList' bindtap='getSortName'>
+        <text>{{queryCriteria.shopOrder==''?"距离最近":queryCriteria.shopOrder}}</text>
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view>
+    </view>
+
+    <view class='shopCainerter'>
+      <block wx:for="{{storeList}}" wx:if="{{storeList!=null&& storeList.length>0}}" wx:key>
+        <view class="shopList {{item.OperatingState==1?' store-operating ':''}}" data-id="{{item.StoreID}}" data-distance='{{item.distance}}' bindtap='bindOpenShopDetail'>
+          <!-- 门店图片 -->
+          <view class='shopPhoto'>
+            <image src="{{item.StoresImage==''||item.OperatingState==1?'https://image.fitfix.shop/shop/icon/store-default.png':imgUrl+item.StoresImage}}" mode='scaleToFill'></image>
+          </view>
+          <!-- 门店信息 -->
+          <view class="shopText">
+            <view class='shopTitle'>
+              <text class="ellipsis-1">{{item.StoreName}}</text>
+            </view>
+            <view class='shopEvaluate'>
+              <text>总评分</text>
+              <text>{{item.Commont}}</text>
+            </view>
+            <view class="shopLocaltion">
+              <view class="localtion {{item.OperatingState==1?'store-operating ':''}}">
+                <text>{{item.StoreCoordinates}}</text>
+              </view>
+              <view class='km' wx:if="{{item.distance!=''&&item.distance>0}}">
+                <text>{{item.distance==''?0:item.distance}}km</text>
+              </view>
+              <view catchtap='village_LBS' class='km' wx:if="{{!(item.distance!=''&&item.distance>0)}}">
+                <text>查看距离</text>
+              </view>
+            </view>
+            <view class='shopTag'>
+              <text class='tag'>{{item.StoreTypeString}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!--  wx:if="{{total<pageSize}}" -->
+      <view class='loadingMsg' wx:if="{{totalCount<pageNumber&&storeList.length>0}}">
+        <text>没有更多了~~</text>
+      </view>
+      <view class='loadingMsg' wx:if="{{totalCount>pageNumber&&!loading}}">
+        <text>上拉加载更多  >></text>
+      </view>
+      <view class='loadingMsg' wx:if="{{loading}}">
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+      </view>
+    </view>
+    <view class='loadingMsg' wx:if="{{storeList.length==0||storeList==null}}">
+      <text>~~暂无数据~~</text>
+    </view>
+  </view>
+</view>

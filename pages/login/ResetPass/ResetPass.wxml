@@ -1,0 +1,61 @@
+<!-- 忘记密码 -->
+<view class='container '>
+  <view class='fixed' wx:if="{{deleBack}}">
+    <view style='height:{{statusBarHeight}}px'></view>
+    <view style="height:{{titleBarHeight}}px;" class='flexCenter'>
+      <navigator class='back' open-type="navigateBack" delta="1" hover-class="none">
+        <image class='images' src='/image/icon/deleIcon2.png'></image>
+      </navigator>
+      <text></text>
+    </view>
+  </view>
+  <!-- logo -->
+  <view class='logoBox'>
+    <image src='https://image.fitfix.shop/shop/banner/logo.png' mode='widthFix'></image>
+  </view>
+  <!-- 内容 -->
+  <view class='content'>
+    <!-- form -->
+    <view class="formBox">
+      <!-- welocome -->
+      <view class='hi'>
+        <image src='https://image.fitfix.shop/shop/icon/hi.png' mode='widthFix'></image>
+      </view>
+      <!-- btn > 注册 -->
+      <view class='welcome flexCenter'>
+        <text>欢迎重置密码</text>
+        <navigator url='../login/login?deleBack={{deleBack}}' hover-class='none'>登录></navigator>
+      </view>
+      <!-- input -->
+      <view class='inputBox'>
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/user.png'></image>
+          </view>
+          <input type='number' value="{{resetPwd.phoneNum}}" bindinput='bindGetPhoneNum' placeholder="请输入手机号码" class='input' />
+        </view>
+
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/code1.png'></image>
+          </view>
+          <input type='number' value="{{resetPwd.verifyCode}}" bindinput='bindGetVerifyCode' placeholder="请输入验证码" class='input' />
+          <!-- disabled -->
+         <view class="getCodeStyle {{disabled?'disabled':''}}">
+            <text bindtap="{{disabled?'':'getVerificationCode'}}">{{time}}</text>
+          </view>
+        </view>
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/pass.png'></image>
+          </view>
+          <input type='password' value="{{resetPwd.password}}" bindinput='bindGetNewPassword' placeholder="请输入新密码" class='input' />
+        </view>
+        <view class='submitBox' bindtap='resetPwd'>
+          <button>重置密码</button>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

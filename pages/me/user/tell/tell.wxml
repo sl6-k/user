@@ -1,0 +1,26 @@
+<view class='container'>
+    <!-- <navigation title="修改手机号码" back="true" border="true"></navigation> -->
+    <!-- 个人资料 -->
+    <view class='box'>
+        <view class='listInputBox flexCenter'>
+            <view class='listTitle'>
+                <text>原手机号</text>
+            </view>
+            <view class='listText textRight fontSize14'>
+                <text>{{userInfo.Phone}}</text>
+            </view>
+        </view>
+        <view class='listInputBox flexCenter'>
+            <view class='listTitle'>
+                <text>新手机号码</text>
+            </view>
+            <view class='listInput'>
+                <input type='text' value="{{newPhoneNum}}" bindinput='getNewPhoneNum' placeholder="请输入新手机号码" />
+            </view>
+        </view>
+    </view>
+
+    <view class='btnBox' bindtap='submitModifyPhoneNum'>
+        <button type='warn'>保存信息</button>
+    </view>
+</view>

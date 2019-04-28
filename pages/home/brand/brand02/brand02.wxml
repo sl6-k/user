@@ -1,0 +1,10 @@
+<!--pages/home/brand/brand02/brand02.wxml-->
+<!-- 公司介绍 -->
+<view class='page'>
+    <image class='bgimg' src='https://image.fitfix.shop/shop/bjwg.png' ></image>
+    
+      <image class='imge01'src='https://image.fitfix.shop/shop/gsjs.png'></image>
+   
+   
+
+</view>

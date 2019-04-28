@@ -1,0 +1,370 @@
+/**app.wxss**/
+@import 'weui.wxss';
+@import 'font-awesome.min.wxss';
+
+/* 布局 */
+
+.flex-1 {
+  display: flex;
+  flex: 1;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.margin-t-15 {
+  margin-top: 15px;
+}
+
+.margin-t-5 {
+  margin-top: 5px;
+}
+
+.margin-t-10 {
+  margin-top: 10px;
+}
+
+.margin-r-10 {
+  margin-right: 10px;
+}
+
+.margin-r-15 {
+  margin-right: 15px;
+}
+
+.margin-r-5 {
+  margin-right: 5px;
+}
+
+.margin-b-15 {
+  margin-bottom: 15px;
+}
+
+.margin-b-10 {
+  margin-bottom: 10px;
+}
+
+.margin-b-5 {
+  margin-bottom: 5px;
+}
+
+.margin-l-15 {
+  margin-left: 15px;
+}
+
+.margin-l-10 {
+  margin-left: 10px;
+}
+
+.margin-l-5 {
+  margin-left: 5px;
+}
+
+.padding-t-10 {
+  padding-top: 10px;
+}
+
+.padding-t-15 {
+  padding-top: 15px;
+}
+
+.padding-b-15 {
+  padding-bottom: 15px;
+}
+
+.padding-b-10 {
+  padding-bottom: 10px;
+}
+
+.padding-t-5 {
+  padding-top: 5px;
+}
+
+.padding-b-5 {
+  padding-bottom: 5px;
+}
+
+.padding-l-5 {
+  padding-left: 5px;
+}
+
+.padding-l-15 {
+  padding-left: 15px;
+}
+
+.padding-t-5 {
+  padding-top: 5px;
+}
+
+.padding-r-5 {
+  padding-right: 5px;
+}
+
+.padded-15 {
+  padding: 15px;
+}
+
+.margin-t-10 {
+  margin-top: 20rpx;
+}
+
+.margin-t-15 {
+  margin-top: 30rpx;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.ellipsis-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/*主题色*/
+
+.themeColor {
+  color: #ffb12a !important;
+}
+
+.themeBgcolor {
+  background-color: #ffb12a !important;
+}
+
+/*隐藏滚动条*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/**
+*	fixed
+*/
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.fixed .back {
+  width: 24px;
+  height: 24px;
+  margin-left: 20px;
+}
+
+/**flex-box**/
+
+.flexCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/**image**/
+
+.images {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+page {
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  color: #333;
+  font-size: 14px;
+  position: relative;
+}
+
+.textRight {
+  text-align: right !important;
+}
+
+.textLeft {
+  text-align: left !important;
+}
+
+.fontSize14 {
+  font-size: 14px;
+  color: #666;
+}
+
+/******list 右箭头*******/
+
+.blockList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+}
+
+.blockList:active {
+  background: #efefef;
+}
+
+.blockList .listIcon {
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+}
+
+.blockList .listIcon image {
+  width: 100%;
+  height: 100%;
+}
+
+.blockList .listText {
+  flex: 1;
+  padding-left: 15px;
+  font-size: 15px;
+}
+
+.blockList .listText .msg {
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.blockList .listText .title {
+  font-size: 16px;
+}
+
+.blockList .listRightIcon {
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.blockList .listRightIcon image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.btnBox {
+  padding: 30px 16px;
+}
+
+.btnBox button {
+  background: #ffb12a;
+  border-radius: 24px;
+}
+
+.btnBox button.button-hover {
+  background: #ffb12a;
+}
+
+.btnBox button::after {
+  border: none;
+}
+
+.wxBtn button {
+  background: url('data:image/png;base64,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') no-repeat;
+  background-size: 100% 100%;
+}
+
+/**** list input输入****/
+
+.listInputBox {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+
+.listInputBox .listImage {
+  flex: 1;
+  text-align: right;
+  overflow: hidden;
+}
+
+.listInputBox .listImage .photoBox {
+  width: 24px;
+  height: 24px;
+  float: right;
+  overflow: hidden;
+}
+
+.listInputBox .listImage .photoBox image {
+  width: 100%;
+  height: 100%;
+}
+
+.listInputBox .listInput {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.listInputBox .listInput input {
+  width: 100%;
+  text-align: right;
+  font-size: 14px;
+  color: #666;
+  line-height: 26px;
+  height: 26px;
+}
+
+/**
+暂无数据
+*/
+
+.none {
+  min-width: 180px;
+  color: #ccc;
+  font-size: 14px;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.none .icon {
+  width: 120px;
+  margin: 0 auto;
+}
+
+.none .icon image {
+  display: block;
+  width: 100%;
+}
+
+.loadingMsg {
+  min-width: 180px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  padding: 20px 0;
+}

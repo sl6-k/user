@@ -1,0 +1,9 @@
+function getgoodstaglist(val) {
+  if (val != "" && val != undefined) {
+    var goodstag = val.split(',');
+    return goodstag;
+  }
+  return "";
+}
+
+module.exports = getgoodstaglist

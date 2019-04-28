@@ -1,0 +1,113 @@
+<!--pages/me/integralSettlement/integralSettlement.wxml-->
+<view class='container'>
+  <!-- 内容 -->
+  <view class='content'>
+
+    <!-- 无门店时 -->
+    <view class='blockBox' wx:if="{{UserAddress==null}}">
+      <view class='flexCenter blockLists' bindtap='bindSelectStore'>
+        <view class='flexCenter title'>
+          <text class='font-size-14'>请添加收货地址</text>
+        </view>
+        <view class='icon'>
+          <image class='images' mode='widthFix' src='https://image.fitfix.shop/shop/icon/rightIcon.png'></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 联系人收货信息 -->
+    <view class='information-2-wrapper margin-b-15' wx:if="{{UserAddress!=null}}">
+      <view class='information-one-line'>
+        <view class='information-name'>{{UserAddress.Linkmain}}</view>
+        <view class='information-phone'>{{UserAddress.Linkphone}}</view>
+        <view class='information-edit-img' bindtap='bindSelectStore'>
+          <image src='https://image.fitfix.shop/shop/icon/edit.png'></image>
+        </view>
+      </view>
+      <view class='information-two-line'>
+        <view class='information-address-wrap'>
+          <view class='information-address'>家</view>
+        </view>
+        <view class='information-address-detailed'>
+          {{UserAddress.AreaAddress}}{{UserAddress.AddressDetail}}
+        </view>
+      </view>
+      <view class='bottom-hr'>
+        <image src='https://image.fitfix.shop/shop/icon/bottom_hr.png'></image>
+      </view>
+    </view>
+
+    <!-- 商品 列表 -->
+    <view>
+      <view class='shoppListBox'>
+        <view class='padding-1-15' style='border-bottom:1px solid #eee;'>
+          <text>结算商品</text>
+        </view>
+        <view class='shopList' wx:for="{{integralList}}" wx:key>
+          <view class='flexCenter'>
+            <!-- 轮胎图 -->
+            <view class='shopImg'>
+              <image class='images' wx:if='{{item.GiftImage!="" && item.GiftImage!=undefined}}' src='{{pic+item.GiftImage}}' mode='scaleFill'></image>
+            </view>
+            <!-- 轮胎信息 -->
+            <view class='shopText'>
+              <view class='title'>
+                <text>{{item.GiftName}}</text>
+              </view>
+              <view class='guige'>
+                <text>描述：</text>
+                <block>
+                  <text>{{item.GiftContent}}</text>
+                </block>
+              </view>
+              <view class='buyCount'>
+                <view class='number'>
+                  <text>￥{{item.Integral}}</text>
+                </view>
+                <view class='count'>
+                  <text>x{{Number}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 支付方式 -->
+    <view class='blockBox'>
+      <view class='flexCenter blockLists'>
+        <view class='flexCenter title'>
+          <text>支付方式</text>
+          <text>积分兑换</text>
+        </view>
+        <view class='icon'>
+          <image class='images' mode='widthFix' src='https://image.fitfix.shop/shop/icon/rightIcon.png'></image>
+        </view>
+      </view>
+    </view>
+    <!-- 价格展示 -->
+    <view class='countBox'>
+      <view class='flexCenter countList red'>
+        <text>礼品价值</text>
+        <text>￥{{ValuePrice}}</text>
+      </view>
+      <view class='flexCenter countList green'>
+        <text>积分余额</text>
+        <text>￥{{BalanceIntegral}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 底部 -->
+  <view class='footer flexCenter'>
+    <!-- 价格 -->
+    <view class='price'>
+      <text>使用积分:</text>
+      <text>{{Integral}}分</text>
+    </view>
+    <!-- 提交订单 -->
+    <view class='btn' bindtap='OrderSubmit' data-integral='{{Integral}}' data-BalanceIntegral='{{BalanceIntegral}}'>
+      <text>提交订单</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+<view class='container'>
+
+  <view class="searchLetter touchClass">
+    <view class="thishotText" bindtap="hotCity">
+      <view style="margin-top:0;">热</view>
+    </view>
+    <view wx:for="{{letter}}" class='AZ' wx:key="index" data-letter="{{item}}" catchtouchend="clickLetter">{{item==null?'':item}}</view>
+  </view>
+  <block wx:if="{{isShowLetter}}">
+    <view class="showSlectedLetter">
+      {{showLetter}}
+    </view>
+  </block>
+  <!-- <view class='searchBox'>
+    <view class='searchInput'>
+      <icon type="search"></icon>
+      <input type='text' placeholder='输入汽车名称或字母查询' />
+    </view>
+  </view> -->
+  <scroll-view scroll-y="true" style="height:{{winHeight}}px;background:#fff;" bindscroll="bindScroll" scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+    <view>
+      <view class="hotcity hotcity-common">
+        <view class='tag'> 热门车型</view>
+      </view>
+      <view class="weui-grids">
+        <block wx:for-items="{{hotcityList}}" wx:key="{{index}}">
+          <view class="weui-grid " data-carCode="{{item.ID}}" data-car="{{item.brand}}" bindtap="bindHotCar">
+            <view class="weui-grid__label" data-children='{{ct.Sub}}'>{{item.brand}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 车型索引列表 -->
+    <view class="selection" wx:for="{{cartList}}" wx:key="{{item.Letter}}">
+      <view class="item_letter" id="{{item.Letter}}">
+        <view class='tag'>{{item.Letter}}</view>
+      </view>
+      <view class="item_city" wx:for="{{item.children}}" wx:for-item="ct" wx:key="{{ct.ID}}" data-carCode="{{ct.ID}}" data-car="{{ct.brand}}" bindtap="bindCity" data-children='{{ct.Sub}}'>
+        <view>
+          <!-- <image  src='https://img2.tuhu.org/Images/Logo/ASiDun·MaDing.png' ></image> -->
+        </view> {{ct.brand}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class='layer' wx:if="{{childrenhidden}}" catchtap='colseLayer'>
+    <scroll-view class='scrollBox' scroll-y="true">
+      <block wx:for="{{children}}" wx:for-item="brand" wx:key>
+        <view class="layer-letter">
+          <view class='layer-tag'>{{brand.brand}}</view>
+        </view>
+        <view class='childrenbox'>
+          <view class='list' wx:for="{{brand.children}}" data-id="{{item.ID}}" data-name="{{item.brand}}" data-pedar="{{brand.brand}}" wx:key="{{index}}" bindtap='bindGetCarID'>{{item.brand}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"navigation": "/pages/component/navigation/navigation"
+	},
+  "navigationBarTitleText": "我的车型库"
+}

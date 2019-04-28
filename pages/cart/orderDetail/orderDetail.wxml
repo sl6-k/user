@@ -1,0 +1,206 @@
+<!--pages/cart/orderDetail/orderDetail.wxml-->
+<view class='container'>
+  <!-- 提交订单未付款显示页面 -->
+  <view style='padding-bottom:44px;'>
+    <view style='background:#fff;'>
+      <!-- 提交订单，等待付款 -->
+      <view class='padded-15 flex'>
+        <view style='display: flex;align-items: center'>
+          <image src='https://image.fitfix.shop/shop/icon/hold.png' mode='widthFix' style='width:50px;'></image>
+        </view>
+        <view style='color:#ffb12a;width:75%;display: flex;align-items: center'>
+          <view>
+            <block wx:if="{{MemberOrderInfo.OrderState==-1}}">
+              <view>订单已取消</view>
+            </block>
+            <block wx:if="{{MemberOrderInfo.OrderState==1}}">
+              <view>您提交了订单，等待您付款</view>
+            </block>
+            <block wx:if="{{MemberOrderInfo.OrderState==2}}">
+              <view>您已付款，等待配送</view>
+            </block>
+            <block wx:if="{{MemberOrderInfo.OrderState==3}}">
+              <view>正在配送</view>
+            </block>
+            <block wx:if="{{MemberOrderInfo.OrderState==4}}">
+              <view>已到货，待安装</view>
+            </block>
+            <block wx:if="{{MemberOrderInfo.OrderState==5}}">
+              <view>已安装，待评价</view>
+            </block>
+            <block wx:if="{{MemberOrderInfo.OrderState==10}}">
+              <view>已完成</view>
+            </block>
+          </view>
+        </view>
+        <view style='display: flex;align-items: center'>
+          <image src='https://image.fitfix.shop/shop/icon/rightIcon.png' mode='widthFix' style='width:20px;'></image>
+        </view>
+      </view>
+      <!-- 配送至门店 -->
+      <view class='padded-15 flex-1' style='padding:15px;border-top:1px solid #eee;border-bottom:1px solid #eee;' wx:if="{{MemberOrderInfo.StoreID!=''}}">
+        <image src='https://image.fitfix.shop/shop/icon/iconLocal.png' mode='widthFix' class='margin-r-10' style='width:20px;'></image>
+        <view style='width:100%;'>
+          <view class='flex'>
+            <view>配送至门店</view>
+            <!-- <view>导航</view> -->
+          </view>
+          <view class='flex-1 margin-t-15'>
+            <image src='{{MemberOrderInfo.StoresImage}}' mode='widthFix' style='width:25%;'></image>
+            <view style='margin-left:15px; width:75%;'>
+              <view class='ellipsis-1 margin-b-5' style='font-size:16px;font-weight:bold;'>{{MemberOrderInfo.StoreName}}</view>
+              <view class='ellipsis-2 margin-b-5' style='color:#717171;font-size:14px;'>{{MemberOrderInfo.StoreAddress}}</view>
+              <view style='display:flex;flex-wrap:nowrap;color:#747474;font-size:12px;'>
+                <image src='https://image.fitfix.shop/shop/icon/user2.png' mode='widthFix' class='margin-r-5' style='width:15px;'></image>
+                <view class='margin-r-5'>{{MemberOrderInfo.Consignee}}</view>
+                <view>{{MemberOrderInfo.ConsigneePhone}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 车型 -->
+      <!-- <view class='padded-15 flex-1' wx:if="{{MyCar!=null}}">
+        <image src='https://image.fitfix.shop/shop/icon/user2.png' mode='widthFix' style='width:15px;height:15px;'></image>
+        <view class='margin-l-15' style='color:#6a6a6a;'>
+          <view class='ellipsis-1' >{{MyCar.brand}}</view>
+          <view class='ellipsis-1' >{{MyCar.ProductionYear}}-{{MyCar.Displacement}}{{MyCar.TireSpecification}}</view>
+        </view>
+      </view> -->
+      <view style='width:100%;' class='flex-1 padded-15' wx:if="{{MyCar!=null}}">
+        <view>
+          <image src='https://image.fitfix.shop/shop/icon/car.png' mode="widthFix" style="width:15px;height:15px;"></image>
+        </view>
+        <view class='padding-l-15' style='width:80%;'>
+          <view class='ellipsis-1'>{{MyCar.brand}}</view>
+          <view class='ellipsis-1 margin-t-5'>{{MyCar.ProductionYear}}-{{MyCar.Displacement}}{{MyCar.TireSpecification}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 商品服务信息 -->
+    <view style='background:#fff;' class='padded-15 margin-t-15'>
+      <view class='margin-b-5 flex-1'>
+        <view class='margin-r-10' style='height:20px;background:#ffb12a;width:3px;border-radius:15px;color:#616161;'></view>
+        <view>商品</view>
+        <!-- <view>包安装</view> -->
+      </view>
+      <view style='border-top:1px solid #eee;border-bottom:1px solid #eee;padding-top:15px; padding-bottom:15px;' wx:for="{{MemberOrderInfo.OrderItemList}}" wx:key data-goodsID="{{item.GoodsID}}" bindtap='openGoodsInfo'>
+        <view style='display:flex;flex:1;'>
+          <image src='{{item.GoodsImage}}' mode='aspectFill' style='width:50px;height:50px;'></image>
+          <view style='margin-left:15px;'>
+            <view>{{item.GoodsName}}</view>
+            <view class='ellipsis-2 font-size-12 margin-t-5' wx:if="{{item.GoodsSpec!=null&&item.GoodsSpec!=''}}">
+              <text>规格：</text>
+              <block wx:for-item="specItem" wx:for="{{item.GoodsSpec}}" wx:key>
+                <text>{{specItem}}</text>
+              </block>
+            </view>
+          </view>
+          <view style='text-align:right;width:20%;margin-left:5px; color:#a63040;'>￥{{item.GoodsPrice}}</view>
+        </view>
+        <view style='width:100%;text-align:right; color:#8c8c8c;'>×{{item.GoodsNumber}}</view>
+      </view>
+    </view>
+    <!-- 订单信息 -->
+    <view style='background:#fff;padding:0 15px;border-bottom:1px solid #eee;'>
+      <view style='padding-bottom:5px;'>
+        <text>订单编号：</text>
+        <text>{{MemberOrderInfo.OrderNo}}</text>
+      </view>
+      <view style='padding-bottom:5px;'>
+        <text>订单时间：</text>
+        <text>{{MemberOrderInfo.CreateDate}}</text>
+      </view>
+      <view style='padding-bottom:5px;'>
+        <text>支付方式：</text>
+        <text wx:if="{{MemberOrderInfo.PaymentMethod==1}}">到店支付</text>
+        <text wx:if="{{MemberOrderInfo.PaymentMethod==0}}">在线支付</text>
+      </view>
+      <view style='padding-bottom:5px;'>
+        <text>配送方式：</text>
+        <text>{{MemberOrderInfo.Distribution}}</text>
+      </view>
+      <view style='padding-bottom:15px'>
+        <text>支付状态：</text>
+        <text>{{MemberOrderInfo.PayStateName}}</text>
+      </view>
+    </view>
+
+    <!-- 商品总额 -->
+    <view style='background:#fff;'>
+      <view style='border-bottom:1px solid #eee;padding:15px;'>
+        <view class='totalCount'>
+          <view>商品总额：</view>
+          <view style='color:#3858585;'>￥{{MemberOrderInfo.OrderPrice}}</view>
+        </view>
+        <view class='totalCount'>
+          <view>运费：</view>
+          <view style='color:#3858585;'>+{{MemberOrderInfo.FreightMoney}}</view>
+        </view>
+        <view class='totalCount'>
+          <view>优惠：</view>
+          <view style='color:#3858585;'>-{{MemberOrderInfo.DiscountAmount}}</view>
+        </view>
+      </view>
+      <view style='width:100%;text-align:right;'>
+        <view style='padding:15px;'>实付款：
+          <text style='color:#a63040;'>￥{{MemberOrderInfo.RealAmount}}</text>
+        </view>
+      </view>
+
+      <view class='customerService'>
+        <view class='service' bindtap='bindService'>
+          <image src='https://image.fitfix.shop/shop/icon/kefu.png' mode='widthFix' class='margin-r-5' style='width:15px;'></image>
+          在线客服
+        </view>
+        <view class='makePhone' bindtap='bindMakePhone'>
+          <image src='https://image.fitfix.shop/shop/icon/tel.png' mode='widthFix' class='margin-r-5' style='width:15px;'></image>
+          电话咨询
+        </view>
+      </view>
+    </view>
+    <view style='width:100%;'>
+      <view class='buttom'>
+        <view wx:if="{{MemberOrderInfo.OrderState==1}}" class='button' bindtap='OrderPay'>支付</view>
+        <view wx:if="{{MemberOrderInfo.OrderState==1}}" class='button' bindtap='CancelOrder'>取消订单</view>
+        <view wx:if="{{MemberOrderInfo.OrderState==3||MemberOrderInfo.OrderState==2}}" class='button' bindtap='bindViewLogistics'>查看物流</view>
+        <view wx:if="{{MemberOrderInfo.OrderState==3&&MemberOrderInfo.IsInstall==true}}" class='button' bindtap='ConfirmReceipt'>确认收货</view>
+        <!-- <view wx:if="{{MemberOrderInfo.OrderState==4}}" style='border:1px solid #ccc;border-radius:5px;padding:5px;margin-right:15px;'>现在安装</view> -->
+        <view wx:if="{{MemberOrderInfo.OrderState==5}}" data-memberorderID="{{MemberOrderInfo.MemberOrderID}}" bindtap='toEvaluate' class='button'>评价</view>
+        <view wx:if="{{MemberOrderInfo.OrderState==5}}" bindtap='applyTicket' class='button'>申请开票</view>
+        <view wx:if="{{MemberOrderInfo.OrderState==5}}" bindtap='MemberOrderReturn' class='button'>退换货</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 物流信息弹出层 -->
+  <block wx:if="{{viewLogistics}}">
+    <view class='layerBox'>
+      <view class='content'>
+        <view class='padded-15 box'>
+          <view class='content-auto'>
+            <view class='padded-15'>
+              <text>物流名称：</text>
+              <text>{{MemberOrderInfo.Distribution}}</text>
+            </view>
+            <view class='padded-15'>
+              <text>物流单号：</text>
+              <text>{{MemberOrderInfo.LogisticsNumber}}</text>
+            </view>
+          </view>
+
+          <view class='submit-btn margin-t-15'>
+            <view class='padded-15' bindtap='closeViewLogistics'>
+              <text class='confirm'>确定</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<modal id="modal" hidden="{{hiddenmodalput}}" title="申请开票" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+      <input type='text' bindinput='applyMailAddress' placeholder="邮箱："/>
+</modal>

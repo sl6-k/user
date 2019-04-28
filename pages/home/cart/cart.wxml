@@ -1,0 +1,113 @@
+<view class='container'>
+  <!-- <navigation title="购物车" back="{{false}}"></navigation> -->
+  <view class='content' wx:if="{{GoodsList!=null && GoodsList.length>0}}">
+
+    <view class='all'>
+      <text>共有{{GoodsCount}}件宝贝</text>
+    </view>
+    
+    <checkbox-group wx:for="{{GoodsList}}" wx:key data-index="{{index}}" class="margin-b-15">
+      <view class='shopList'>
+        <view class='flexCenter'>
+          <text></text>
+          <view class='color' data-goodcarid="{{item.ID}}" bindtap='RemoveGoods'>
+            <text>删除</text>
+          </view>
+        </view>
+        <view class='flexCenter'>
+          <!-- 选择框 -->
+          <label class="checkbox" bindtap='BindCheck' data-GoodsCarID='{{item.ID}}' data-IsCheck="{{item.IsCheck}}">
+            <checkbox value='{{item.ID}}' data-name='check' checked='{{item.IsCheck}}' />
+          </label>
+
+          <!-- 轮胎图 -->
+          <view class='shopImg'>
+            <image class='images' src='{{item.GoodsImg}}' mode='widthFix'></image>
+          </view>
+
+
+          <!-- 轮胎信息 -->
+          <view class='shopText'>
+            <view class='title'>
+              <text>{{item.GoodsName}}</text>
+            </view>
+            <view class='guige' wx:if="{{item.Specifications!=''&&item.Specifications!=undefined}}">
+              <text>规格：</text>
+              <block wx:for-item="specItem" wx:for="{{item.Spec}}" wx:key>
+                <text>{{specItem}}</text>
+              </block>
+
+            </view>
+            <view class='number'>
+              <text>￥{{item.GoodsPrice}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='flexCenter priceQuantity'>
+          <view class='price'>
+            <!-- <text>总价:</text>
+            <text>￥{{product_cart.totalPrice}}</text> -->
+          </view>
+          <view class='quantity'>
+            <view class='button' data-goodcarid="{{item.ID}}" catchtap='bindSubtraction'>
+              <text>-</text>
+            </view>
+            <input value='{{item.Number}}' data-name="GoodsNumber" data-goodcarid="{{item.ID}}" type='number'></input>
+            <view class='button' data-goodcarid="{{item.ID}}" data-number="{{item.Number}}" catchtap='addition'>
+              <text>+</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </checkbox-group>
+
+
+    <!-- <view class='loadingMsg' wx:if="{{NotMore}}">
+      <text>~~没有更多了~~</text>
+    </view> -->
+    <!-- <view class='loadingMsg'>
+      <text>下拉加载更多  >></text>
+    </view> -->
+
+    <!-- 底部 -->
+    <view class='footer' wx:if="{{GoodsCount>0}}">
+      <view class='flexCenter'>
+        <!-- 左边 -->
+        <view class='left'>
+          <checkbox-group bindchange="AllCheck">
+            <label class="checkbox">
+              <checkbox color='#F15A24' checked='{{AllCheck}}' />全选
+            </label>
+          </checkbox-group>
+          <view class='boxText'>
+            <text>合计：</text>
+            <text>￥{{TotalPrice}}</text>
+          </view>
+        </view>
+        <!-- 右边 -->
+
+        <view class='btn' bindtap='Settlement' hover-class='none'>
+          <text>结算({{TotalGoodsNumber}})</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 购物车无内容 -->
+  <view wx:if="{{GoodsList==null ||GoodsList.length<=0}}">
+    <view class='none'>
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~你的购物车空空如野，什么也没有~~</text>
+      </view>
+    </view>
+    <view style='text-align:center;' bindtap='goProductList'>
+      <text style='border:1px solid red;padding:5px 15px;border:1px solid #ffb12a;color:#ffb12a;font-size:12px;border-radius:3px;'>去逛逛</text>
+    </view>
+  </view>
+
+</view>

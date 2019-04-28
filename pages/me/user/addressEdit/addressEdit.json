@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nyz_area_picker": "/pages/component/nyz_area_picker/nyz_area_picker"
+  },
+  "navigationBarTitleText": "新增收货地址"
+}

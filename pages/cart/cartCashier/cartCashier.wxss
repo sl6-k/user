@@ -1,0 +1,48 @@
+/* pages/cart/cartCashier/cartCashier.wxss */
+
+.container {
+}
+
+.container .cashier {
+  width: 100%;
+}
+
+.container .cashier-method {
+  
+}
+
+.container .cashier .cashier-hd {
+  text-align: center;
+  background: #fff;
+  padding: 15px;
+}
+
+.container .submitCashier {
+  padding: 15px;
+}
+
+button::after {
+  border: none;
+}
+
+.container .submitCashier .button {
+  background: #ffb12a;
+  color:#fff;
+}
+
+.container .cashier .cashier-bg {
+  margin-top: -8px;
+}
+
+.container .cashier .cashier-hd .total {
+  margin-bottom: 15px;
+}
+
+.container .cashier .cashier-hd .amount {
+  font-size: 24px;
+}
+.radio-img{
+  width: 20px;
+  height: 20px;
+  margin-left: 60%;
+}

@@ -1,0 +1,72 @@
+/* 分类 */
+
+/**分类栏**/
+
+.classify {
+  /* margin-top: 100rpx; */
+  background: #f4f5f7;
+}
+
+.left-navbar {
+  position: absolute;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background-color: #fff;
+  font-size: 15px;
+}
+
+.left-navbar view {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.active {
+  background-color: #f2f2f2;
+  color: #ffb12a;
+  font-size: 14px;
+}
+
+#right {
+  position: absolute;
+  right: 0;
+  width: 75%;
+}
+
+.img-banner {
+  height: 150rpx;
+  width: 100%;
+}
+
+.goods-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.goods-exhibition {
+  background: #fff;
+  margin-left: 20rpx;
+  height: 100%;
+}
+
+.goods-title {
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 30rpx;
+  background: #eee;
+}
+
+.goods {
+  width: 150rpx;
+  font-size: 14px;
+  padding: 15rpx;
+  text-align: center;
+  background: #fff;
+}
+
+.img {
+  width: 140rpx;
+  height: 140rpx;
+}

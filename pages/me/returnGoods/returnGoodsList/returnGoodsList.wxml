@@ -1,0 +1,230 @@
+<!--退货列表-->
+<view class='container'>
+  <view class='nav'>
+    <view class="{{selected1?'red':'default'}}" bindtap="selected1" data-current='0'>
+      <text>全部</text>
+    </view>
+    <view class="{{selected2?'red':'default'}}" bindtap="selected2" data-current='1'>
+      <text>已申请</text>
+    </view>
+    <view class="{{selected3?'red':'default'}}" bindtap="selected3" data-current='2'>
+      <text>处理中</text>
+    </view>
+    <view class="{{selected4?'red':'default'}}" bindtap="selected4" data-current='3'>
+      <text>已完成</text>
+    </view>
+  </view>
+
+
+  <view class="{{selected1?'show':'hidden'}}" style="overflow:auto;">
+    <view class='orderContainer'>
+      <view class='orderList' wx:if="{{MemberOrderAll!=null}}" wx:for="{{MemberOrderAll}}" wx:key>
+        <view data-memberorderid="{{item.MemberOrderID}}" data-orderNo="{{item.OrderNo}}" bindtap='MemberOrderDetails'>
+          <!-- 文字状态 -->
+          <view class='start'>
+            <view style='color:#999;'>订单号：{{item.OrderNo}}</view>
+
+            <view wx:if="{{item.ReturnState==1}}">{{item.ReturnStateName}}</view>
+            <view wx:if="{{item.ReturnState==2}}">{{item.ReturnStateName}}</view>
+            <view wx:if="{{item.ReturnState==3}}">{{item.ReturnStateName}}</view>
+
+          </view>
+          <view class='centents'>
+            <!-- 轮胎图片 -->
+            <view class='photo'>
+              <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='widthFix'></image>
+            </view>
+            <view class=' assesic'>
+              <!-- 中 -->
+              <view class='center'>
+                <view class='margin-t-5'>
+                  <text class='ellipsis-2' style='color:#000;'>{{item.OrderItemList[0].GoodsName}}</text>
+                </view>
+                <view class='margin-t-15' style='color:#999;'>
+                  <view class='margin-t-5'>
+                    <text>退货原因：</text>{{item.ReturnReason}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 按钮 -->
+        <view class='button'>
+          <view class='btn grensn' wx:if="{{item.ReturnState==1}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderReturnCancel'>
+            <text>取消</text>
+          </view>
+          <view class='btn grensn' wx:if="{{item.ReturnState==1}}" data-memberorderid="{{item.MemberOrderID}}" bindtap='MermberorderReturngGoodsTranslate'>
+            <text>已邮寄</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view class='none' wx:if="{{PageTotal==0}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+      <text>~~没有更多了~~</text>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+      <text>下拉加载更多  >></text>
+    </view>
+  </view>
+  <!-- 已申请 -->
+  <view class="{{selected2?'show':'hidden'}}" style="overflow:auto;">
+    <view class='orderContainer'>
+      <view class='orderList' wx:if="{{MemberOrder1!=null}}" wx:for="{{MemberOrder1}}" wx:key>
+        <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+          <!-- 文字状态 -->
+          <view class='start'>
+            <view style='color:#999;'>订单号：{{item.OrderNo}}</view>
+            <view>{{item.ReturnStateName}}</view>
+          </view>
+          <view class='centents'>
+            <!-- 轮胎图片 -->
+            <view class='photo'>
+              <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='widthFix'></image>
+            </view>
+            <view class=' assesic'>
+              <!-- 中 -->
+              <view class='center'>
+                <view class='margin-t-5'>
+                  <text class='ellipsis-2' style='color:#000;'>{{item.OrderItemList[0].GoodsName}}</text>
+                </view>
+                <view class='margin-t-15' style='color:#999;'>
+                  <view class='margin-t-5'>
+                    <text>申请理由：</text>{{item.ReturnReason}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 按钮 -->
+        <view class='button'>
+          <view class='btn grensn' data-memberorderid="{{item.MemberOrderID}}" wx:if="{{item.ReturnState==1}}" bindtap='MemberOrderReturnCancel'>
+            <text>取消</text>
+          </view>
+          <view class='btn grensn' data-memberorderid="{{item.MemberOrderID}}" wx:if="{{item.ReturnState==1}}" bindtap='MermberorderReturngGoodsTranslate'>
+            <text>已邮寄</text>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+    <view class='none' wx:if="{{PageTotal==0}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+      <text>~~没有更多了~~</text>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+      <text>下拉加载更多  >></text>
+    </view>
+  </view>
+  <!-- 处理中 -->
+  <view class="{{selected3?'show':'hidden'}}" style="overflow:auto;">
+    <view class='orderContainer'>
+      <view class='orderList' wx:if="{{MemberOrder2!=null}}" wx:for="{{MemberOrder2}}" wx:key>
+        <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+          <!-- 文字状态 -->
+          <view class='start'>
+            <view style='color:#999;'>订单号：{{item.OrderNo}}</view>
+            <view>{{item.ReturnStateName}}</view>
+          </view>
+          <view class='centents'>
+            <!-- 轮胎图片 -->
+            <view class='photo'>
+              <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='widthFix'></image>
+            </view>
+            <view class=' assesic'>
+              <!-- 中 -->
+              <view class='center'>
+                <view class='margin-t-5'>
+                  <text class='ellipsis-2' style='color:#000;'>{{item.OrderItemList[0].GoodsName}}</text>
+                </view>
+                <view class='margin-t-15' style='color:#999;'>
+                  <view class='margin-t-5'>
+                    <text>退货原因：</text>{{item.ReturnReason}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='none' wx:if="{{PageTotal==0}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+      <text>~~没有更多了~~</text>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+      <text>下拉加载更多  >></text>
+    </view>
+  </view>
+  <!-- 已完成 -->
+  <view class="{{selected4?'show':'hidden'}}" style="overflow:auto;">
+    <view class='orderContainer'>
+      <view class='orderList' wx:if="{{MemberOrder3!=null}}" wx:for="{{MemberOrder3}}" wx:key>
+        <view data-memberorderid="{{item.MemberOrderID}}" bindtap='MemberOrderDetails'>
+          <!-- 文字状态 -->
+          <view class='start'>
+            <view style='color:#999;'>订单号：{{item.OrderNo}}</view>
+            <view>{{item.ReturnStateName}}</view>
+          </view>
+          <view class='centents'>
+            <!-- 轮胎图片 -->
+            <view class='photo'>
+              <image class='images' src='{{item.OrderItemList[0].GoodsImage}}' mode='widthFix'></image>
+            </view>
+            <view class=' assesic'>
+              <!-- 中 -->
+              <view class='center'>
+                <view class='margin-t-5'>
+                  <text class='ellipsis-2' style='color:#000;'>{{item.OrderItemList[0].GoodsName}}</text>
+                </view>
+                <view class='margin-t-15' style='color:#999;'>
+                  <view class='margin-t-5'>
+                    <text>退货原因：</text>{{item.ReturnReason}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='none' wx:if="{{PageTotal==0}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>0&&AllPageNumber<=PageNumber}}">
+      <text>~~没有更多了~~</text>
+    </view>
+    <view class='loadingMsg' wx:if="{{AllPageNumber>PageNumber}}">
+      <text>下拉加载更多  >></text>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "附近门店",
+  "usingComponents": {
+    "nyz_area_picker": "../../component/nyz_area_picker_city/nyz_area_picker"
+  }
+}

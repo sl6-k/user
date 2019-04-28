@@ -1,0 +1,192 @@
+/*checkbox 选项框大小  */
+
+checkbox .wx-checkbox-input {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+/*checkbox选中后样式  */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+    background: #f15a24;
+    border-color: #f15a24;
+}
+
+/*checkbox选中后图标样式  */
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    width: 28rpx;
+    height: 28rpx;
+    line-height: 28rpx;
+    text-align: center;
+    font-size: 22rpx;
+    color: #fff;
+    background: transparent;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+/* 底部 */
+
+.footer {
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 16px;
+    height: 52px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.footer .left {
+    display: flex;
+    align-items: center;
+}
+
+.footer .left .checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #888;
+    margin-right: 16px;
+}
+
+.footer .left .checkbox checkbox {
+    margin-right: 10px;
+}
+
+.footer .left  .boxText {
+    color: #333;
+    font-size: 16px;
+}
+
+.footer .left  .boxText text:last-child {
+    color: #f15a24;
+}
+
+.footer .btn {
+    background: #f15a24;
+    line-height: 32px;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 16px;
+    border-radius: 16px;
+}
+
+/* 内容 */
+
+.content {
+    padding: 16px 16px 52px 16px;
+}
+
+.content .all {
+    font-weight: 500px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.content .shopList:last-child {
+    margin-bottom: 0;
+}
+
+.shopList {
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 16px 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.content .shopList .shopImg {
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+}
+
+.content .shopList .shopText {
+    flex: 1;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content .shopList .shopText .title {
+    font-size: 14px;
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.content .shopList .shopText .guige {
+    font-size: 12px;
+    font-weight: 500;
+    word-break: break-all;
+    color: #666;
+}
+
+.content .shopList .shopText .number {
+    font-size: 12px;
+    font-weight: 500;
+    word-break: break-all;
+    color: #faaf3b;
+}
+
+.content .shopList .priceQuantity {
+    padding-left: 35px;
+}
+
+.content .shopList .priceQuantity .price {
+    font-size: 16px;
+    color: #333;
+}
+
+.content .shopList .priceQuantity .price text:last-child {
+    font-size: 16px;
+    color: #faaf3b;
+}
+
+.content .shopList .priceQuantity {
+    padding-top: 10px;
+}
+
+.content .shopList .priceQuantity .quantity {
+    display: flex;
+	border: 1px solid #dedede;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.content .shopList .priceQuantity .quantity .button {
+    background: #fff;
+    color: #dedede;
+    box-sizing: border-box;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 28px;
+	
+}
+.content .shopList .color{
+	color: red;
+	margin-bottom: 8px;
+}
+.content .shopList .priceQuantity .quantity input {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    z-index: 0;
+}
+.loadingMsg {
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+    padding: 20px 0;
+}

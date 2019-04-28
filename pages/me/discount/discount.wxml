@@ -1,0 +1,239 @@
+<view class='container'>
+  <!-- <navigation title="我的优惠券" back="true"></navigation> -->
+  <view class='tabTitleBox'>
+    <view class='tabList {{current==0?"active":""}}' data-current='0' bindtap='tabClick'>
+      <text>未使用</text>
+    </view>
+    <view class='tabList {{current==1?"active":""}}' data-current='1' bindtap='tabClick'>
+      <text>已使用</text>
+    </view>
+    <view class='tabList {{current==2?"active":""}}' data-current='2' bindtap='tabClick'>
+      <text>已过期</text>
+    </view>
+  </view>
+  <swiper style='height:{{swiperHeight}}px;padding-top:15px;' bindchange="swiperAnmate" circular="{{true}}" class='swiper' current="{{current}}">
+
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <!-- 未使用 -->
+      <scroll-view scroll-y="true" class='container' bindscrolltoupper="" bindscrolltolower="getDiscountList">
+        <!-- 优惠券 -->
+        <block wx:for="{{discountList}}" wx:key>
+          <view class='scrollBox' bindtap='bindImmediateUse'>
+            <view class='flexCenter discountList'>
+              <view class='background'>
+                <image class='images' src='https://image.fitfix.shop/shop/icon/quan.png'></image>
+                <view class='box'>
+                  <!-- name -->
+                  <view class='name'>
+                    <view class='icon'>
+                      <image mode='widthFix' src='https://image.fitfix.shop/shop/icon/quanName.png'></image>
+                      <view class='text'>
+                        <text>{{item.ActivityName}}</text>
+                      </view>
+                    </view>
+                  </view>
+                  <!-- 价格 -->
+                  <view class='price'>
+                    <text>￥</text>
+                    <text>{{item.CouponPrice}}</text>
+                  </view>
+                  <!--  -->
+                  <!-- <view class='msg'>
+                    <text>{{item.CouponName}}</text>
+                  </view> -->
+                </view>
+              </view>
+              <view class='discountCentent'>
+                <view class='disNameBox'>
+                  <view class='title'>
+                    <text>{{item.CouponName}}</text>
+                  </view>
+                  <view class='flexCenter time'>
+                    <view class='iconBox'>
+                      <view class='icon'></view>
+                      <text>{{item.ValidMsg}}</text>
+                    </view>
+
+                    <view class='btn'>
+                      <text style='font-size:12px;'>立即使用</text>
+                    </view>
+                  </view>
+                </view>
+                <view class='msg'>
+                  <view class='icon'></view>
+                  <view class='text'>
+                    <text>{{item.ApplyGoodsString}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='loadingMsg' wx:if="{{total>0}}">
+          <text>~~没有更多了~~</text>
+        </view>
+        <view class='loadingMsg' bindtap='loadMore' wx:if="{{pageCount > pageNumber}}">
+          <text>加载更多</text>
+        </view>
+        <view class='none' wx:if="{{discountList==''}}">
+          <view class='icon'>
+            <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+          </view>
+          <view>
+            <text>~~暂无数据~~</text>
+          </view>
+        </view>
+
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <!-- 已使用 -->
+      <scroll-view scroll-y="true" class='container '>
+        <!-- 优惠券 -->
+        <block wx:for="{{discountList}}" wx:key>
+          <view class='scrollBox'>
+            <view class='flexCenter discountList'>
+              <view class='background'>
+                <image class='images' src='https://image.fitfix.shop/shop/icon/quan.png'></image>
+                <view class='box'>
+                  <!-- name -->
+                  <view class='name'>
+                    <view class='icon'>
+                      <image mode='widthFix' src='https://image.fitfix.shop/shop/icon/quanName.png'></image>
+                      <view class='text'>
+                        <text>{{item.ActivityName}}</text>
+                      </view>
+                    </view>
+                  </view>
+                  <!-- 价格 -->
+                  <view class='price'>
+                    <text>￥</text>
+                    <text>{{item.CouponPrice}}</text>
+                  </view>
+                  <!--  -->
+                  <!-- <view class='msg'>
+                    <text>{{item.CouponName}}</text>
+                  </view> -->
+                </view>
+              </view>
+              <view class='discountCentent'>
+                <!-- 状态图标 -->
+                <view class='start'>
+                  <image class='images' src='https://image.fitfix.shop/shop/icon/guoHover.png' mode='widthFix'></image>
+                </view>
+                <view class='disNameBox'>
+                  <view class='title'>
+                    <text>{{item.CouponName}}</text>
+                  </view>
+                  <view class='flexCenter time'>
+                    <view class='iconBox'>
+                      <view class='icon'></view>
+                      <text>{{item.ValidMsg}}</text>
+                    </view>
+
+                  </view>
+                </view>
+                <view class='msg'>
+                  <view class='icon'></view>
+                  <view class='text'>
+                    <text>{{item.ApplyGoodsString}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='loadingMsg' wx:if="{{total>0}}">
+          <text>~~没有更多了~~</text>
+        </view>
+        <view class='loadingMsg' wx:if="{{pageCount > pageNumber}}">
+          <text>加载更多</text>
+        </view>
+        <view class='none' wx:if="{{discountList==''}}">
+          <view class='icon'>
+            <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+          </view>
+          <view>
+            <text>~~暂无数据~~</text>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item catchtouchmove='catchTouchMove'>
+      <!-- 已过期 -->
+      <scroll-view scroll-y="true" class='container '>
+        <block wx:for="{{discountList}}" wx:key>
+          <view class='scrollBox'>
+            <view class='flexCenter discountList'>
+              <view class='background'>
+                <image class='images' src='https://image.fitfix.shop/shop/icon/quanHover.png'></image>
+                <view class='box'>
+                  <!-- name -->
+                  <view class='name'>
+                    <view class='icon'>
+                      <image mode='widthFix' src='https://image.fitfix.shop/shop/icon/quanNameHover.png'></image>
+                      <view class='text active'>
+                        <text>{{item.ActivityName}}</text>
+                      </view>
+                    </view>
+                  </view>
+                  <!-- 价格 -->
+                  <view class='price'>
+                    <text>￥</text>
+                    <text>{{item.CouponPrice}}</text>
+                  </view>
+                  <!--  -->
+                  <!-- <view class='msg'>
+                    <text>{{item.CouponName}}</text>
+                  </view> -->
+                </view>
+              </view>
+              <view class='discountCentent'>
+                <!-- 状态图标 -->
+                <view class='start'>
+                  <image class='images' src='https://image.fitfix.shop/shop/icon/guo.png' mode='widthFix'></image>
+                </view>
+                <view class='disNameBox'>
+                  <view class='title active'>
+                    <text>{{item.CouponName}}</text>
+                  </view>
+                  <view class='flexCenter time'>
+                    <view class='iconBox'>
+                      <view class='icon'></view>
+                      <text>{{item.ValidMsg}}</text>
+                    </view>
+
+                  </view>
+                </view>
+                <view class='msg'>
+                  <view class='icon'></view>
+                  <view class='text'>
+                    <text>{{item.ApplyGoodsString}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='loadingMsg' wx:if="{{total>0}}">
+          <text>~~没有更多了~~</text>
+        </view>
+        <view class='loadingMsg' bindtap='loadMore' wx:if="{{pageCount > pageNumber}}">
+          <text>加载更多</text>
+        </view>
+        <view class='none' wx:if="{{discountList==''}}">
+          <view class='icon'>
+            <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+          </view>
+          <view>
+            <text>~~暂无数据~~</text>
+          </view>
+        </view>
+      </scroll-view>
+
+    </swiper-item>
+
+  </swiper>
+</view>

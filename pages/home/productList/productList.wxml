@@ -1,0 +1,326 @@
+<wxs module="getgoodstaglist" src="../../../filter/goodsListtag.wxs"></wxs>
+<view class='container'>
+  <!-- <navigation title="商品列表" back="true"></navigation> -->
+  <view class='shopCentent'>
+    <view class='selectBox'>
+        <picker wx:if="{{tyreSizeShow}}" bindchange="bindPickerChange" value="{{index}}" range="{{tyreSizeArr}}">
+          <view class='tyreSizeDefault'>
+            {{tyreText}}
+          </view>
+        </picker>
+        <image wx:if="{{tyreSizeShow}}" class='down' src='../../../image/icon/down.png'></image>
+        <view wx:if="{{tyreSizeShow}}" class='hrDown'></view>
+      <!-- 搜索框样式 -->
+      <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="请输入查询内容" value="{{searchValue}}" bindinput='searchInput' />
+            <view class="weui-icon-clear" wx:if="{{SearchData.value.length > 0}}" bindtap="SearchClear">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+        </view>
+        <view class="weui-search-bar__cancel-btn" bindtap="SearchConfirm">
+          <text>搜索</text>
+        </view>
+      </view>
+      <!-- <view class='selectList' bindtap='selectCarBrand'>
+        <text wx:if="{{carName.brandType=='全部'}}">{{carName.brandType}}</text>
+        <text wx:if="{{carName.brandType!='全部'}}">{{carName.brandType}}{{carName.VehicleSystem}}</text>
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view>
+      <view class='selectList' data-type="{{typeList}}" data-pedar="{{carName.brandType}}" data-name="{{carName.VehicleSystem}}" bindtap='selectTyreType'>
+        <text>{{vehicleSystem}}</text>
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view> -->
+      <!-- <view class='selectList' bindtap='bindSetTop'>
+        <view class="icon {{isTop?'isTop':'top'}}">
+          <text>√</text>
+        </view>
+        <text style="margin-left:5px;color:{{isTop?'#faaf3b':''}};">置顶原配轮胎</text>
+      </view>
+      <view class='selectList' bindtap='SelectOrderBy'>
+        <text>综合排序</text>
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view>
+      <view class='selectList' bindtap='openScreen'>
+        <text>筛选</text>
+        <view class='icon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconB2.png'></image>
+        </view>
+      </view> -->
+    </view>
+    <!-- <view class='tyreWrap'>
+        <text>轮胎尺寸</text>
+        <text data-tyreSzie='14' bindtap='setTyreSize'>14寸</text>
+        <text data-tyreSzie='15' bindtap='setTyreSize'>15寸</text>
+        <text data-tyreSzie='16' bindtap='setTyreSize'>16寸</text>
+        <text data-tyreSzie='17' bindtap='setTyreSize'>17寸</text>
+        <text data-tyreSzie='18' bindtap='setTyreSize'>18寸</text>
+    </view> -->
+    <view class='shopLIistBox margin-t-15' wx:if="{{GoodsDataList.length>0}}">
+      <!-- 商品列表 -->
+      <navigator url='/pages/home/goods/goods?GoodsID={{item.GoodsID}}' wx:for="{{GoodsDataList}}" hover-class='none' class='listBox' wx:key>
+        <view class='shopImg'>
+          <image class='images' src='{{item.GoodsImage}}' mode='widthFix'></image>
+        </view>
+        <view class='content'>
+          <view class='title'>
+            <text>{{item.GoodsName}}</text>
+          </view>
+          <view class='msg'>
+            <text>{{item.GoodSellingPoint}}</text>
+          </view>
+          <view class='size' wx:if="{{item.GoodsTag!=''&&item.GoodsTag!=undefined}}">
+            <block wx:for-item="tagItem" wx:for="{{item.GoodsTag}}" wx:key>
+              <text class='sign'>{{tagItem}}</text>
+            </block>
+          </view>
+          <view class='price'>
+            <text>￥{{item.GoodsPrice}}</text>
+          </view>
+        </view>
+      </navigator>
+      <view class='loadingMsg' wx:if="{{AllPageNumber>pageNumber}}">
+        <text>加载更多 >></text>
+      </view>
+      <view class='loadingMsg' wx:if="{{AllPageNumber<=pageNumber}}">
+        <text>~~没有更多了~~</text>
+      </view>
+    </view>
+    <view class='none' wx:if="{{GoodsDataList.length<=0}}">
+      <view class='icon'>
+        <image src='https://image.fitfix.shop/shop/icon/none.png' mode='widthFix'></image>
+      </view>
+      <view>
+        <text>~~暂无数据~~</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='layer' wx:if="{{childrenhidden}}" catchtap='colseLayer'>
+    <scroll-view class='scrollBox' scroll-y="true">
+      <view class='padded-15'>
+        <view>
+          <view>品牌</view>
+          <view class='margin-t-15 flex'>
+            <view class='layer-label active'>
+              <text style=''>倍耐力</text>
+            </view>
+            <view class='layer-label'>
+              <text style=''>倍耐力</text>
+            </view>
+            <view class='layer-label'>
+              <text style=''>倍耐力</text>
+            </view>
+            <view class='layer-label'>
+              <text style=''>倍耐力</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='margin-t-10'>
+          <view>花纹</view>
+          <view>
+            <view class="flex margin-t-10 padding-t-5 padding-b-5">
+              <view>倍耐力</view>
+            </view>
+            <view class='flex'>
+              <view class='flex-label'>
+                <text>倍耐力</text>
+              </view>
+              <view class='flex-label'>
+                <text>倍耐力</text>
+              </view>
+            </view>
+          </view>
+
+          <view>
+            <view class="flex margin-t-10 padding-t-5 padding-b-5">
+              <view>韩泰</view>
+            </view>
+            <view class='flex'>
+              <view class='flex-label'>
+                <text>倍耐力</text>
+              </view>
+              <view class='flex-label'>
+                <text>倍耐力</text>
+              </view>
+            </view>
+          </view>
+
+          <view>
+            <view class="flex margin-t-10 padding-t-5 padding-b-5">
+              <view>马牌</view>
+            </view>
+            <view class='flex'>
+              <view class='flex-label'>
+                <text>倍耐力</text>
+              </view>
+              <view class='flex-label'>
+                <text>倍耐力</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 防爆 -->
+        <view>
+          <view class="flex margin-t-10 padding-t-5 padding-b-5">
+            <view>防爆</view>
+          </view>
+          <view class='flex'>
+            <view class='flex-label'>
+              <text>倍耐力</text>
+            </view>
+            <view class='flex-label'>
+              <text>倍耐力</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 季节 -->
+        <view>
+          <view class="flex margin-t-10 padding-t-5 padding-b-5">
+            <view>季节</view>
+          </view>
+          <view class='flex'>
+            <view class="season">
+              <text>春季</text>
+            </view>
+            <view class='season'>
+              <text>夏季</text>
+            </view>
+            <view class="season">
+              <text>秋季</text>
+            </view>
+            <view class='season'>
+              <text>冬季</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 季节 -->
+        <view>
+          <view class="flex margin-t-10 padding-t-5 padding-b-5">
+            <view>季节</view>
+          </view>
+          <view class='flex'>
+            <view class="season">
+              <text>春季</text>
+            </view>
+            <view class='season'>
+              <text>夏季</text>
+            </view>
+            <view class="season">
+              <text>秋季</text>
+            </view>
+            <view class='season'>
+              <text>冬季</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 季节 -->
+        <view>
+          <view class="flex margin-t-10 padding-t-5 padding-b-5">
+            <view>季节</view>
+          </view>
+          <view class='flex'>
+            <view class="season">
+              <text>春季</text>
+            </view>
+            <view class='season'>
+              <text>夏季</text>
+            </view>
+            <view class="season">
+              <text>秋季</text>
+            </view>
+            <view class='season'>
+              <text>冬季</text>
+            </view>
+          </view>
+        </view>
+        <!-- 季节 -->
+        <view>
+          <view class="flex margin-t-10 padding-t-5 padding-b-5">
+            <view>季节</view>
+          </view>
+          <view class='flex'>
+            <view class="season">
+              <text>春季</text>
+            </view>
+            <view class='season'>
+              <text>夏季</text>
+            </view>
+            <view class="season">
+              <text>秋季</text>
+            </view>
+            <view class='season'>
+              <text>冬季</text>
+            </view>
+          </view>
+        </view>
+        <!-- 季节 -->
+        <view>
+          <view class="flex margin-t-10 padding-t-5 padding-b-5">
+            <view>季节</view>
+          </view>
+          <view class='flex'>
+            <view class="season">
+              <text>春季</text>
+            </view>
+            <view class='season'>
+              <text>夏季</text>
+            </view>
+            <view class="season">
+              <text>秋季</text>
+            </view>
+            <view class='season'>
+              <text>冬季</text>
+            </view>
+          </view>
+        </view>
+        <!-- 季节 -->
+        <view>
+          <view class="flex margin-t-10 padding-t-5 padding-b-5">
+            <view>季节</view>
+          </view>
+          <view class='flex'>
+            <view class="season">
+              <text>春季</text>
+            </view>
+            <view class='season'>
+              <text>夏季</text>
+            </view>
+            <view class="season">
+              <text>秋季</text>
+            </view>
+            <view class='season'>
+              <text>冬季</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class='flexCenter footer'>
+      <!-- 加入购物车 立即购买 -->
+      <view class='footerBtnBox'>
+        <view class='cartBtn' bindtap='open'>
+          <text>重置</text>
+        </view>
+        <view class='buyBtn' bindtap='open'>
+          <text>确定</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

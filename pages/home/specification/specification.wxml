@@ -1,0 +1,47 @@
+<view class='content'>
+  <view class='brand-type'>
+    <!-- 车辆品牌型号 -->
+    <view style='brandName'>
+      {{options.pedar}}-{{options.name}}
+    </view>
+    <!-- 轮胎型号 -->
+    <view wx:for="{{tyreType}}" data-index="{{index}}" wx:key bindtap='selectTyreType'>
+      <view class='brand'>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='box'>
+    <!-- 问答 -->
+    <view class='questionsBox'>
+      <view class='questionsList'>
+        <view class='icon bg1'>
+          <text>问</text>
+        </view>
+        <view class='text'>
+          <text>如何知道轮胎规格？</text>
+        </view>
+      </view>
+      <view class='questionsList'>
+        <view class='icon bg2'>
+          <text>问</text>
+        </view>
+        <view class='text'>
+          <text>在轮胎的胎侧都慕刻了轮胎的规格，下图中的225/55R16即是轮胎规格。</text>
+        </view>
+      </view>
+    </view>
+    <!-- 轮胎图片实例 -->
+    <view class='img'>
+      <image src='https://image.fitfix.shop/shop/banner/guige.png' mode='widthFix'></image>
+    </view>
+    <!-- 选择 -->
+    <picker mode="multiSelector" range="{{specification}}" bindchange="bindGetVehicleSystem">
+      <view class='picker'>
+        <view style='font-size:12px;'> {{vehicleSystem==''?'请选择要查询的型号':vehicleSystem}}</view>
+        <icon type="search" size="26" color="#faaf3b" catchtap='searchVehicleSystem'/>
+      </view>
+    </picker>
+
+  </view>
+</view>

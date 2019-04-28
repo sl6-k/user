@@ -1,0 +1,29 @@
+<view class='container'>
+  <view class='service'>
+    <view class='tellBox'>
+      <view class='iconBox'>
+        <view class='icon'>
+          <image class='images' src='https://image.fitfix.shop/shop/icon/kefus.png' mode='widthFix'></image>
+        </view>
+        <view>
+          <text>客服热线</text>
+        </view>
+      </view>
+      <view class='tell'>
+        <text>联系电话：</text>
+        <text>0917-3859999</text>
+      </view>
+      <view class='time'>
+        <text>工作时间：09:00-18:00</text>
+      </view>
+      <view class='btnBoxs'>
+        <view>
+          <button open-type='contact' class='btn open' bindtap='handleContact'>联系客服</button>
+          <contact-button type="default-light" size="20" session-from="weapp">
+          </contact-button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

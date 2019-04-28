@@ -1,0 +1,54 @@
+<view class='container'>
+  <!-- <navigation title="全部评价" back="{{true}}" border="{{true}}"></navigation> -->
+  <view class='evaluateBox' wx:if="{{GoodsCommontList!=null && GoodsCommontList.length>0}}">
+    <view class='title'>
+      <!-- <text>全部评价 （99+）</text> -->
+    </view>
+    <!--评价列表 -->
+    <view class='evaluateListBox'>
+      <view class='evaluateList' wx:for="{{GoodsCommontList}}" wx:key>
+        <view class='photo'>
+          <image src="{{item.UserPic==undefined||item.UserPic==''?'https://image.fitfix.shop/shop/icon/photo.png':imgUrl+item.UserPic}}" mode='scaleToFill'></image>
+        </view>
+        <view class='evaluateCentent'>
+          <!-- 购买人  评价日期 -->
+          <view class='titleTime flexCenter'>
+            <view class='titles'>
+              <text>{{item.TrueName}}</text>
+              <!-- <text>大众 迈腾</text> -->
+            </view>
+            <view class='time'>
+              <text>{{item.Createdate}}</text>
+            </view>
+          </view>
+          <!-- 评分 -->
+          <view class='share'>
+            <view class='numberBg'>
+              <view class='ovflow' style='width:calc({{item.StarLevel}}*20%);'>
+                <image src='https://image.fitfix.shop/shop/icon/start-hover.png' mode='widthFix'></image>
+              </view>
+            </view>
+          </view>
+          <!-- 评论内容 -->
+          <view class='textCentent'>
+            <text>{{item.CommentContent}}</text>
+          </view>
+          <!-- 点名   购买日期 -->
+          <view class='shopNameTime flexCenter'>
+            <text class='ellipsis-1 margin-r-5'></text>
+            <text class='ellipsis-1 margin-l-5' wx:if="{{item.PayDate!=''}}">购买日期：{{item.PayDate}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='loadingMsg' wx:if="{{GoodsCommontList!=null&&commentData.pagecount <=1}}">
+    <text>~~没有更多了~~</text>
+  </view>
+  <view class='loadingMsg' wx:if="{{GoodsCommontList==null || GoodsCommontList.length<=0}}">
+    <text>~~暂无数据~~</text>
+  </view>
+  <view class='loadingMsg' wx:if="{{commentData.pagecount >1}}" bindtap='onReachBottom'>
+    <text>加载更多</text>
+  </view>
+</view>

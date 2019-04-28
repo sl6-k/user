@@ -1,0 +1,88 @@
+/* 工人评价 */
+
+/* 页面容器样式 */
+
+.container {
+}
+
+.container .bg {
+  background: #fff;
+  border-top: 1px solid #eee;
+  overflow: hidden;
+}
+
+/* 工人信息 */
+
+.worker .text {
+  margin-top: 5px;
+}
+
+/* 评价 */
+
+.evaluation {
+}
+
+.evaluation .score {
+  display: flex;
+  align-items: center;
+}
+
+.evaluation .score .image-yes {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10px;
+}
+
+.evaluation .score .image-no {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10px;
+}
+
+/* 自定义 radio 样式 */
+
+radio {
+  width: 38rpx;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border: none;
+  background: red;
+}
+
+radio .wx-radio-input {
+  border-radius: 50%;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+/* 选中后的样式 （可根据设计稿需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%;
+  width: 44rpx;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  font-size: 26rpx; /* 对勾大小 26rpx */
+  color: #fff; /* 对勾颜色 */
+  background: #faaf3b;
+  border-color: #faaf3b;
+}
+
+/* 评论样式结束 */
+
+/* 新增地址 */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #faaf3b;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+}

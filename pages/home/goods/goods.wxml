@@ -1,0 +1,297 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<wxs module="getgoodstaglist" src="../../../filter/goodsListtag.wxs"></wxs>
+<view class='container '>
+  <view class='footerPadding' wx:if="{{GoodsData!=null}}">
+    <view class='detailsBox'>
+      <swiper indicator-dots="true" autoplay="true" circular="true" class='swiper' indicator-active-color="#fff">
+        <swiper-item wx:for="{{GoodsImage}}" wx:key>
+          <image src='{{GoodsImagePath+item}}' mode='aspectFit' class='swiperImg'></image>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <!-- 未选择车型的提示 -->
+
+    <view class="weui_cells weui_cells_access" bindtap='openSelectCar'>
+      <a class="weui_cell" href="javascript:;">
+        <view class="weui_cell_hd">
+          <image src="/image/icon/warn.png" alt="icon"></image>
+        </view>
+        <view class="weui_cell_bd weui_cell_primary margin-l-5">
+          <p>选择车型后购买，避免商品与车型不适配</p>
+        </view>
+        <view class="weui_cell_ft"></view>
+      </a>
+    </view>
+
+    <view class='headerBox'>
+      <!-- 头部分 -->
+      <!-- 价格 -->
+      <view class='flexCenter count'>
+        <view class='price'>
+          <view class='number'>
+            <view class='actual'>
+              <text>￥</text>
+              <text>{{GoodsPrice}}</text>
+            </view>
+            <view class='dele' wx:if="{{GoodsData.MarkingPrice>0}}">
+              <text>￥{{GoodsData.MarkingPrice}}</text>
+            </view>
+          </view>
+          <view class='tag' wx:if="{{GoodsTag.length>0}}">
+            <text wx:for="GoodsTag">{{item}}</text>
+          </view>
+          <view class='tag' wx:if="{{GoodsData.CouponName!=''&&GoodsData.CouponName!=undefined}}">
+            <text>可使用优惠券</text>
+            <text>{{GoodsData.CouponName}}</text>
+          </view>
+
+        </view>
+        <view class='share'>
+          <view class='shareIcon'>
+            <button open-type="share"></button>
+            <view>
+              <text>分享</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 名字 -->
+      <view class='title margin-b-5'>
+        <text>{{GoodsData.GoodsName}}</text>
+      </view>
+      <!-- 特点 -->
+      <view class='tag' wx:if="{{GoodsData.GoodsTag!=''&&GoodsData.GoodsTag!=undefined}}">
+        <block wx:for-item="tagItem" wx:for="{{getgoodstaglist(GoodsData.GoodsTag)}}" wx:key>
+          <text class='sign'>{{tagItem}}</text>
+        </block>
+      </view>
+      <!-- 数量 -->
+      <view class='flexCenter amount'>
+        <view class='amountName'>
+          <text>购买数量</text>
+        </view>
+        <view class='flexCenter amountEdit'>
+          <view class='btn {{GoodsNumber>0?"btnActive":""}}' bindtap='GoodsNumberReduction'>
+            <text>-</text>
+          </view>
+          <input value='{{GoodsNumber}}'></input>
+          <view class='btn btnActive' bindtap='GoodsNumberAdd'>
+            <text>+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 购物流程 -->
+    <view class='flowing'>
+      <view class='title'>
+        <text>购物流程</text>
+      </view>
+      <view class='flowingImg'>
+        <image src='https://image.fitfix.shop/shop/icon/liucheng.png' mode='widthFix'></image>
+      </view>
+    </view>
+
+    <!-- 规格参数 -->
+    <view class='specification' wx:if="{{GoodsData.SpecParameterList!=''&&GoodsData.SpecParameterList!=null&&GoodsData.SpecParameterList!=undefined}}">
+      <view class='title'>
+        <text>规格参数</text>
+      </view>
+      <view class='specificationCentent'>
+        <view class='table'>
+          <view class='tr' wx:for="{{GoodsData.SpecParameterList}}" wx:key wx:for-item="temp">
+            <view class='td'>{{temp.Name}}</view>
+            <view class='td'>{{temp.Value}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 评价 -->
+    <view class='evaluateBox'>
+      <view class='title'>
+        <text>全部评价 （{{GoodsCommontList.total}}）</text>
+      </view>
+      <!--评价列表 -->
+      <view class='evaluateListBox'>
+        <view class='evaluateList' wx:for="{{GoodsCommontList.data}}" wx:key>
+          <view class='photo'>
+            <image class='images' src="{{item.UserPic == ''?'https://image.fitfix.shop/shop/icon/store-default.png':imgUrl+item.UserPic}}" mode='scaleToFill'></image>
+          </view>
+          <view class='evaluateCentent'>
+            <!-- 购买人  评价日期 -->
+            <view class='titleTime flexCenter'>
+              <view class='titles'>
+                <text>{{item.TrueName}}</text>
+                <!-- <text>{{item.GoodsName}}</text> -->
+              </view>
+              <view class='time'>
+                <text>{{item.Createdate}}</text>
+              </view>
+            </view>
+            <!-- 评分 -->
+            <view class='share'>
+              <view class='numberBg'>
+                <view class='ovflow' style='width:calc({{item.StarLevel}}*20%);'>
+                  <image src='https://image.fitfix.shop/shop/icon/start-hover.png' mode='widthFix'></image>
+                </view>
+              </view>
+            </view>
+            <!-- 评论内容 -->
+            <view class='textCentent'>
+              <text>{{item.CommentContent}}</text>
+            </view>
+            <!-- 点名   购买日期 -->
+            <view class='shopNameTime flexCenter'>
+              <text class='ellipsis-1 margin-r-5'></text>
+              <text class='ellipsis-1 margin-l-5' wx:if="{{item.PayDate!=''}}">购买日期：{{item.PayDate}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='loadingMsg' wx:if="{{GoodsCommontList.data==null || GoodsCommontList.data.length<=0}}">
+          <text>~~暂无评论~~</text>
+        </view>
+        <!-- 查看跟多 -->
+        <view class='localtion' data-id="{{GoodsData.GoodsID}}" bindtap='bindGetMoreCommont' wx:if="{{GoodsCommontList.total>PageSize}}">查看全部评价</view>
+      </view>
+    </view>
+
+    <!-- 商品详情 -->
+    <view class='characterBox'>
+      <view class='title'>
+        <text>商品详情</text>
+      </view>
+      <view class='content'>
+        <template is="wxParse" data="{{wxParseData:dkcontent.nodes}}" />
+      </view>
+    </view>
+
+    <!-- 底部 -->
+    <view class='flexCenter footer'>
+      <!-- 客服 -->
+      <view class=' service'>
+        <view class='iconList' bindtap='bindServer'>
+          <view class='icon'>
+            <image class='images' src='https://image.fitfix.shop/shop/icon/iconKe.png' mode='widthFix'></image>
+          </view>
+          <view>
+            <text>在线客服</text>
+          </view>
+        </view>
+        <view class='iconList' bindtap='bindSelectCar'>
+          <view class='icon'>
+            <image class='images' src='https://image.fitfix.shop/shop/icon/carts.png' mode='widthFix'></image>
+          </view>
+          <view>
+            <text>购物车</text>
+          </view>
+        </view>
+      </view>
+      <!-- 加入购物车 立即购买 -->
+      <view class='footerBtnBox'>
+        <view class='cartBtn' bindtap='open'>
+          <text>加入购物车</text>
+        </view>
+        <view class='buyBtn' data-id="{{GoodsData.GoodsID}}" bindtap='bindImmediatePurchase'>
+          <text>立即购买</text>
+        </view>
+      </view>
+    </view>
+    <!-- 弹出层 -->
+    <view class='layer' hidden='{{layer}}'>
+      <view class='layerBox'>
+        <!-- 轮胎图片 价格 -->
+        <view class='shopText'>
+          <view class='img'>
+
+            <image class='images' wx:if="{{productImage!=null}}" src='{{GoodsImagePath+productImage}}' mode='widthFix'></image>
+          </view>
+          <view class='price'>
+            <view class=' flexCenter'>
+              <text></text>
+              <view bindtap='close' class='close'>
+                <image class='images' src='https://image.fitfix.shop/shop/icon/deleIcon1.png' mode='widthFix'></image>
+              </view>
+            </view>
+            <view class='number'>
+              <view class='time'>
+                <text>限时促销￥</text>
+                <text>{{GoodsSpecPrice}}</text>
+              </view>
+              <view class='grcool' wx:if="{{GoodsData.MarkingPrice>0}}">
+                <text>{{GoodsData.MarkingPrice}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- msg -->
+        <!-- 规格 -->
+        <view class='specificationBox' wx:if="{{Spec1!=null}}">
+          <view class='flexCenter title'>
+            <view>
+              <text>{{Spec1.SpecName}}</text>
+            </view>
+          </view>
+          <view class='listBox' wx:if="{{Spec1.SpecValue!=null&&Spec1.SpecValue!=''}}">
+            <!--active-->
+            <view class='list {{Spec1Value!=""&&item==Spec1Value?"active":""}}' data-specname="{{Spec1.SpecName}}" data-specindex="1" data-specvalue="{{item}}" bindtap='selectSpec' wx:for="{{Spec1.SpecValue}}" wx:key>
+              <text>{{item}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='specificationBox' wx:if="{{Spec2!=null}}">
+          <view class='flexCenter title'>
+            <view>
+              <text>{{Spec2.SpecName}}</text>
+            </view>
+          </view>
+          <view class='listBox'>
+            <view class='list {{Spec2Value!=""&&item==Spec2Value?"active":""}}' data-specname="{{Spec2.SpecName}}" data-specindex="2" data-specvalue="{{item}}" bindtap='selectSpec' wx:for="{{Spec2.SpecValue}}" wx:key>
+              <text>{{item}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='specificationBox' wx:if="{{Spec3!=null}}">
+          <view class='flexCenter title'>
+            <view>
+              <text>{{Spec3.SpecName}}</text>
+            </view>
+          </view>
+          <view class='listBox'>
+            <view class='list {{Spec3Value!=""&&item==Spec3Value?"active":""}}' data-specname="{{Spec3.SpecName}}" data-specindex="3" data-specvalue="{{item}}" bindtap='selectSpec' wx:for="{{Spec3.SpecValue}}" wx:key>
+              <text>{{item}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='specificationBox'>
+          <view class='flexCenter title'>
+            <view>
+              <text>购买数量</text>
+            </view>
+            <view class='flexCenter amountEdit'>
+              <view class='btn {{GoodsNumber>0?"btnActive":""}} ' bindtap='GoodsNumberReduction'>
+                <text>-</text>
+              </view>
+              <input value='{{GoodsNumber}}'></input>
+              <view class='btn btnActive' bindtap='GoodsNumberAdd'>
+                <text>+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- msg -->
+        <view class='msgs'>
+          <text>可在专业汽车网站查询自己车型的“参数配置”</text>
+        </view>
+        <view class='okBtn'>
+          <view class='btn' catchtap='AddShopCar'>
+            <text>确定</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

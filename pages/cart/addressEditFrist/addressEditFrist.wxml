@@ -1,0 +1,55 @@
+<!--pages/cart/addressEditFrist/addressEditFrist.wxml-->
+<view class='container'>
+  <!-- <navigation title="{{title}}" back="true" border="true"></navigation> -->
+  <!-- 个人资料 -->
+  <view class='box'>
+    <view class='listInputBox flexCenter'>
+      <view class='listTitle'>
+        <text>收货人</text>
+      </view>
+      <view class='listInput'>
+        <input type='text' placeholder='填写收货人姓名' bindinput='bindConsigneeName' value='{{consignee.name}}' />
+      </view>
+    </view>
+    <view class='listInputBox flexCenter'>
+      <view class='listTitle'>
+        <text>手机号码</text>
+      </view>
+      <view class='listInput'>
+        <input type='text' placeholder='填写收货人手机号' bindinput='bindConsigneePhone' value='{{consignee.phone}}' />
+      </view>
+    </view>
+    <!-- <view class='listInputBox flexCenter'>
+      <view class='listTitle'>
+        <text>所在地区</text>
+      </view>
+      <view class='listInput'>
+        <view class="picker" bindtap='bindConsigneeRegion'>
+          <view class="font-size-12 {{consignee.RegionString==null?'font-color':''}}">{{consignee.RegionString == null?'请选择所在地区':consignee.RegionString}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='listInputBox flexCenter'>
+      <view class='listTitle'>
+        <text>详细地址</text>
+      </view>
+      <view class='listInput'>
+        <input type='text' placeholder='街道、楼牌号等' bindinput='bindConsigneeAddress' value='{{consignee.address}}' />
+      </view>
+    </view> -->
+
+    <!-- 引用模块 -->
+    <nyz_area_picker show="{{show}}" bind:sureSelectArea="sureSelectAreaListener">
+    </nyz_area_picker>
+
+
+  </view>
+
+  <view class='btnBox' bindtap='saveAddressInfo'>
+    <button style='background:#ffb12a; color:white;border-radius:50px'>保存信息</button>
+  </view>
+    <view bindtap='addressEdit' class='btnBox' >
+     <button style='background:red; color:white;border-radius:50px'>新增收货地址</button>
+  </view>
+</view>

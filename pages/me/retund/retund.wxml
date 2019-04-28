@@ -1,0 +1,74 @@
+<!--pages/cart/orderDetail/orderDetail.wxml-->
+<view class='container'>
+  <!--退货页面 -->
+  <!-- 头部提醒 -->
+  <view class='top'>
+  <view class='toptext'>本次售后由<view class='topname'>飞雳士门店</view>提供</view>
+  </view>
+  <!-- 商品详情 -->
+  <view class='particulars' wx:for="{{GoodsList}}"  wx:key>
+        <view class='particularsimge' >
+              <image src='{{item.GoodsImage}}'></image>
+        </view>
+        <view class='particularstext'>
+            <view class='particularstext01'>{{item.GoodsName}}</view>
+            <view class='particularstext02'>
+                <text >单价:</text><view class='price'>{{item.GoodsPrice}}</view>
+                <view>购买数量:</view><text>{{item.GoodsNumber}}</text>
+            </view>
+        </view>
+  </view>
+</view>
+
+<!-- 申请原因 -->
+<view class='container02'>
+   <view class='cause'>
+       <view class='cause01'>申请原因</view>
+       <input class='cause02' bindtap='selectFun' placeholder='请选择申请原因' value="{{select}}" ></input>
+    <view class='icon'>
+      <image class='icons' mode='widthFix' src='https://image.fitfix.shop/shop/icon/rightIcon.png'></image>
+        </view>
+   </view>
+
+</view>
+<!-- 问题描述 -->
+<view class='container03'>
+
+     <view class="eval_item_con">
+          <view class='eval_item_con01'>问题描述</view>
+          <view class='weui-cells'>
+          <textarea bindinput="inputtap" placeholder-style="color:#7C828A;" placeholder="请描述您的退货原因！">
+
+          </textarea>
+          </view>
+      </view>
+   </view> 
+
+   <!-- 退款方式 -->
+   <view class='container04'>
+      <view class='way'>退款方式</view>
+      <view class='waylogo'>
+      
+      <image src='../../../image/icon/money.png'></image>
+      <text>{{moneyway}}</text>
+      </view>
+   </view>
+
+  <view class='container05'>
+     <view class='moneyway'>退货方式</view>
+     <view class='moneywaytext'>
+     <view>{{cargoway}}</view>
+     </view> 
+  </view>
+
+  <view class='container06'>
+     <view class='add'>收件地址</view>
+     <view class='addtext'>
+          <image src='../../../image/icon/address.png'></image>
+          <view> {{add}}</view>
+     </view>
+  </view>
+  <view class="submitBut" bindtap='SubReturn'><view> 提交</view>
+</view>
+<view class='foot'></view>
+  

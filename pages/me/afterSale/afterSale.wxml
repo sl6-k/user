@@ -1,0 +1,156 @@
+<view class='container'>
+    <navigation title="选择服务类型" back="{{true}}" border="true"></navigation>
+    <view class='content'>
+        <view class='shopBox'>
+            <view class='orderList'>
+                <view class='centents'>
+                    <!-- 轮胎图片 -->
+                    <view class='photo'>
+                        <image class='images' src='https://image.fitfix.shop/shop/shop.jpg' mode='widthFix'></image>
+                    </view>
+                    <view class=' assesic'>
+                        <!-- 中 -->
+                        <view class='center'>
+                            <view>
+                                <text>飞雳士轮胎12r5645a/a号轮胎</text>
+                            </view>
+                            <view class='tag'>
+                                <text>飞雳士无忧购</text>
+                            </view>
+                        </view>
+                        <!-- 右 -->
+                        <view class='right'>
+                            <view>
+                                <text>￥409.00</text>
+                            </view>
+                            <view class='number'>
+                                <text>x2</text>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+            <view class='orderList'>
+                <view class='centents'>
+                    <!-- 轮胎图片 -->
+                    <view class='photo'>
+                        <image class='images' src='https://image.fitfix.shop/shop/shop.jpg' mode='widthFix'></image>
+                    </view>
+                    <view class=' assesic'>
+                        <!-- 中 -->
+                        <view class='center'>
+                            <view>
+                                <text>飞雳士轮胎12r5645a/a号轮胎</text>
+                            </view>
+                            <view class='tag'>
+                                <text>飞雳士无忧购</text>
+                            </view>
+                        </view>
+                        <!-- 右 -->
+                        <view class='right'>
+                            <view>
+                                <text>￥409.00</text>
+                            </view>
+                            <view class='number'>
+                                <text>x2</text>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+            <view class='orderList'>
+                <view class='centents'>
+                    <!-- 轮胎图片 -->
+                    <view class='photo'>
+                        <image class='images' src='https://image.fitfix.shop/shop/shop.jpg' mode='widthFix'></image>
+                    </view>
+                    <view class=' assesic'>
+                        <!-- 中 -->
+                        <view class='center'>
+                            <view>
+                                <text>飞雳士轮胎12r5645a/a号轮胎</text>
+                            </view>
+                            <view class='tag'>
+                                <text>飞雳士无忧购</text>
+                            </view>
+                        </view>
+                        <!-- 右 -->
+                        <view class='right'>
+                            <view>
+                                <text>￥409.00</text>
+                            </view>
+                            <view class='number'>
+                                <text>x2</text>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+
+            </view>
+            <view class='shoping'>
+                <text>共3件商品，合计￥409.00</text>
+            </view>
+        </view>
+
+        <!-- 列表 -->
+        <view class='settingBox'>
+            <navigator class='blockList' url='../refund/refund' hover-class='none'>
+                <view class='listIcon'>
+                    <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/money.png"></image>
+                </view>
+                <view class='listText'>
+                    <view class="title">
+                        <text>仅退款</text>
+                    </view>
+                    <view class="msg">
+                        <text>未收到货(包含未签收)，或卖家协商前提下</text>
+                    </view>
+                </view>
+                <view class='listRightIcon'>
+                    <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+                </view>
+            </navigator>
+            <navigator class='blockList' url='../refund/refund' hover-class='none'>
+                <view class='listIcon'>
+                    <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/tui.png"></image>
+                </view>
+                <view class='listText'>
+                    <view class="title">
+                        <text>退货退款</text>
+                    </view>
+                    <view class="msg">
+                        <text>已收到货，需要退换已收到的货物</text>
+                    </view>
+
+                </view>
+                <view class='listRightIcon'>
+                    <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+                </view>
+            </navigator>
+            <navigator class='blockList' url='../refund/refund' hover-class='none'>
+                <view class='listIcon'>
+                    <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/setIcon.png"></image>
+                </view>
+                <view class='listText'>
+
+                    <view class="title">
+                        <text>换货</text>
+                    </view>
+                    <view class="msg">
+                        <text>商品存在质量问题，联系卖家协商解决</text>
+                    </view>
+                </view>
+                <view class='listRightIcon'>
+                    <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+                </view>
+            </navigator>
+
+        </view>
+    </view>
+   
+</view>

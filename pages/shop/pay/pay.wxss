@@ -1,0 +1,234 @@
+.container.bg {
+  background: #fff;
+}
+
+.container .box {
+  padding: 10px 16px;
+}
+
+.shopName {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  height: 60px;
+}
+
+.shopName .icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.inputGroup input {
+  font-size: 16px;
+  height: 50px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+
+/*加减样式开始*/
+
+/*主容器*/
+
+.stepper {
+  width: 102px;
+  height: 30px;
+  /*给主容器设一个边框*/
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+/*加号和减号*/
+
+.stepper text {
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  float: left;
+}
+
+/*数值*/
+
+.stepper input {
+  width: 40px;
+  height: 30px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  /*给中间的input设置左右边框即可*/
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+/*普通样式*/
+
+.stepper .normal {
+  color: black;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+  color: #ccc;
+}
+
+/*加减样式结束*/
+
+.blockBox {
+  display: flex;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.blockBox .list {
+  font-size: 13px;
+  color: #ffb12a;
+  background: rgb(255, 242, 233);
+  padding: 0 15px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 15px;
+  margin-right: 14px;
+  margin-bottom: 15px;
+}
+
+.blockBox .active {
+  color: #fff;
+  background: #ffb12a;
+}
+
+.blockBox .list:last-child {
+  margin-right: 0;
+}
+
+.msg {
+  display: flex;
+  font-size: 13px;
+  color: #444;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.msg .icon {
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+}
+
+.paymentimg {
+  padding: 0 15px;
+  font-size: 18px;
+  line-height: 36px;
+}
+
+.moneyNum {
+  color: red;
+}
+
+.overtime {
+  text-align: center;
+}
+
+/* 备注开始 */
+
+.conts {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  background: #fff;
+  width: 100%;
+}
+
+.areas {
+  font-size: 14px;
+  overflow: hidden;
+  line-height: 1.5;
+  height: auto;
+  min-height: 80rpx;
+  max-height: 300px;
+  position: relative;
+  width: 100%;
+  margin: 0px;
+  z-index: 0;
+}
+
+.areas-text {
+  font-size: 14px;
+  overflow: hidden;
+  line-height: 1.5;
+  height: auto;
+  min-height: 80rpx;
+  max-height: 300px;
+  position: relative;
+  margin: 0px;
+  z-index: 0;
+}
+
+/* 备注结束 */
+
+.btnBox {
+  padding: 0px 15px;
+  margin-top: 30px;
+}
+
+/* 选择轮胎型号 */
+
+.blockList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+  /* border-top: 1px solid #eee; */
+  border-bottom: 0px solid #eee;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+}
+
+.blockList .listText {
+  flex: 1;
+  padding-left: 0px;
+  font-size: 14px;
+}
+
+.blockList .listText .msg {
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.blockList .listText .title {
+  font-size: 16px;
+}
+
+.blockList .listRightIcon {
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.blockList .listRightIcon image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.weui_cells:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: 0px solid #d9d9d9;
+  color: #d9d9d9;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}

@@ -1,0 +1,337 @@
+page{
+  background-color: rgb(252, 250, 250);
+  size: 10rpx;
+}
+.container{
+  text-align: center;
+  widows: 100%;
+  height: 260rpx;
+  background-color: white;
+}
+.top{
+  background-color:rgb(250, 245, 245); 
+  border-radius:15rpx; 
+  width: 60%;
+  margin: auto;
+  size: 10rpx;
+}
+.top .toptext{
+    padding: 5rpx;
+}
+.top .toptext .topname{
+    color: red;
+    display: inline-block;
+  
+}
+.particulars{
+  width: 90%;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  padding: 20rpx;
+
+}
+.particularsimge{
+  width: 30%;
+  height: 85%;
+
+}
+.particularsimge image{
+  width: 100%;
+  height: 90%;
+}
+.particularstext{
+  width: 100%;
+  height: 100%;
+  padding: 10rpx;
+  color: rgb(85, 79, 79);
+}
+.particularstext .particularstext01{
+  width: 90%;
+  height: 40%;
+  text-align: left;
+  padding: 10rpx;
+  
+}
+.particularstext .particularstext02{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  padding: 10rpx;
+ 
+}
+
+.particularstext02>view{
+    width: 30%; 
+    height: 100%;
+}
+.particularstext02>text{
+    width: 20%;
+    height: 100%;
+}
+.price{
+  color: red;
+}
+/* 申请原因 */
+.container02{
+  width: 100%;
+  height: 60rpx;
+  border-radius:15rpx; 
+  margin:20rpx auto;
+  background-color:white;
+  padding: 15rpx
+}
+
+.cause{
+   margin: auto;
+   width:100%;
+   display: flex;
+   flex-direction: row;
+   font-size: 30rpx;
+  
+}
+.cause01{
+width: 50%;
+padding:10rpx 30rpx;
+font-weight: 600;
+}
+.cause02{
+ color:silver; 
+ margin-left: 50rpx;
+ width: 30%;
+ 
+}
+.icon {
+  width: 10%;
+  height:20rpx;
+  margin-left: -60px;
+  
+}
+.icons{
+  width: 60%;
+  height:60%;
+  padding: 9rpx 0;
+}
+
+/* 问题描述 */
+.container03{
+  width: 100%;
+  height: 400rpx;
+  border-radius:9rpx; 
+  margin:20rpx auto;
+  background-color:white;
+  font-size: 30rpx;
+}
+
+.weui-cells{
+  width: 90%;
+  height: 200rpx;
+  background-color:rgb(252, 250, 250);
+  margin: auto;
+  padding: 20rpx 0;
+
+}
+.imgup{
+  width: 50rpx;
+  height: 50rpx;
+  border: 1rpx solid black;
+}
+
+.eval_item_con view:nth-of-type(1){
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 10rpx 40rpx;
+}
+.eval_item_con01{
+ width: 100%;
+ padding:10rpx 15rpx;
+ font-weight: 600;
+ margin: auto
+}
+.eval_btn{
+  width: 80%;
+  margin-left: 15rpx;
+}
+
+.eval_btn image{
+  margin: auto;
+  padding: 10rpx 20rpx;
+  width: 110rpx;
+  height: 110rpx;
+}
+.addimgurl{
+  display:flex;
+  flex-wrap: wrap; 
+  margin: auto;
+  width: 90%;
+}
+.addimgurl image{
+  width:140rpx;
+  height:140rpx;
+  margin-right:20rpx;
+  margin-bottom:20rpx;
+}
+textarea{
+  color: #7C828A;
+}
+
+/* 退款方式 */
+.container04{
+  width: 100%;
+  border-radius:9rpx; 
+  margin: auto;
+  background-color:white;
+  font-size: 30rpx;
+  
+}
+.way{
+  width: 100%;
+  height:20%;
+  margin-left: 70rpx;
+  margin-top: 15rpx;
+  padding:20rpx 40rpx;
+  font-weight: 600;
+  margin: auto
+  }
+.waylogo{
+  width: 20%;
+  height: 90%;
+  padding: 20rpx 40rpx;
+  color: rgb(216, 122, 122);
+  display: flex;
+  flex-direction: column;
+  font-size: 20rpx;
+ 
+}
+.waylogo text{
+  width: 100%;
+  text-align: center;
+}
+.waylogo image{
+  width: 100%;
+  height: 110rpx;
+  padding:10rpx 0;
+  background-color: rgb(250, 228, 228);
+  border: 6rpx solid rgb(216, 122, 122);
+  border-radius: 20rpx
+}
+.wayexplain{
+    color: rgb(55, 55, 161);
+    text-align: center;
+    padding: 20rpx 0;
+}
+
+/* 退货方式 */
+.container05{
+  width: 100%;
+  height: 200rpx;
+  border-radius:9rpx; 
+  margin: 15rpx auto;
+  background-color:white;
+  padding-bottom: 20rpx;
+  font-size: 30rpx;
+}
+.moneyway{
+  width: 100%;
+  height:20%;
+  margin-left: 70rpx;
+  margin-top: 15rpx;
+  padding:20rpx 40rpx;
+  font-weight: 600;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  }
+.moneywaytext{
+   width: 90%;
+   padding:10rpx 10rpx;
+   margin: auto;
+   color: rgb(216, 122, 122);
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   font-size: 20rpx;
+
+}
+.moneywaytext>view{
+  width: 200rpx;
+  border-radius: 20rpx;
+  padding:10rpx 5rpx;
+  border: 6rpx solid rgb(216, 122, 122);
+  background-color: rgb(250, 228, 228);
+}
+
+/* 退货地址 */
+.container06{
+  width: 100%;
+  height: 200rpx;
+  border-radius:9rpx; 
+  margin: 15rpx auto;
+  background-color:white;
+  font-size: 30rpx;
+  
+}
+.add{
+  width: 100%;
+  height:20%;
+  margin-left: 70rpx;
+  margin-top: 15rpx;
+  padding:20rpx 40rpx;
+  font-weight: 600;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  }
+.addtext{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: auto;
+  padding: 10rpx 0;
+}
+.icon2 {
+ width: 50rpx;
+ height: 50rpx;
+ font-weight: 800;
+  
+}
+.addtext>image{
+ width: 50rpx;
+ height: 50rpx;
+ padding: 10rpx 15rpx;
+}
+.addtext>view{
+ width: 80%;
+ height: 50rpx;
+ line-height: 70rpx;
+}
+
+.addtext>text{
+ line-height: 70rpx;
+ width: 50rpx;
+ height: 50rpx;
+ font-weight: 800;
+}
+
+.container07{
+  position: fixed;
+  border-radius: 10rpx;
+}
+.submitBut{
+  width: 100%;
+  height: 100rpx;
+  border-radius: 10rpx;
+  background: #df7567;
+  position: fixed;
+  bottom:1rpx;
+  text-align: center;
+  line-height: 90rpx;
+  color: #fff;
+}
+
+.foot{
+  width: 100%;
+  height: 200rpx
+}

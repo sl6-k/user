@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nyz_area_picker": "/pages/component/nyz_area_picker/nyz_area_picker"
+  },
+  "navigationBarTitleText": "收货地址管理"
+}

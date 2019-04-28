@@ -1,0 +1,140 @@
+<!-- 我的首页 -->
+<view class='container'>
+  <view class='homeHeader'>
+    <!-- 背景图 -->
+    <view class='headerBg'>
+      <image src='https://image.fitfix.shop/shop/banner/meB.png' mode='widthFix'></image>
+    </view>
+    <!-- 内容 -->
+    <view class='content'>
+      <view class='localtion' wx:if="{{userID ==''}}">
+        <view class='photo'>
+          <image src='https://image.fitfix.shop/shop/icon/photo.png' mode='widthFix'></image>
+        </view>
+        <view class='userName'>
+          <view class='name'>
+            <text>登录享好礼</text>
+            <view class='img'>
+              <image src='https://image.fitfix.shop/shop/icon/like.png' mode='widthFix'></image>
+            </view>
+          </view>
+          <view class='tell'>
+            <!-- open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" -->
+            <button bindtap='bindLogin'>
+              立即登录
+            </button>
+          </view>
+        </view>
+      </view>
+      <view class='localtion' bindtap='openUserInfo'>
+        <view class='photo'>
+          <image src='{{userInfo.PictureUrl!=""&&userInfo.PictureUrl!=undefined?pic+userInfo.PictureUrl:"https://image.fitfix.shop/shop/icon/photo.png"}}' mode='scaleFill'></image>
+        </view>
+        <view class='userName'>
+          <view class='name'>
+            <text wx:if='{{NickName != ""}}'>{{NickName}}</text>
+          </view>
+          <view class='name'>
+            <text>{{Phone}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='orderBox'>
+    <!-- title -->
+    <view class='titleBox'>
+      <text>我的订单</text>
+      <view class='localtion' bindtap='getOrderList'>
+        <text>查看全部订单></text>
+      </view>
+    </view>
+    <!-- 订单状态 -->
+    <view class='orderStart flexCenter'>
+      <view class='orderList' data-index="1" bindtap='openOrder'>
+        <view class='startIcon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconKuan.png' mode='widthFix'></image>
+          <view wx:if="{{cornerMarker.NotPayNumber>0}}" class='cornerNum'>{{cornerMarker.NotPayNumber}}</view>
+        </view>
+        <view class='text'>
+          <text>待付款</text>
+        </view>
+      </view>
+      <view class='orderList' data-index="2" bindtap='openOrder'>
+        <view class='startIcon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconHuo.png' mode='widthFix'></image>
+          <view wx:if="{{cornerMarker.NotSignNumber>0}}" class='cornerNum'>{{cornerMarker.NotSignNumber}}</view>
+        </view>
+        <view class='text'>
+          <text>待收货</text>
+        </view>
+      </view>
+      <view class='orderList' data-index="3" bindtap='openOrder'>
+        <view class='startIcon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconAn.png' mode='widthFix'></image>
+          <view wx:if="{{cornerMarker.WaitingNumber>0}}" class='cornerNum'>{{cornerMarker.WaitingNumber}}</view>
+        </view>
+        <view class='text'>
+          <text>待安装</text>
+        </view>
+      </view>
+      <view class='orderList' data-index="4" bindtap='openOrder'>
+        <view class='startIcon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconPing.png' mode='widthFix'></image>
+          <view wx:if="{{cornerMarker.EvaluationNumber>0}}" class='cornerNum'>{{cornerMarker.EvaluationNumber}}</view>  
+        </view>
+        <view class='text'>
+          <text>待评价</text>
+        </view>
+      </view>
+      <view class='orderList' bindtap='bindReturnGoods'>
+        <view class='startIcon'>
+          <image src='https://image.fitfix.shop/shop/icon/iconTui.png' mode='widthFix'></image>
+          <view wx:if="{{cornerMarker.MermberorderReturngGoodsNumber>0}}" class='cornerNum'>{{cornerMarker.MermberorderReturngGoodsNumber}}</view>
+        </view>
+        <view class='text'>
+          <text>退/换货</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 设置 -->
+  <view class='settingBox'>
+    <view class='blockList' bindtap='bindOpenDiscount' hover-class='none'>
+      <view class='listIcon'>
+        <image src='https://image.fitfix.shop/shop/icon/iconYou.png' mode='widthFix'></image>
+      </view>
+      <view class='listText'>
+        <text>我的优惠券</text>
+      </view>
+    </view>
+    <view class='blockList' bindtap='bindCreditsExchange' hover-class='none'>
+      <view class='listIcon'>
+        <image style='width:80%' src='../../../image/icon/integral.png' mode='widthFix'></image>
+      </view>
+      <view class='listText'>
+        <text>积分兑换</text>
+      </view>
+    </view>
+    <view class='blockList' bindtap='openCustomerService' url=''>
+      <view class='listIcon'>
+        <image src='https://image.fitfix.shop/shop/icon/iconKe.png' mode='widthFix'></image>
+      </view>
+      <view class='listText'>
+        <text>联系客服</text>
+      </view>
+    </view>
+    <!-- 
+     判断是否一键登录需要修改密码
+      url='/pages/me/user/index/index?IsOneClick={{userInfo.IsOneClick}}' 
+     -->
+    <view class='blockList' data-IsOneClick="{{userInfo.IsOneClick}}" bindtap='openSetting'>
+      <view class='listIcon'>
+        <image src='https://image.fitfix.shop/shop/icon/iconShe.png' mode='widthFix'></image>
+      </view>
+      <view class='listText'>
+        <text>设置</text>
+      </view>
+    </view>
+  </view>
+</view>

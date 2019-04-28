@@ -1,0 +1,604 @@
+.homeHeader {
+  position: relative;
+}
+
+.homeHeader .headerBg {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  z-index: 0;
+}
+
+.homeHeader .headerBg image {
+  width: 100%;
+}
+
+.homeHeader .content {
+  position: relative;
+  z-index: 2;
+}
+
+.homeHeader .headerTitle {
+  padding: 0 15px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.homeHeader .headerTitle .localtion {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  left: 15px;
+  align-items: center;
+  color: #fff;
+  font-size: 13px;
+}
+
+.homeHeader .headerTitle .search {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  left: 25%;
+  align-items: center;
+  font-size: 12px;
+}
+
+.searchInput {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.searchInput  input {
+  flex: 1;
+  padding: 0 10px;
+  width: 350rpx;
+  font-size: 12px;
+}
+
+.homeHeader .sites {
+  max-width: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.homeHeader .localtionIcon {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+
+.homeHeader .localtionB {
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+}
+
+.homeHeader .title {
+  width: 120px;
+  margin: 0 auto;
+}
+
+.homeHeader .title image {
+  width: 100%;
+}
+
+.homeHeader .cartSetting {
+  width: 90%;
+  margin: 5px auto;
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.homeHeader .cartSetting .noCart {
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  /* padding: 20px 0; */
+}
+
+.homeHeader .cartSetting .noCart .iconBox {
+  width: 60px;
+  margin: 0 auto;
+}
+
+.homeHeader .cartSetting .noCart .iconBox image {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.homeHeader .cartSetting .cart .select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #4d4d4d;
+  font-size: 16px;
+}
+
+.homeHeader .cartSetting .cart .select navigator {
+  color: #666;
+  font-size: 14px;
+}
+
+.homeHeader .cartSetting .cart  .cartCentent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.homeHeader .cartSetting .cart  .cartCentent .cartImg {
+  width: 40px;
+  margin-right: 20px;
+}
+
+.homeHeader .cartSetting .cart  .cartCentent .cartImg image {
+  width: 40px;
+  height: 40px;
+}
+
+.homeHeader .cartSetting .cart  .cartCentent .cartText {
+  flex: 1;
+  font-size: 16px;
+  color: #1a1a1a;
+  line-height: 30px;
+  height: 60px;
+}
+
+.homeHeader .cartSetting .cart  .cartCentent .cartText .text {
+  font-size: 14px;
+  color: #808080;
+}
+
+/****/
+
+.brandBox {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.brandBox .title {
+  width: 140px;
+  margin: 0px auto;
+  padding: 6px 0;
+}
+
+.brandBox .title image {
+  width: 100%;
+}
+
+.brandBox .videoBox {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.brandBox .videoBox image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.brandBox .videoBox .brandStory {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  left: 0;
+  top: 30%;
+  bottom: 0;
+  right: 0;
+}
+
+.brandBox .videoBox .brandStory .brandName {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.brandBox .videoBox .brandStory text:first-child {
+  font-size: 12px;
+}
+
+.brandBox .videoBox .brandStory text:last-child {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+/* 适配轮胎 */
+
+.AdaptiveBox {
+  padding: 10px 0;
+  margin-bottom: 15px;
+  background: #fff;
+}
+
+.AdaptiveBox .title {
+  width: 140px;
+  margin: 0px auto;
+  padding: 6px 0;
+}
+
+.AdaptiveBox .title image {
+  width: 100%;
+}
+
+.AdaptiveBox .scrollBox {
+  box-sizing: border-box;
+}
+
+.AdaptiveBox .scroll {
+  width: auto;
+  overflow: hidden;
+}
+
+.AdaptiveBox .content {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 15px;
+}
+
+.AdaptiveBox .boxList {
+  width: 32vw;
+  height: 32vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 1px #eee, 0 0 8px #eee;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+.AdaptiveBox .boxList .imgBox {
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.AdaptiveBox .boxList .text {
+  background: rgb(247, 147, 30);
+  color: #fff;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  padding: 4px 8px;
+  font-weight: 600;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.AdaptiveBox .boxList .text .name {
+  font-weight: normal;
+  font-size: 13px;
+  /* width: 36vw; */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.AdaptiveBox .boxList .text .price {
+  line-height: 18px;
+}
+
+.recommendBox {
+  background: #fff;
+  padding: 10px 0px;
+}
+
+.recommendBox .loadingMsg {
+  min-width: 180px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  padding: 0;
+}
+
+.recommendBox .titleBox {
+  position: relative;
+}
+
+.recommendBox .titleBox .more {
+  position: absolute;
+  right: 16px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  color: #333;
+  font-size: 14px;
+  align-items: center;
+}
+
+.recommendBox .title {
+  margin: 0px auto;
+  padding: 6px 0;
+  width: 140px;
+}
+
+.recommendBox .title image {
+  width: 100%;
+}
+
+.recommendBox .content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0 10px 10px;
+  box-sizing: border-box;
+}
+
+.recommendBox .content .tireBox {
+  width: 50%;
+  overflow: hidden;
+  padding-right: 10px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.recommendBox .content .tireBox .localtion {
+  display: block;
+  border-radius: 12px;
+  /* border: 1px solid #eee; */
+  overflow: hidden;
+  box-shadow: inset 0 1px 1px #eee, 0 0 8px #eee;
+}
+
+.recommendBox .content .tireBox .localtion .img {
+  width: 100%;
+  height: 0px;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.recommendBox .content .tireBox .localtion .img image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.recommendBox .content .tireBox .textBox {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 5px 10px;
+}
+
+.recommendBox .content .tireBox .textBox .name {
+  font-size: 15px;
+  word-break: break-all;
+  width: 99%;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.recommendBox .content .tireBox .textBox .tags {
+  font-size: 12px;
+  word-break: break-all;
+  width: 99%;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.recommendBox .content .tireBox .priceBox {
+  margin-top: 8px;
+}
+
+.recommendBox .content .tireBox .priceBox .icon {
+  font-size: 12px;
+  color: #faaf3b;
+}
+
+.recommendBox .content .tireBox .priceBox .number {
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 6px;
+  color: #faaf3b;
+}
+
+.recommendBox .content .tireBox .priceBox .dele {
+  font-size: 12px;
+  text-decoration: line-through;
+  color: #999;
+}
+
+.recommendBox .content .tireBox .priceBox .tag {
+  background: #faaf3b;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 10px;
+  line-height: 14px;
+  padding: 0 3px;
+}
+
+.layerBox {
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0px;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 999999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.layerBox .closeCustomer {
+  position: absolute;
+  z-index: 10001;
+  right: 0px;
+  top: 0px;
+  width: 30px;
+  height: 30px;
+}
+
+.layerBox .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 9999999;
+  width: 340px;
+}
+
+.layerBox .content .bg {
+  width: 100%;
+  display: block;
+}
+
+.layerBox .content .box {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0px;
+  padding: 0 16px 0px 16px;
+  box-sizing: border-box;
+}
+
+.btnContent {
+  position: absolute;
+  bottom: -40px;
+  left: 16px;
+  right: 16px;
+}
+
+.btnContent image {
+  width: 100%;
+  display: block;
+}
+
+.btnContent::before {
+  content: "立即领取";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+}
+
+.scrollBoxs {
+  width: 100%;
+  height: 180px;
+}
+
+.couponBox {
+  padding: 0 20px;
+}
+
+.couponBox .msgBox {
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.2);
+  width: 90%;
+  margin: 0 auto;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+}
+
+.couponBox .couponList {
+  background: rgb(253, 239, 240);
+  padding: 4px;
+  margin-bottom: 6px;
+}
+
+.couponBox .couponList .couponBorder {
+  border: 1px solid #ffd7a2;
+  padding: 4px;
+}
+
+.couponBox .couponList .moneyBox {
+  display: flex;
+  font-weight: 600px;
+  font-size: 22px;
+  color: rgb(241, 90, 36);
+  justify-content: center;
+  width: 100px;
+}
+
+.couponBox .couponList .moneyBox .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.couponBox .couponList .price {
+  width: 20%;
+}
+
+.marginBox {
+  flex: 1;
+}
+
+.marginBox .title {
+  color: rgb(251, 87, 52);
+  font-size: 14px;
+}
+
+.marginBox .number {
+  color: #333;
+  font-size: 16px;
+  margin: 2px 0;
+}
+
+.marginBox .time {
+  color: #999;
+  font-size: 10px;
+}
+
+swiper-item .slide-image {
+  width: 100%;
+  height: 280rpx;
+}
+
+.ifiCation {
+  margin: 10px 0px;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background: white;
+}
+
+.ifiCation view {
+  box-sizing: border-box;
+  width: 20%;
+}
+
+.ifiCation view image {
+  display: block;
+  margin: 15px auto 5px;
+  line-height: 70px;
+  width: 40px;
+  height: 40px;
+}
+
+.ifiCation view text {
+  display: block;
+  text-align: center;
+}

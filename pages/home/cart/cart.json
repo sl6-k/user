@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navigation": "/pages/component/navigation/navigation"
+  },
+  "navigationBarTitleText": "购物车",
+  "navigationBarTextStyle":"black"
+
+  
+}

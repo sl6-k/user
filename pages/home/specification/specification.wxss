@@ -1,0 +1,82 @@
+.content {
+  width: 100%;
+  min-height: 100%;
+  background: #fff;
+}
+
+.box {
+  padding: 10px 15px;
+  /* height: 9999px; */
+}
+
+.box .questionsBox {
+  padding: 5px 0 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.box .questionsList {
+  display: flex;
+  font-size: 14px;
+  padding: 5px 0;
+  color: #555;
+}
+
+.box .questionsList .icon {
+  width: 20px;
+  line-height: 20px;
+  height: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+}
+
+.box .questionsList .icon.bg1 {
+  background: rgb(227, 91, 75);
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.box .questionsList .icon.bg2 {
+  background: rgb(85, 182, 255);
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.box .questionsList .text {
+  flex: 1;
+  word-break: break-all;
+}
+
+.box  .img {
+  width: 100%;
+}
+
+.picker {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  padding: 0 16px;
+  border-radius: 23px;
+  border: 1px solid #eee;
+}
+
+/* 车型选择及轮胎型号选择 */
+
+.content .brand-type {
+  padding: 15px;
+  font-size: 14px;
+  color: #343434;
+}
+
+.content .brand-type .brandName {
+  font-weight: bold;
+}
+
+.brand {
+  text-align: center;
+  color: #585858;
+  border: 1px solid #bbb;
+  padding: 10px;
+  margin-top: 15px;
+}

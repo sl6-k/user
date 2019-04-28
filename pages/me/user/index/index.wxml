@@ -1,0 +1,103 @@
+<view class='container'>
+  <!-- <navigation title="个人中心" back="true" border="true"></navigation> -->
+  <!-- 个人资料 -->
+  <view class='settingBox'>
+    <!-- <view class='blockList' bindtap='modifyTell'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/phone.png"></image>
+      </view>
+      <view class='listText'>
+        <text>修改手机号码</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view> -->
+    <view class='blockList' :data-isOneClick="{{options.IsOneClick}}" bindtap='modifyPassword'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/password.png"></image>
+      </view>
+      <view class='listText'>
+        <text>{{options.IsOneClick ==2?'设置密码':'修改密码'}}</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view>
+    <view class='blockList margin-t-15' bindtap='address'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/localhost.png"></image>
+      </view>
+      <view class='listText'>
+        <text>地址管理</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view>
+    <view class='blockList' bindtap='invoice'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/fapiao.png"></image>
+      </view>
+      <view class='listText'>
+        <text>发票信息</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view>
+
+    <view class='blockList margin-t-15' bindtap='aboutUs'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/about.png"></image>
+      </view>
+      <view class='listText'>
+        <text>关于飞雳士</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view>
+
+    <!-- 打开门店 -->
+    <view class='blockList' bindtap='bindStoreSys'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/fapiao.png"></image>
+      </view>
+      <view class='listText'>
+        <text>飞雳士门店</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view>
+    <!-- 打开推客 -->
+    <view class='blockList' bindtap='bindSpreadSys'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/fapiao.png"></image>
+      </view>
+      <view class='listText'>
+        <text>飞雳士推客</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view>
+    <!-- 打开工人 -->
+    <view class='blockList' bindtap='bindWorkerSys'>
+      <view class='listIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/fapiao.png"></image>
+      </view>
+      <view class='listText'>
+        <text>飞雳士工人</text>
+      </view>
+      <view class='listRightIcon'>
+        <image class="images" mode="widthFix" src="https://image.fitfix.shop/shop/icon/rightIcon.png"></image>
+      </view>
+    </view>
+
+    <view class='btnBox' bindtap='Logout'>
+      <button type='warn'>退出登录</button>
+    </view>
+  </view>
+</view>

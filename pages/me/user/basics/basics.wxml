@@ -1,0 +1,46 @@
+<view class='container'>
+  <!-- 个人资料 -->
+  <view class='box'>
+    <view class='flexCenter listInputBox'>
+      <view class='listTitle'>
+        <text>头像</text>
+      </view>
+      <view class='listImage' bindtap='chooseImage'>
+        <view class='photoBox'>
+          <image class='images' src="{{userInfo.PictureUrl ==null||userInfo.PictureUrl==''?'https://image.fitfix.shop/shop/icon/photo.png':pic+userInfo.PictureUrl}}" mode='scaleFill'></image>
+        </view>
+      </view>
+      <view class='weui_cell_ft'></view>
+    </view>
+    <view class='listInputBox flexCenter'>
+      <view class='listTitle'>
+        <text>真实姓名</text>
+      </view>
+      <view class='listInput'>
+        <input type='text' placeholder="请输入真实姓名" bindinput='bindGetTrueName' value='{{userInfo.TrueName}}' />
+      </view>
+      <view class='weui_cell_ft'></view>
+    </view>
+    <view class='listInputBox flexCenter'>
+      <view class='listTitle'>
+        <text>昵称</text>
+      </view>
+      <view class='listInput'>
+        <input type='text' placeholder="请输入昵称" bindinput='bindGetNickName' value='{{userInfo.NickName}}' />
+      </view>
+      <view class='weui_cell_ft'></view>
+    </view>
+    <view class='listInputBox flexCenter' bindtap='getSex'>
+      <view class='listTitle'>
+        <text>性别</text>
+      </view>
+      <view class='listText textRight fontSize14'>
+        <view class='weui_cell_ft'>{{userInfo.Sex == 0?'男':(userInfo.Sex==1?'女':'请选择性别')}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='btnBox' bindtap='saveUserInfo'>
+    <button type='warn'>保存信息</button>
+  </view>
+</view>

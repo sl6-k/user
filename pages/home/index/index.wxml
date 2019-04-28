@@ -1,0 +1,237 @@
+<!-- 首页 -->
+<view class='container'>
+  <block wx:if="{{loadCompleted}}">
+    <scroll-view lower-threshold="0" scroll-into-view="{{toItem}}" scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true" style='height:auto' bindscrolltolower="loadMore">
+      <!-- 头部 -->
+      <view class='homeHeader'>
+        <!-- 背景图 -->
+        <view class='headerBg'>
+          <image src='https://image.fitfix.shop/shop/banner/homeBgH.png' mode='widthFix'></image>
+        </view>
+        <!-- 内容 -->
+        <view class='content'>
+          <!-- 状态栏 -->
+          <!-- 标题 -->
+          <view class='headerTitle' style='height:{{titleBarHeight}}px;'>
+            <!-- 位置 -->
+            <view class='localtion' bindtap='bindSwitchCity'>
+              <view class='localtionIcon'>
+                <image class='images' src='https://image.fitfix.shop/shop/icon/iconL.png'></image>
+              </view>
+              <view class='sites'>
+                <text>{{cityName==null?'请选择城市':cityName.RegionName}}</text>
+              </view>
+              <view class='localtionB'>
+                <image class='images' src='https://image.fitfix.shop/shop/icon/iconB.png'></image>
+              </view>
+            </view>
+            <!-- 搜索 -->
+            <view class='search'>
+              <view class='searchInput'>
+                <!-- <image class='images' src='https://image.fitfix.shop/shop/icon/iconB.png'></image> -->
+                <icon type="search" size="14"></icon>
+                <input type='text' placeholder='请输入搜索内容' value="{{searchKey}}" bindinput='getSearchKey' bindconfirm="searchResult"></input>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 车型 -->
+        <view class='cartSetting'>
+          <!-- 无车添加 -->
+          <view class='noCart' wx:if="{{loadCompleted&&carName==null}}" bindtap='addCarType'>
+            <view class='iconBox'>
+              <image src='https://image.fitfix.shop/shop/icon/iconC.png' mode='widthFix'></image>
+            </view>
+            <text>添加爱车</text>
+          </view>
+          <!-- 有车 重新选择 -->
+          <view class='cart' wx:if="{{carName!==null}}">
+            <view class='select'>
+              <text>我的爱车</text>
+              <div bindtap='openCarModel'>
+                <text style='font-size:13px;'>车型管理 ></text>
+              </div>
+            </view>
+            <view class='cartCentent'>
+              <view class='cartImg'>
+                <image src='{{carName.Logo}}' mode='aspectFit'></image>
+              </view>
+              <view class='cartText'>
+                <view class='name'>
+                  <text>{{carName.brand}}</text>
+                </view>
+                <view class='text'>
+                  <text>{{carName.brandType}}{{carName.ProductionYear}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='ifiCation'>
+        <view class='ifiContent' bindtap='bindStoreSys'>
+          <image src='../../../image/icon/store.png'></image>
+          <text>商家</text>
+        </view>
+        <view class='ifiContent' bindtap='bindWorkerSys'>
+          <image src='../../../image/icon/worker.png'></image>
+          <text>工人</text>
+        </view>
+        <view class='ifiContent' bindtap='bindSpreadSys'>
+          <image src='../../../image/icon/extension.png'></image>
+          <text>推广</text>
+        </view>
+        <view class='ifiContent' bindtap='openNewView'>
+          <image src='../../../image/icon/coupon.png'></image>
+          <text>领券</text>
+        </view>
+        <view class='ifiContent' data-opt="mark" bindtap='openExchange'>
+          <image src='../../../image/icon/shop.png'></image>
+          <text>积分</text>
+        </view>
+      </view>
+
+      <!-- 品牌故事 -->
+      <view class='brandBox margin-t-10'>
+        <view class='title'>
+          <image src='https://image.fitfix.shop/shop/banner/gushi.png' mode='widthFix'></image>
+        </view>
+        <swiper class='videoBox' indicator-dots="{{false}}" autoplay="{{true}}" interval="5000" duration="500">
+          <block wx:key>
+            <swiper-item>
+              <navigator url='../../../pages/home/brand/brand01/brand01'>
+                <image src="https://image.fitfix.shop/shop/banner/banner-1.png" class="slide-image" />
+              </navigator>
+            </swiper-item>
+            <swiper-item>
+              <navigator url='../../../pages/home/brand/brand02/brand02'>
+                <image src="https://image.fitfix.shop/shop/banner/banner-2.png" class="slide-image" />
+              </navigator>
+            </swiper-item>
+            <swiper-item>
+              <navigator url='../../../pages/home/brand/brand03/brand03'>
+                <image src="https://image.fitfix.shop/shop/banner/banner-3.png" class="slide-image" />
+              </navigator>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+
+      <!-- 适配轮胎 -->
+      <view class='AdaptiveBox' wx:if="{{loadCompleted&&carName!=null&&fittingTire.length>0}}">
+        <view class='title'>
+          <image src='https://image.fitfix.shop/shop/banner/shipei.png' mode='widthFix'></image>
+        </view>
+        <view class='scrollBox'>
+          <scroll-view scroll-x class='scroll'>
+            <view class='content'>
+              <view class='boxList' wx:for="{{fittingTire}}" wx:key data-goodsID="{{item.GoodsID}}" bindtap='openGoodsDetail'>
+                <view class='imgBox'>
+                  <image src='{{item.GoodsImage}}' mode='aspectFit' class='images'></image>
+                </view>
+                <view class='text'>
+                  <view class='name'>
+                    <text>{{item.GoodsName}}</text>
+                  </view>
+                  <view class='price'>
+                    <text>￥{{item.GoodsPrice}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 推荐轮胎 -->
+    <view class='recommendBox' id="mark" wx:if="{{loadCompleted&&recommendedTire.length>0&& recommendedTire!=null}}">
+      <view class='titleBox'>
+        <view class='title'>
+          <image src='https://image.fitfix.shop/shop/banner/tuijan.png' mode='widthFix'></image>
+        </view>
+        <view class='more' bindtap='bindMoreTire'>
+          <text>查看更多 ></text>
+        </view>
+      </view>
+      <view class='content'>
+        <view class='tireBox' wx:for="{{recommendedTire}}" wx:key>
+          <view class='localtion' data-goodsID="{{item.GoodsID}}" bindtap='openGoodsDetail'>
+            <view class='img'>
+              <image src='{{item.GoodsImage}}' mode='aspectFit' class='images'></image>
+            </view>
+            <view class='textBox'>
+              <view class='name'>
+                <text>{{item.GoodsName}}</text>
+              </view>
+              <view class='tags'>
+                <text>{{item.GoodSellingPoint}}</text>
+              </view>
+              <view class='priceBox flexCenter'>
+                <view class='price'>
+                  <text class='icon'>￥</text>
+                  <text class='number'>{{item.GoodsPrice}}</text>
+                  <text class='dele' wx:if="{{item.MarkingPrice!=0}}">￥{{item.MarkingPrice}}</text>
+                </view>
+                <view class='tag'>
+                  <text>券</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='loadingMsg' wx:if='{{noMoreShow}}'>
+        <text>~~没有更多了~~</text>
+      </view>
+    </view>
+  </block>
+
+
+  <!-- 新人礼包 -->
+  <block wx:if="{{isNewCustomer && loadCompleted}}">
+    <view class='layerBox'>
+      <view class='content'>
+        <image class='bg' src='https://image.fitfix.shop/shop/banner/newMan.png' mode='widthFix'></image>
+        <image src='https://image.fitfix.shop/shop/icon/close-home.png' mode='widthFix' class="closeCustomer" catchtap='closeCustomer'></image>
+        <!-- 内容 -->
+        <view class='box'>
+          <view class='couponBox'>
+            <view class='msgBox'>
+              <text>新人登录后即可领取</text>
+            </view>
+            <scroll-view scroll-y class='scrollBoxs'>
+              <view class='couponList' wx:for="{{guestCeremony.dataCoupon}}" wx:key>
+                <view class='couponBorder flexCenter'>
+                  <view class='moneyBox'>
+                    <view class='icon'>
+                      <image class='images' src='https://image.fitfix.shop/shop/icon/moneyIcon.png'></image>
+                    </view>
+                    <view class='price'>
+                      <text>{{item.CouponPrice}}</text>
+                    </view>
+                  </view>
+                  <view class='marginBox'>
+                    <view class='title'>
+                      <text>{{item.CouponTypeName}}</text>
+                    </view>
+                    <view class='number'>
+                      <text>{{item.CouponName}}</text>
+                    </view>
+                    <view class='time'>
+                      <text>{{item.ValidMsg}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+
+          </view>
+          <view class='btnContent' data-id="{{guestCeremony.data.NewMemberRecruitmentActivityID}}" bindtap='collectImmediately'>
+            <image src='https://image.fitfix.shop/shop/banner/btn.png' mode='widthFix'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

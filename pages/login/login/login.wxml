@@ -1,0 +1,59 @@
+<!-- 登录 -->
+<view class='container '>
+  <view class='fixed' wx:if="{{deleBack}}">
+    <view style='height:{{statusBarHeight}}px'></view>
+    <view style="height:{{titleBarHeight}}px;" class='flexCenter'>
+      <!-- <navigator class='back' open-type="navigateBack" delta="1" hover-class="none">
+        <image class='images' src='https://image.fitfix.shop/shop/icon/deleIcon2.png'></image>
+      </navigator> -->
+      <text></text>
+    </view>
+  </view>
+  <!-- logo -->
+  <view class='logoBox'>
+    <image src='https://image.fitfix.shop/shop/banner/logo.png' mode='widthFix'></image>
+  </view>
+  <!-- 内容 -->
+  <view class='content'>
+    <!-- form -->
+    <view class="formBox">
+      <!-- welocome -->
+      <view class='hi'>
+        <image src='https://image.fitfix.shop/shop/icon/hi.png' mode='widthFix'></image>
+      </view>
+      <!-- btn > 注册 -->
+      <view class='welcome flexCenter'>
+        <text>欢迎登录</text>
+        <navigator url='../register/register' hover-class='none'>注册></navigator>
+      </view>
+      <!-- input -->
+      <view class='inputBox'>
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/user.png'></image>
+          </view>
+          <input type='number' value="{{login.phoneNum}}" bindinput='getPhoneNum' placeholder="请输入手机号码" class='input' />
+        </view>
+        <view class='groupInput flexCenter'>
+          <view class='inpuIcon '>
+            <image src='https://image.fitfix.shop/shop/icon/pass.png'></image>
+          </view>
+          <input type='password' value="{{login.userPwd}}" bindinput='getUserPwd' placeholder="请输入密码" class='input' />
+        </view>
+        <view class='submitBox' bindtap='login'>
+          <button>登录</button>
+        </view>
+        <view class='retsetPass'>
+          <navigator url='../ResetPass/ResetPass' hover-class='none'>忘记密码?</navigator>
+        </view>
+        <!-- 微信一键登录 -->
+        <view class='wxLogin'>
+          <view class='wxBtn'>
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" style='border-radius:50%;border:none;width:100%;height:100%;'>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

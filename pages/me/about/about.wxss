@@ -1,0 +1,28 @@
+.content {
+    padding: 16px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.content .box {
+    height: 100%;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.content .box .text {
+    padding: 16px 24px;
+    font-size: 13px;
+    color: #333;
+    line-height: 24px;
+}
+
+.content .box .border {
+    width: 50%;
+    border-top: 1px solid #eee;
+    margin: 10px auto;
+}

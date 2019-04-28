@@ -1,0 +1,62 @@
+<view class='container'>
+  <!-- <navigation title="选择城市" back="true" border="true"></navigation> -->
+
+  <view class="searchLetter touchClass">
+    <view class="thishotText" bindtap="hotCity">
+      <view style="margin-top:0;">定</view>
+      <view style="margin-top:0;">热</view>
+    </view>
+    <view wx:for="{{searchLetter}}" class='AZ' wx:key="index" data-letter="{{item.name}}" catchtouchend="clickLetter">{{item.name}}</view>
+  </view>
+  <block wx:if="{{isShowLetter}}">
+    <view class="showSlectedLetter">
+      {{showLetter}}
+    </view>
+  </block>
+  <scroll-view scroll-y="true" style="height:{{winHeight}}px;background:#fff;" bindscroll="bindScroll" scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+    <view class='searchBox'>
+      <view class='searchInput'>
+        <icon type="search"></icon>
+        <input type='text' placeholder='输入城市名称或字母查询' bindinput='getSearchValue' value="{{searchValue}}" bindconfirm="search" />
+      </view>
+    </view>
+    <view class="hotcity-common thisCity">
+      <view class='tag'>定位城市</view>
+    </view>
+    <view class="{{city==''?'noCityName':'thisCityName'}}" data-city="{{city}}" bindtap='locationCity'>{{city==''?'未获取到当前位置':city}}</view>
+
+    <!-- 搜索结果 -->
+    <view class="selection" wx:if="{{searchCity!=null}}">
+      <view class="item_letter">
+        <view class='tag'>搜索结果</view>
+      </view>
+      <view class="item_city" data-id="{{item.RegionID}}" data-name="{{item.RegionName}}" wx:for="{{searchCity}}" wx:key bindtap='bindSearchCity'>
+        {{item.RegionName}}
+      </view>
+    </view>
+
+    <!-- 热门城市 -->
+    <block wx:if="{{searchCity==null}}">
+      <view class="hotcity hotcity-common">
+        <view class='tag'> 热门城市</view>
+      </view>
+      <view class="weui-grids">
+        <block wx:for-items="{{hotcityList}}" wx:key="{{index}}">
+          <view class="weui-grid" data-cityCode="{{item.cityCode}}" data-city="{{item.RegionsName}}" bindtap="bindHotCity">
+            <view class="weui-grid__label">{{item.RegionsName}}</view>
+          </view>
+        </block>
+      </view>
+
+      <!-- 城市列表 -->
+      <view class="selection" wx:for="{{cityList}}" wx:key="{{item.Letter}}">
+        <view class="item_letter" id="{{item.Letter}}">
+          <view class='tag'>{{item.Letter}}</view>
+        </view>
+        <view class="item_city" wx:for="{{item.children}}" wx:for-item="ct" wx:key="{{ct.RegionID}}" data-cityCode="{{ct.RegionID}}" data-city="{{ct.RegionName}}" bindtap="bindCity">
+          {{ct.RegionName}}
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

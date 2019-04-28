@@ -1,0 +1,110 @@
+/* pages/me/user/addressList/addressList.wxss */
+
+.container .addressList {
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0px 0px 15px;
+}
+
+.container .addressList .contacts {
+  display: flex;
+  flex: 1;
+}
+
+/* 联系人姓名 */
+
+.container .addressList .contacts .contactsUser {
+  width: 20%;
+}
+
+/* 联系地址 */
+
+.container .addressList .contactAddress {
+  padding: 15px 0;
+  color: #707070;
+}
+
+/* 设为默认 */
+
+.container .addressList .editAddress {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 40px;
+  line-height: 40px;
+  justify-content: space-between;
+  color: #707070;
+  border-top: 1px solid #eee ;
+  padding-bottom: 10px;
+}
+
+.container .addressList .editAddress .edit {
+  align-items: right;
+  text-align: center;
+}
+
+.container .addressList .editAddress .default {
+  margin-top: 8px;
+  margin-right: 10px;
+  border: 1px solid #707070;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.container .addressList .editAddress .select {
+  display: flex;
+  flex: 1;
+  padding: 5px 0;
+}
+
+.container .addressList .editAddress .select radio {
+  transform:scale(0.6);
+}
+.container .addressList .editAddress .select .radio{
+	font-size: 13px;
+	color: #000;
+}
+
+/* 弹性布局方式 */
+
+.flex {
+  display: flex;
+  flex: 1;
+}
+
+
+/* 编辑地址 */
+
+.editAdd {
+  padding: 5px 20px;
+  color: #707070;
+}
+
+/* 新增地址 */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #faaf3b;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+}
+.contactsUser{
+  width: 30%;
+  word-wrap: break-word;
+  word-break: break-all;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.contactsPhone{
+  margin-left:20px; 
+  width: 60%;
+}
